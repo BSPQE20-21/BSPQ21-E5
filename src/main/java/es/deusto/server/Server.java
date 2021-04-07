@@ -1,4 +1,5 @@
 package es.deusto.server;
+// new comment
 
 import javax.jdo.PersistenceManager;
 import javax.jdo.PersistenceManagerFactory;
