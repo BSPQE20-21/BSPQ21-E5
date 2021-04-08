@@ -17,5 +17,15 @@
 		<server.port>8080</server.port>
 		<config.files.dir>${basedir}/src/main/resources</config.files.dir>
 	</properties>
+
+	<dependencies>
+		<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>	
+			<version>8.0.23</version>
+		</dependency>
+		
+	</dependencies>
 </project>
 
