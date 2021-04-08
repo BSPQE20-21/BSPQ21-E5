@@ -1,27 +1,28 @@
 
 public class Trip {
 
-	private String origin; // Bilbao
 	private String destiny; // Madrid
+	private String date; // 12/02/21 , 12:00
+	private int busID;
+	private String tripCode;
+	int cost;
 	
-	public Trip(String origin, String destiny) {
+	public Trip(String destiny, String date, int busID, String tripCode, int cost) {
 		super();
-		this.origin = origin;
 		this.destiny = destiny;
+		this.date = date;
+		this.busID = busID;
+		this.tripCode = tripCode;
+		this.cost = cost;
 	}
 	
 	public Trip() {
 		super();
-		this.origin = "";
 		this.destiny = "";
-	}
-
-	public String getOrigin() {
-		return origin;
-	}
-
-	public void setOrigin(String origin) {
-		this.origin = origin;
+		this.date = "";
+		this.busID = 0;
+		this.tripCode = "";
+		this.cost = 0;
 	}
 
 	public String getDestiny() {
@@ -32,8 +33,40 @@ public class Trip {
 		this.destiny = destiny;
 	}
 
+	public String getDate() {
+		return date;
+	}
+
+	public void setDate(String date) {
+		this.date = date;
+	}
+
+	public int getBusID() {
+		return busID;
+	}
+
+	public void setBusID(int busID) {
+		this.busID = busID;
+	}
+
+	public String getTripCode() {
+		return tripCode;
+	}
+
+	public void setTripCode(String tripCode) {
+		this.tripCode = tripCode;
+	}
+
+	public int getCost() {
+		return cost;
+	}
+
+	public void setCost(int cost) {
+		this.cost = cost;
+	}
+
 	@Override
 	public String toString() {
-		return "Trip [origin=" + origin + ", destiny=" + destiny + "]";
+		return "\nOrigin: Bilbao\nDestiny: " + destiny + "\nDate: " + date + "\nBus: " + busID + "\nTrip Code: " + tripCode + "\nCost: " + cost + "\n";
 	}
 }

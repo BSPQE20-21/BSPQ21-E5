@@ -4,15 +4,12 @@ import java.util.Scanner;
 
 public class Termibus {
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws DBException {
+		 
+		DB db = DB.getInstance();
 		
-		List<Trip> trips = new ArrayList<Trip>();
-		List<Ticket> tickets = new ArrayList<Ticket>();
-		
-		int orOpt;
+		List<Trip> trips = new ArrayList<Trip>(db.getTrips());
 		int desOpt;
-		
-		trips.add(new Trip("Bilbao", "Madrid"));
 		
 		Scanner sc = new Scanner(System.in);
 		System.out.println("\tWelcome to Termibus Online:\n+-----------------------------------------+\n\t1 - Book a ticket\n\t2 - View trips\n\t3 - Exit\n");
@@ -21,22 +18,28 @@ public class Termibus {
 		
 		switch(option) {
 		  case 1:
-		    System.out.println("\t      Book a ticket:\n+-----------------------------------------+\n");
-			  
-		    	System.out.println("Origin:\n");
+		    System.out.println("\t      Book a ticket:\n+-----------------------------------------+\nDestiny:\n\n(Origin: Bilbao)\n");
 		    	for (int i = 0; i < trips.size(); i++) {
-					System.out.println(i + " - " + trips.get(i).getOrigin());
-					orOpt = sc.nextInt();
-					
-					System.out.println("Destiny:\n");
 					System.out.println(i + " - " + trips.get(i).getDestiny());
-					desOpt = sc.nextInt();
-					
-					
 				}
+		    	desOpt = sc.nextInt();
+		    	
+		    	if(desOpt > (trips.size() - 1)) {
+		    		System.out.println("Didnt work");
+		    		desOpt = sc.nextInt();
+		    	} else {
+		    		System.out.println(new Trip(
+		    				trips.get(desOpt).getDestiny(),
+		    				trips.get(desOpt).getDate(),
+		    				trips.get(desOpt).getBusID(),
+		    				trips.get(desOpt).getTripCode(),
+		    				trips.get(desOpt).getCost())
+		    				);
+		    	}
 		    	break;
 		  case 2:
 			  System.out.println("\t      View trips:\n+-----------------------------------------+\n");
+			  System.out.println(trips);
 			  
 		    break;
 		  case 3:
@@ -45,9 +48,5 @@ public class Termibus {
 		  default:
 		    System.out.println("Something went wrong, please restart the application.");
 		}
-	}
-	
-	public void queryDB() {
-		DB db = DB.getInstance();
 	}
 }
