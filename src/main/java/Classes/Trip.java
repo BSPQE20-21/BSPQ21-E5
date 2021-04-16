@@ -1,6 +1,13 @@
+package Classes;
+import javax.jdo.annotations.Inheritance;
+import javax.jdo.annotations.InheritanceStrategy;
+import javax.jdo.annotations.PersistenceCapable;
 
+@PersistenceCapable
+@Inheritance(strategy=InheritanceStrategy.NEW_TABLE)
 public class Trip {
 
+	
 	private String destiny; // Madrid
 	private String date; // 12/02/21 , 12:00
 	private int busID;

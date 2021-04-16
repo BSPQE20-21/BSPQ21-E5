@@ -1,0 +1,629 @@
+15:39:24,791 (main) DEBUG [DataNucleus.General] - Using PluginRegistry org.datanucleus.plugin.NonManagedPluginRegistry
+15:39:24,839 (main) DEBUG [DataNucleus.General] - Registering bundle org.sonatype.inject version 2.3.0 at URL file:/C:/Users/PC-John/.m2/repository/org/sonatype/sisu/sisu-inject-bean/2.3.0/sisu-inject-bean-2.3.0.jar.
+15:39:25,001 (main) DEBUG [DataNucleus.General] - Leyendo extension-points y extensiones del archivo de plug-in jar:file:/C:/Users/PC-John/.m2/repository/org/sonatype/sisu/sisu-inject-bean/2.3.0/sisu-inject-bean-2.3.0.jar!/plugin.xml.
+15:39:25,027 (main) DEBUG [DataNucleus.General] - Registering bundle org.datanucleus version 5.2.6 at URL file:/C:/Users/PC-John/.m2/repository/org/datanucleus/datanucleus-core/5.2.6/datanucleus-core-5.2.6.jar.
+15:39:25,062 (main) DEBUG [DataNucleus.General] - Leyendo extension-points y extensiones del archivo de plug-in jar:file:/C:/Users/PC-John/.m2/repository/org/datanucleus/datanucleus-core/5.2.6/datanucleus-core-5.2.6.jar!/plugin.xml.
+15:39:25,103 (main) DEBUG [DataNucleus.General] - Registering bundle org.datanucleus.api.jdo version 5.2.5 at URL file:/C:/Users/PC-John/.m2/repository/org/datanucleus/datanucleus-api-jdo/5.2.5/datanucleus-api-jdo-5.2.5.jar.
+15:39:25,126 (main) DEBUG [DataNucleus.General] - Leyendo extension-points y extensiones del archivo de plug-in jar:file:/C:/Users/PC-John/.m2/repository/org/datanucleus/datanucleus-api-jdo/5.2.5/datanucleus-api-jdo-5.2.5.jar!/plugin.xml.
+15:39:25,132 (main) DEBUG [DataNucleus.General] - Registering bundle org.datanucleus.store.rdbms version 5.2.6 at URL file:/C:/Users/PC-John/.m2/repository/org/datanucleus/datanucleus-rdbms/5.2.6/datanucleus-rdbms-5.2.6.jar.
+15:39:25,167 (main) DEBUG [DataNucleus.General] - Leyendo extension-points y extensiones del archivo de plug-in jar:file:/C:/Users/PC-John/.m2/repository/org/datanucleus/datanucleus-rdbms/5.2.6/datanucleus-rdbms-5.2.6.jar!/plugin.xml.
+15:39:25,249 (main) DEBUG [DataNucleus.Persistence] - Tipos de Java inicializando ...
+15:39:25,331 (main) DEBUG [DataNucleus.Persistence] - Soporte para tipos de Java listo : tipos soportados = [B, [C, [D, [F, [I, [J, [Ljava.lang.Boolean;, [Ljava.lang.Byte;, [Ljava.lang.Character;, [Ljava.lang.Double;, [Ljava.lang.Enum;, [Ljava.lang.Float;, [Ljava.lang.Integer;, [Ljava.lang.Long;, [Ljava.lang.Number;, [Ljava.lang.Object;, [Ljava.lang.Short;, [Ljava.lang.String;, [Ljava.math.BigDecimal;, [Ljava.math.BigInteger;, [Ljava.util.Date;, [Ljava.util.Locale;, [S, [Z, boolean, byte, char, double, float, int, java.awt.Color, java.awt.image.BufferedImage, java.lang.Boolean, java.lang.Byte, java.lang.Character, java.lang.Class, java.lang.Double, java.lang.Enum, java.lang.Float, java.lang.Integer, java.lang.Long, java.lang.Number, java.lang.Short, java.lang.String, java.lang.StringBuffer, java.lang.StringBuilder, java.math.BigDecimal, java.math.BigInteger, java.net.URI, java.net.URL, java.sql.Date, java.sql.Time, java.sql.Timestamp, java.time.Duration, java.time.Instant, java.time.LocalDate, java.time.LocalDateTime, java.time.LocalTime, java.time.MonthDay, java.time.OffsetDateTime, java.time.OffsetTime, java.time.Period, java.time.Year, java.time.YearMonth, java.time.ZonedDateTime, java.time.ZoneId, java.time.ZoneOffset, java.util.ArrayList, java.util.Arrays$ArrayList, java.util.BitSet, java.util.Calendar, java.util.Collection, java.util.Currency, java.util.Date, java.util.GregorianCalendar, java.util.HashMap, java.util.HashSet, java.util.Hashtable, java.util.LinkedHashMap, java.util.LinkedHashSet, java.util.LinkedList, java.util.List, java.util.Locale, java.util.Map, java.util.Optional, java.util.PriorityQueue, java.util.Properties, java.util.Queue, java.util.Set, java.util.SortedMap, java.util.SortedSet, java.util.Stack, java.util.TimeZone, java.util.TreeMap, java.util.TreeSet, java.util.UUID, java.util.Vector, long, short
+15:39:25,331 (main) DEBUG [DataNucleus.Persistence] - Inicializando TypeConverters ...
+15:39:25,526 (main) DEBUG [DataNucleus.Persistence] - TypeConverters listo
+15:39:25,527 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for byte[] to : java.nio.ByteBuffer
+15:39:25,527 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for char[] to : java.nio.ByteBuffer
+15:39:25,527 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for double[] to : java.nio.ByteBuffer
+15:39:25,527 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for float[] to : java.nio.ByteBuffer
+15:39:25,527 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for int[] to : java.nio.ByteBuffer
+15:39:25,527 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for long[] to : java.nio.ByteBuffer
+15:39:25,528 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for [Ljava.math.BigDecimal; to : java.nio.ByteBuffer
+15:39:25,528 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for [Ljava.math.BigInteger; to : java.nio.ByteBuffer
+15:39:25,528 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for short[] to : java.nio.ByteBuffer
+15:39:25,528 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for boolean[] to : java.nio.ByteBuffer
+15:39:25,528 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.awt.Color to : int[],java.lang.String
+15:39:25,528 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.awt.image.BufferedImage to : byte[],java.nio.ByteBuffer
+15:39:25,528 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.io.Serializable to : java.lang.String,byte[],java.nio.ByteBuffer
+15:39:25,528 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.lang.Boolean to : java.lang.Integer,java.lang.Character
+15:39:25,529 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.lang.Character to : java.lang.String
+15:39:25,529 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.lang.Class to : java.lang.String
+15:39:25,530 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.lang.Integer to : java.lang.String
+15:39:25,530 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.lang.Long to : java.lang.String
+15:39:25,530 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.lang.StringBuffer to : java.lang.String
+15:39:25,530 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.lang.StringBuilder to : java.lang.String
+15:39:25,530 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.math.BigDecimal to : java.lang.Double,java.lang.String
+15:39:25,530 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.math.BigInteger to : java.lang.Long,java.lang.String
+15:39:25,530 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.net.URI to : java.lang.String
+15:39:25,530 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.net.URL to : java.lang.String
+15:39:25,530 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.sql.Date to : java.util.Date,java.lang.Long,java.lang.String
+15:39:25,530 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.sql.Time to : java.util.Date,java.lang.Long,java.lang.String
+15:39:25,531 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.sql.Timestamp to : java.util.Date,java.lang.Long,java.lang.String
+15:39:25,531 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.Duration to : java.lang.Long,java.lang.Double,java.lang.String
+15:39:25,531 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.Instant to : java.sql.Timestamp,java.util.Date,java.lang.Long,java.lang.String
+15:39:25,531 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.LocalDate to : java.util.Date,java.lang.String,java.sql.Date
+15:39:25,533 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.LocalDateTime to : java.sql.Timestamp,java.util.Date,java.lang.String
+15:39:25,533 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.LocalTime to : java.util.Date,java.lang.Long,java.sql.Time,java.lang.String
+15:39:25,534 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.MonthDay to : java.util.Date,int[],java.lang.String,java.sql.Date
+15:39:25,534 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.OffsetDateTime to : java.sql.Timestamp,java.util.Date,java.lang.String
+15:39:25,534 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.OffsetTime to : java.lang.Long,java.sql.Time,java.lang.String
+15:39:25,534 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.Period to : int[],java.lang.String
+15:39:25,534 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.Year to : java.lang.Integer,java.lang.String
+15:39:25,534 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.YearMonth to : java.util.Date,int[],java.lang.String,java.sql.Date
+15:39:25,534 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.ZonedDateTime to : java.sql.Timestamp,java.lang.String
+15:39:25,539 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.ZoneId to : java.lang.String
+15:39:25,539 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.ZoneOffset to : java.lang.String
+15:39:25,540 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.util.BitSet to : java.lang.String
+15:39:25,540 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.util.Calendar to : java.sql.Timestamp,[Ljava.lang.Object;,java.util.Date,java.lang.String
+15:39:25,540 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.util.Currency to : java.lang.String
+15:39:25,559 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.util.Date to : java.lang.Long,java.lang.String
+15:39:25,559 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.util.Locale to : java.lang.String
+15:39:25,559 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.util.TimeZone to : java.lang.String
+15:39:25,559 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.util.UUID to : java.lang.String
+15:39:25,586 (main) DEBUG [DataNucleus.MetaData] - MetaDataManager : Input=(XML,Annotations), XML-Validation=false, XML-Suffices=(persistence=*.jdo, orm=orm, query=*.jdoquery), JDO-listener=false
+15:39:25,586 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer (versión 5.2.6) para el API "JDO" utilisando el JRE "{2}"
+15:39:25,603 (main) DEBUG [DataNucleus.Enhancer] - DataNucleus Enhancer : Classpath
+15:39:25,611 (main) DEBUG [DataNucleus.Enhancer] - >>  C:/apache-maven-3.6.3/boot/plexus-classworlds-2.6.0.jar
+15:39:25,627 (main) DEBUG [DataNucleus.Enhancer] - Enhancing classes
+15:39:25,932 (main) DEBUG [DataNucleus.MetaData] - MetaData Management : Carga de Metadata de las clases "[BD.DBException, BD.DBManager, Classes.Cliente, Classes.Trip, es.termibus.client.VentanaEjemplo$1, es.termibus.client.VentanaEjemplo]" ...
+15:39:26,069 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "BD.DBException" en /META-INF/package.jdo
+15:39:26,094 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "BD.DBException" en /WEB-INF/package.jdo
+15:39:26,097 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "BD.DBException" en /package.jdo
+15:39:26,099 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "BD.DBException" en /BD/package.jdo
+15:39:26,100 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "BD.DBException" en /BD/DBException.jdo
+15:39:26,100 (main) DEBUG [DataNucleus.MetaData] - No hemos encontrado el MetaData del tipo "jdo" por la clase "BD.DBException"
+15:39:26,100 (main) DEBUG [DataNucleus.MetaData] - Registrando la clase "BD.DBException" no tener Meta-Data
+15:39:26,100 (main) DEBUG [DataNucleus.MetaData] - La clase "BD.DBException" no tiene MetaData o annotaciones.
+15:39:26,102 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "BD.DBManager" en /META-INF/package.jdo
+15:39:26,103 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "BD.DBManager" en /WEB-INF/package.jdo
+15:39:26,103 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "BD.DBManager" en /package.jdo
+15:39:26,103 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "BD.DBManager" en /BD/package.jdo
+15:39:26,134 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "BD.DBManager" en /BD/DBManager.jdo
+15:39:26,134 (main) DEBUG [DataNucleus.MetaData] - No hemos encontrado el MetaData del tipo "jdo" por la clase "BD.DBManager"
+15:39:26,134 (main) DEBUG [DataNucleus.MetaData] - Registrando la clase "BD.DBManager" no tener Meta-Data
+15:39:26,134 (main) DEBUG [DataNucleus.MetaData] - La clase "BD.DBManager" no tiene MetaData o annotaciones.
+15:39:26,537 (main) DEBUG [DataNucleus.MetaData] - Clase "Classes.Cliente" tiene anotaciones de JDO y vamos a usarlas.
+15:39:26,541 (main) DEBUG [DataNucleus.MetaData] - Clase "Classes.Trip" tiene anotaciones de JDO y vamos a usarlas.
+15:39:26,548 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.termibus.client.VentanaEjemplo$1" en /META-INF/package.jdo
+15:39:26,550 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.termibus.client.VentanaEjemplo$1" en /WEB-INF/package.jdo
+15:39:26,552 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.termibus.client.VentanaEjemplo$1" en /package.jdo
+15:39:26,552 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.termibus.client.VentanaEjemplo$1" en /es/package.jdo
+15:39:26,553 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.termibus.client.VentanaEjemplo$1" en /es/termibus/package.jdo
+15:39:26,555 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.termibus.client.VentanaEjemplo$1" en /es/termibus/client/package.jdo
+15:39:26,557 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.termibus.client.VentanaEjemplo$1" en /es/termibus/client/VentanaEjemplo$1.jdo
+15:39:26,557 (main) DEBUG [DataNucleus.MetaData] - No hemos encontrado el MetaData del tipo "jdo" por la clase "es.termibus.client.VentanaEjemplo$1"
+15:39:26,559 (main) DEBUG [DataNucleus.MetaData] - Registrando la clase "es.termibus.client.VentanaEjemplo$1" no tener Meta-Data
+15:39:26,560 (main) DEBUG [DataNucleus.MetaData] - La clase "es.termibus.client.VentanaEjemplo$1" no tiene MetaData o annotaciones.
+15:39:26,565 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.termibus.client.VentanaEjemplo" en /META-INF/package.jdo
+15:39:26,566 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.termibus.client.VentanaEjemplo" en /WEB-INF/package.jdo
+15:39:26,566 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.termibus.client.VentanaEjemplo" en /package.jdo
+15:39:26,566 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.termibus.client.VentanaEjemplo" en /es/package.jdo
+15:39:26,567 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.termibus.client.VentanaEjemplo" en /es/termibus/package.jdo
+15:39:26,567 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.termibus.client.VentanaEjemplo" en /es/termibus/client/package.jdo
+15:39:26,568 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.termibus.client.VentanaEjemplo" en /es/termibus/client/VentanaEjemplo.jdo
+15:39:26,568 (main) DEBUG [DataNucleus.MetaData] - No hemos encontrado el MetaData del tipo "jdo" por la clase "es.termibus.client.VentanaEjemplo"
+15:39:26,568 (main) DEBUG [DataNucleus.MetaData] - Registrando la clase "es.termibus.client.VentanaEjemplo" no tener Meta-Data
+15:39:26,568 (main) DEBUG [DataNucleus.MetaData] - La clase "es.termibus.client.VentanaEjemplo" no tiene MetaData o annotaciones.
+15:39:26,591 (main) DEBUG [DataNucleus.MetaData] - Populación del MetaData ...
+15:39:26,596 (main) DEBUG [DataNucleus.MetaData] - Clase "Classes.Cliente" : Populando Meta-Data
+15:39:26,603 (main) DEBUG [DataNucleus.MetaData] - Clase "Classes.Cliente" campo "name" : añadiendo el Meta-Data por el campo como no estaba en la definición de Meta-Data.
+15:39:26,603 (main) DEBUG [DataNucleus.MetaData] - Clase "Classes.Cliente" campo "age" : añadiendo el Meta-Data por el campo como no estaba en la definición de Meta-Data.
+15:39:26,603 (main) DEBUG [DataNucleus.MetaData] - Clase "Classes.Cliente" campo "id" : añadiendo el Meta-Data por el campo como no estaba en la definición de Meta-Data.
+15:39:26,604 (main) DEBUG [DataNucleus.MetaData] - Clase "Classes.Trip" : Populando Meta-Data
+15:39:26,604 (main) DEBUG [DataNucleus.MetaData] - Clase "Classes.Trip" campo "destiny" : añadiendo el Meta-Data por el campo como no estaba en la definición de Meta-Data.
+15:39:26,604 (main) DEBUG [DataNucleus.MetaData] - Clase "Classes.Trip" campo "date" : añadiendo el Meta-Data por el campo como no estaba en la definición de Meta-Data.
+15:39:26,605 (main) DEBUG [DataNucleus.MetaData] - Clase "Classes.Trip" campo "busID" : añadiendo el Meta-Data por el campo como no estaba en la definición de Meta-Data.
+15:39:26,605 (main) DEBUG [DataNucleus.MetaData] - Clase "Classes.Trip" campo "tripCode" : añadiendo el Meta-Data por el campo como no estaba en la definición de Meta-Data.
+15:39:26,605 (main) DEBUG [DataNucleus.MetaData] - Clase "Classes.Trip" campo "cost" : añadiendo el Meta-Data por el campo como no estaba en la definición de Meta-Data.
+15:39:26,605 (main) DEBUG [DataNucleus.MetaData] - Inicialisación del MetaData ...
+15:39:26,606 (main) DEBUG [DataNucleus.MetaData] - Clase "Classes.Cliente" : Inicializando Meta-Data
+15:39:26,609 (main) DEBUG [DataNucleus.MetaData] - Clase "Classes.Trip" : Inicializando Meta-Data
+15:39:26,610 (main) DEBUG [DataNucleus.MetaData] - MetaData Management : Carga de Metadata ya ha terminado
+15:39:26,623 (main) DEBUG [DataNucleus.Enhancer] - Enhance de la clase "Classes.Cliente" empezando ...
+15:39:26,658 (main) DEBUG [DataNucleus.Enhancer] - La clase "Classes.Cliente" no implementa el interfaz "org.datanucleus.enhancement.Persistable"!
+15:39:26,658 (main) DEBUG [DataNucleus.Enhancer] - La clase "Classes.Cliente" no tiene el campo "dnStateManager" pero lo necesita
+15:39:26,659 (main) DEBUG [DataNucleus.Enhancer] - La clase "Classes.Cliente" no tiene el campo "dnInheritedFieldCount" pero lo necesita
+15:39:26,659 (main) DEBUG [DataNucleus.Enhancer] - La clase "Classes.Cliente" no tiene el campo "dnFlags" pero lo necesita
+15:39:26,659 (main) DEBUG [DataNucleus.Enhancer] - La clase "Classes.Cliente" no tiene el campo "dnFieldNames" pero lo necesita
+15:39:26,659 (main) DEBUG [DataNucleus.Enhancer] - La clase "Classes.Cliente" no tiene el metodo "dnReplaceField" pero lo necesita
+15:39:26,659 (main) DEBUG [DataNucleus.Enhancer] - La clase "Classes.Cliente" no tiene el metodo "dnGetStateManager" pero lo necesita
+15:39:26,661 (main) DEBUG [DataNucleus.Enhancer] - La clase "Classes.Cliente" no tiene el metodo "dnIsTransactional" pero lo necesita
+15:39:26,661 (main) DEBUG [DataNucleus.Enhancer] - La clase "Classes.Cliente" no tiene el metodo "dnNewInstance" pero lo necesita
+15:39:26,661 (main) DEBUG [DataNucleus.Enhancer] - La clase "Classes.Cliente" no tiene el metodo "dnNewInstance" pero lo necesita
+15:39:26,661 (main) DEBUG [DataNucleus.Enhancer] - La clase "Classes.Cliente" no tiene el metodo "dnProvideFields" pero lo necesita
+15:39:26,661 (main) DEBUG [DataNucleus.Enhancer] - La clase "Classes.Cliente" no tiene el metodo "___dn$loadClass" pero lo necesita
+15:39:26,661 (main) DEBUG [DataNucleus.Enhancer] - La clase "Classes.Cliente" no tiene el metodo "dnGetManagedFieldCount" pero lo necesita
+15:39:26,662 (main) DEBUG [DataNucleus.Enhancer] - La clase "Classes.Cliente" no tiene el metodo "dnIsDirty" pero lo necesita
+15:39:26,662 (main) DEBUG [DataNucleus.Enhancer] - La clase "Classes.Cliente" no tiene el metodo "dnReplaceStateManager" pero lo necesita
+15:39:26,662 (main) DEBUG [DataNucleus.Enhancer] - La clase "Classes.Cliente" no tiene el metodo "dnReplaceFlags" pero lo necesita
+15:39:26,662 (main) DEBUG [DataNucleus.Enhancer] - La clase "Classes.Cliente" no tiene el metodo "dnIsDetached" pero lo necesita
+15:39:26,662 (main) DEBUG [DataNucleus.Enhancer] - La clase "Classes.Cliente" no tiene el metodo "dnMakeDirty" pero lo necesita
+15:39:26,662 (main) DEBUG [DataNucleus.Enhancer] - La clase "Classes.Cliente" no tiene el metodo "dnIsDeleted" pero lo necesita
+15:39:26,662 (main) DEBUG [DataNucleus.Enhancer] - La clase "Classes.Cliente" no tiene el metodo "dnProvideField" pero lo necesita
+15:39:26,662 (main) DEBUG [DataNucleus.Enhancer] - La clase "Classes.Cliente" no tiene el metodo "dnPreSerialize" pero lo necesita
+15:39:26,662 (main) DEBUG [DataNucleus.Enhancer] - La clase "Classes.Cliente" no tiene el metodo "dnGetObjectId" pero lo necesita
+15:39:26,662 (main) DEBUG [DataNucleus.Enhancer] - La clase "Classes.Cliente" no tiene el metodo "dnGetVersion" pero lo necesita
+15:39:26,662 (main) DEBUG [DataNucleus.Enhancer] - La clase "Classes.Cliente" no tiene el metodo "dnGetTransactionalObjectId" pero lo necesita
+15:39:26,662 (main) DEBUG [DataNucleus.Enhancer] - La clase "Classes.Cliente" no tiene el metodo "dnIsNew" pero lo necesita
+15:39:26,662 (main) DEBUG [DataNucleus.Enhancer] - La clase "Classes.Cliente" no tiene el metodo "dnCopyKeyFieldsToObjectId" pero lo necesita
+15:39:26,662 (main) DEBUG [DataNucleus.Enhancer] - La clase "Classes.Cliente" no tiene el metodo "dnCopyKeyFieldsToObjectId" pero lo necesita
+15:39:26,662 (main) DEBUG [DataNucleus.Enhancer] - La clase "Classes.Cliente" no tiene el metodo "dnCopyField" pero lo necesita
+15:39:26,662 (main) DEBUG [DataNucleus.Enhancer] - La clase "Classes.Cliente" no tiene el metodo "dnCopyKeyFieldsFromObjectId" pero lo necesita
+15:39:26,662 (main) DEBUG [DataNucleus.Enhancer] - La clase "Classes.Cliente" no tiene el metodo "dnCopyKeyFieldsFromObjectId" pero lo necesita
+15:39:26,662 (main) DEBUG [DataNucleus.Enhancer] - La clase "Classes.Cliente" no tiene el metodo "dnGetExecutionContext" pero lo necesita
+15:39:26,662 (main) DEBUG [DataNucleus.Enhancer] - La clase "Classes.Cliente" no tiene el metodo "dnCopyFields" pero lo necesita
+15:39:26,662 (main) DEBUG [DataNucleus.Enhancer] - La clase "Classes.Cliente" no tiene el metodo "__dnGetInheritedFieldCount" pero lo necesita
+15:39:26,662 (main) DEBUG [DataNucleus.Enhancer] - La clase "Classes.Cliente" no tiene el metodo "dnNewObjectIdInstance" pero lo necesita
+15:39:26,662 (main) DEBUG [DataNucleus.Enhancer] - La clase "Classes.Cliente" no tiene el metodo "dnNewObjectIdInstance" pero lo necesita
+15:39:26,662 (main) DEBUG [DataNucleus.Enhancer] - La clase "Classes.Cliente" no tiene el metodo "dnIsPersistent" pero lo necesita
+15:39:26,662 (main) DEBUG [DataNucleus.Enhancer] - La clase "Classes.Cliente" no tiene el metodo "dnReplaceFields" pero lo necesita
+15:39:26,662 (main) DEBUG [DataNucleus.Enhancer] - La clase "Classes.Cliente" no tiene el metodo "__dnFieldNamesInit" pero lo necesita
+15:39:26,683 (main) DEBUG [DataNucleus.Enhancer] - Agregando el interfaz: org.datanucleus.enhancement.Persistable
+15:39:26,704 (main) DEBUG [DataNucleus.Enhancer] - Enhancing metodo original Classes.Cliente.<init> : ignorando enhance de set del campo "Classes.Cliente.name"
+15:39:26,705 (main) DEBUG [DataNucleus.Enhancer] - Enhancing metodo original Classes.Cliente.<init> : ignorando enhance de set del campo "Classes.Cliente.age"
+15:39:26,705 (main) DEBUG [DataNucleus.Enhancer] - Enhancing metodo original Classes.Cliente.<init> : ignorando enhance de set del campo "Classes.Cliente.id"
+15:39:26,705 (main) DEBUG [DataNucleus.Enhancer] - Enhancing metodo original Classes.Cliente.<init> : ignorando enhance de set del campo "Classes.Cliente.name"
+15:39:26,705 (main) DEBUG [DataNucleus.Enhancer] - Enhancing metodo original Classes.Cliente.<init> : ignorando enhance de set del campo "Classes.Cliente.age"
+15:39:26,705 (main) DEBUG [DataNucleus.Enhancer] - Enhancing metodo original Classes.Cliente.<init> : ignorando enhance de set del campo "Classes.Cliente.id"
+15:39:26,705 (main) DEBUG [DataNucleus.Enhancer] - Enhancing metodo original Classes.Cliente.getName, cambiando el uso del campo "Classes.Cliente.name" para utilisar "dnGetname()"
+15:39:26,705 (main) DEBUG [DataNucleus.Enhancer] - Enhancing metodo original Classes.Cliente.setName, cambiando el uso del campo "Classes.Cliente.name" para utilisar "dnSetname()"
+15:39:26,706 (main) DEBUG [DataNucleus.Enhancer] - Enhancing metodo original Classes.Cliente.getAge, cambiando el uso del campo "Classes.Cliente.age" para utilisar "dnGetage()"
+15:39:26,706 (main) DEBUG [DataNucleus.Enhancer] - Enhancing metodo original Classes.Cliente.setAge, cambiando el uso del campo "Classes.Cliente.age" para utilisar "dnSetage()"
+15:39:26,706 (main) DEBUG [DataNucleus.Enhancer] - Enhancing metodo original Classes.Cliente.getId, cambiando el uso del campo "Classes.Cliente.id" para utilisar "dnGetid()"
+15:39:26,706 (main) DEBUG [DataNucleus.Enhancer] - Enhancing metodo original Classes.Cliente.setId, cambiando el uso del campo "Classes.Cliente.id" para utilisar "dnSetid()"
+15:39:26,706 (main) DEBUG [DataNucleus.Enhancer] - Enhancing metodo original Classes.Cliente.toString, cambiando el uso del campo "Classes.Cliente.name" para utilisar "dnGetname()"
+15:39:26,706 (main) DEBUG [DataNucleus.Enhancer] - Enhancing metodo original Classes.Cliente.toString, cambiando el uso del campo "Classes.Cliente.age" para utilisar "dnGetage()"
+15:39:26,706 (main) DEBUG [DataNucleus.Enhancer] - Enhancing metodo original Classes.Cliente.toString, cambiando el uso del campo "Classes.Cliente.id" para utilisar "dnGetid()"
+15:39:26,707 (main) DEBUG [DataNucleus.Enhancer] - Agregando el campo "org.datanucleus.enhancement.StateManager dnStateManager"
+15:39:26,707 (main) DEBUG [DataNucleus.Enhancer] - Agregando el campo "byte dnFlags"
+15:39:26,708 (main) DEBUG [DataNucleus.Enhancer] - Agregando el campo "[Ljava.lang.String; dnFieldNames"
+15:39:26,709 (main) DEBUG [DataNucleus.Enhancer] - Agregando el campo "int dnInheritedFieldCount"
+15:39:26,710 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "void <clinit>()"
+15:39:26,711 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "void dnCopyKeyFieldsFromObjectId(org.datanucleus.enhancement.Persistable$ObjectIdFieldConsumer fc, java.lang.Object oid)"
+15:39:26,712 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "void dnCopyKeyFieldsFromObjectId(java.lang.Object oid)"
+15:39:26,712 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "void dnCopyKeyFieldsToObjectId(java.lang.Object oid)"
+15:39:26,712 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "void dnCopyKeyFieldsToObjectId(org.datanucleus.enhancement.Persistable$ObjectIdFieldSupplier fs, java.lang.Object oid)"
+15:39:26,713 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "java.lang.Object dnGetObjectId()"
+15:39:26,713 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "java.lang.Object dnGetVersion()"
+15:39:26,713 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "void dnPreSerialize()"
+15:39:26,715 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "org.datanucleus.enhancement.ExecutionContextReference dnGetExecutionContext()"
+15:39:26,716 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "org.datanucleus.enhancement.StateManager dnGetStateManager()"
+15:39:26,716 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "java.lang.Object dnGetTransactionalObjectId()"
+15:39:26,716 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "boolean dnIsDeleted()"
+15:39:26,716 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "boolean dnIsDirty()"
+15:39:26,716 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "boolean dnIsNew()"
+15:39:26,717 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "boolean dnIsPersistent()"
+15:39:26,717 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "boolean dnIsTransactional()"
+15:39:26,717 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "void dnMakeDirty(java.lang.String fieldName)"
+15:39:26,717 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "java.lang.Object dnNewObjectIdInstance()"
+15:39:26,717 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "java.lang.Object dnNewObjectIdInstance(java.lang.Object key)"
+15:39:26,717 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "void dnProvideFields([I indices)"
+15:39:26,717 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "void dnReplaceFields([I indices)"
+15:39:26,717 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "void dnReplaceFlags()"
+15:39:26,717 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "void dnReplaceStateManager(org.datanucleus.enhancement.StateManager sm)"
+15:39:26,718 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "boolean dnIsDetached()"
+15:39:26,718 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "org.datanucleus.enhancement.Persistable dnNewInstance(org.datanucleus.enhancement.StateManager sm)"
+15:39:26,718 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "org.datanucleus.enhancement.Persistable dnNewInstance(org.datanucleus.enhancement.StateManager sm, java.lang.Object obj)"
+15:39:26,719 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "void dnReplaceField(int index)"
+15:39:26,719 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "void dnProvideField(int index)"
+15:39:26,719 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "void dnCopyField(Classes.Cliente obj, int index)"
+15:39:26,719 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "void dnCopyFields(java.lang.Object obj, [I indices)"
+15:39:26,719 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "[Ljava.lang.String; __dnFieldNamesInit()"
+15:39:26,719 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "int __dnGetInheritedFieldCount()"
+15:39:26,719 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "int dnGetManagedFieldCount()"
+15:39:26,720 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "java.lang.Class ___dn$loadClass(java.lang.String className)"
+15:39:26,721 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "int dnGetage(Classes.Cliente objPC)"
+15:39:26,721 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "void dnSetage(Classes.Cliente objPC, int val)"
+15:39:26,722 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "int dnGetid(Classes.Cliente objPC)"
+15:39:26,722 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "void dnSetid(Classes.Cliente objPC, int val)"
+15:39:26,722 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "java.lang.String dnGetname(Classes.Cliente objPC)"
+15:39:26,722 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "void dnSetname(Classes.Cliente objPC, java.lang.String val)"
+15:39:26,746 (main) INFO  [DataNucleus.Enhancer] - Escribiendo el archivo de clase "C:\Users\PC-John\git\BSPQ21-E5\target\classes\Classes\Cliente.class" con definicion enhanced
+15:39:26,749 (main) INFO  [DataNucleus.Enhancer] - ENHANCED (Persistable) : Classes.Cliente
+15:39:26,751 (main) DEBUG [DataNucleus.Enhancer] - Enhance de la clase "Classes.Cliente" ha terminado
+15:39:26,751 (main) DEBUG [DataNucleus.Enhancer] - Enhance de la clase "Classes.Trip" empezando ...
+15:39:26,752 (main) DEBUG [DataNucleus.Enhancer] - La clase "Classes.Trip" no implementa el interfaz "org.datanucleus.enhancement.Persistable"!
+15:39:26,752 (main) DEBUG [DataNucleus.Enhancer] - La clase "Classes.Trip" no tiene el campo "dnStateManager" pero lo necesita
+15:39:26,753 (main) DEBUG [DataNucleus.Enhancer] - La clase "Classes.Trip" no tiene el campo "dnInheritedFieldCount" pero lo necesita
+15:39:26,753 (main) DEBUG [DataNucleus.Enhancer] - La clase "Classes.Trip" no tiene el campo "dnFlags" pero lo necesita
+15:39:26,753 (main) DEBUG [DataNucleus.Enhancer] - La clase "Classes.Trip" no tiene el campo "dnFieldNames" pero lo necesita
+15:39:26,753 (main) DEBUG [DataNucleus.Enhancer] - La clase "Classes.Trip" no tiene el metodo "dnReplaceField" pero lo necesita
+15:39:26,753 (main) DEBUG [DataNucleus.Enhancer] - La clase "Classes.Trip" no tiene el metodo "dnGetStateManager" pero lo necesita
+15:39:26,753 (main) DEBUG [DataNucleus.Enhancer] - La clase "Classes.Trip" no tiene el metodo "dnIsTransactional" pero lo necesita
+15:39:26,757 (main) DEBUG [DataNucleus.Enhancer] - La clase "Classes.Trip" no tiene el metodo "dnNewInstance" pero lo necesita
+15:39:26,757 (main) DEBUG [DataNucleus.Enhancer] - La clase "Classes.Trip" no tiene el metodo "dnNewInstance" pero lo necesita
+15:39:26,757 (main) DEBUG [DataNucleus.Enhancer] - La clase "Classes.Trip" no tiene el metodo "dnProvideFields" pero lo necesita
+15:39:26,757 (main) DEBUG [DataNucleus.Enhancer] - La clase "Classes.Trip" no tiene el metodo "___dn$loadClass" pero lo necesita
+15:39:26,757 (main) DEBUG [DataNucleus.Enhancer] - La clase "Classes.Trip" no tiene el metodo "dnGetManagedFieldCount" pero lo necesita
+15:39:26,757 (main) DEBUG [DataNucleus.Enhancer] - La clase "Classes.Trip" no tiene el metodo "dnIsDirty" pero lo necesita
+15:39:26,757 (main) DEBUG [DataNucleus.Enhancer] - La clase "Classes.Trip" no tiene el metodo "dnReplaceStateManager" pero lo necesita
+15:39:26,757 (main) DEBUG [DataNucleus.Enhancer] - La clase "Classes.Trip" no tiene el metodo "dnReplaceFlags" pero lo necesita
+15:39:26,757 (main) DEBUG [DataNucleus.Enhancer] - La clase "Classes.Trip" no tiene el metodo "dnIsDetached" pero lo necesita
+15:39:26,757 (main) DEBUG [DataNucleus.Enhancer] - La clase "Classes.Trip" no tiene el metodo "dnMakeDirty" pero lo necesita
+15:39:26,758 (main) DEBUG [DataNucleus.Enhancer] - La clase "Classes.Trip" no tiene el metodo "dnIsDeleted" pero lo necesita
+15:39:26,758 (main) DEBUG [DataNucleus.Enhancer] - La clase "Classes.Trip" no tiene el metodo "dnProvideField" pero lo necesita
+15:39:26,758 (main) DEBUG [DataNucleus.Enhancer] - La clase "Classes.Trip" no tiene el metodo "dnPreSerialize" pero lo necesita
+15:39:26,759 (main) DEBUG [DataNucleus.Enhancer] - La clase "Classes.Trip" no tiene el metodo "dnGetObjectId" pero lo necesita
+15:39:26,759 (main) DEBUG [DataNucleus.Enhancer] - La clase "Classes.Trip" no tiene el metodo "dnGetVersion" pero lo necesita
+15:39:26,759 (main) DEBUG [DataNucleus.Enhancer] - La clase "Classes.Trip" no tiene el metodo "dnGetTransactionalObjectId" pero lo necesita
+15:39:26,759 (main) DEBUG [DataNucleus.Enhancer] - La clase "Classes.Trip" no tiene el metodo "dnIsNew" pero lo necesita
+15:39:26,759 (main) DEBUG [DataNucleus.Enhancer] - La clase "Classes.Trip" no tiene el metodo "dnCopyKeyFieldsToObjectId" pero lo necesita
+15:39:26,759 (main) DEBUG [DataNucleus.Enhancer] - La clase "Classes.Trip" no tiene el metodo "dnCopyKeyFieldsToObjectId" pero lo necesita
+15:39:26,759 (main) DEBUG [DataNucleus.Enhancer] - La clase "Classes.Trip" no tiene el metodo "dnCopyField" pero lo necesita
+15:39:26,759 (main) DEBUG [DataNucleus.Enhancer] - La clase "Classes.Trip" no tiene el metodo "dnCopyKeyFieldsFromObjectId" pero lo necesita
+15:39:26,759 (main) DEBUG [DataNucleus.Enhancer] - La clase "Classes.Trip" no tiene el metodo "dnCopyKeyFieldsFromObjectId" pero lo necesita
+15:39:26,759 (main) DEBUG [DataNucleus.Enhancer] - La clase "Classes.Trip" no tiene el metodo "dnGetExecutionContext" pero lo necesita
+15:39:26,759 (main) DEBUG [DataNucleus.Enhancer] - La clase "Classes.Trip" no tiene el metodo "dnCopyFields" pero lo necesita
+15:39:26,759 (main) DEBUG [DataNucleus.Enhancer] - La clase "Classes.Trip" no tiene el metodo "__dnGetInheritedFieldCount" pero lo necesita
+15:39:26,759 (main) DEBUG [DataNucleus.Enhancer] - La clase "Classes.Trip" no tiene el metodo "dnNewObjectIdInstance" pero lo necesita
+15:39:26,759 (main) DEBUG [DataNucleus.Enhancer] - La clase "Classes.Trip" no tiene el metodo "dnNewObjectIdInstance" pero lo necesita
+15:39:26,759 (main) DEBUG [DataNucleus.Enhancer] - La clase "Classes.Trip" no tiene el metodo "dnIsPersistent" pero lo necesita
+15:39:26,759 (main) DEBUG [DataNucleus.Enhancer] - La clase "Classes.Trip" no tiene el metodo "dnReplaceFields" pero lo necesita
+15:39:26,760 (main) DEBUG [DataNucleus.Enhancer] - La clase "Classes.Trip" no tiene el metodo "__dnFieldNamesInit" pero lo necesita
+15:39:26,761 (main) DEBUG [DataNucleus.Enhancer] - Agregando el interfaz: org.datanucleus.enhancement.Persistable
+15:39:26,761 (main) DEBUG [DataNucleus.Enhancer] - Enhancing metodo original Classes.Trip.<init> : ignorando enhance de set del campo "Classes.Trip.destiny"
+15:39:26,761 (main) DEBUG [DataNucleus.Enhancer] - Enhancing metodo original Classes.Trip.<init> : ignorando enhance de set del campo "Classes.Trip.date"
+15:39:26,761 (main) DEBUG [DataNucleus.Enhancer] - Enhancing metodo original Classes.Trip.<init> : ignorando enhance de set del campo "Classes.Trip.busID"
+15:39:26,761 (main) DEBUG [DataNucleus.Enhancer] - Enhancing metodo original Classes.Trip.<init> : ignorando enhance de set del campo "Classes.Trip.tripCode"
+15:39:26,761 (main) DEBUG [DataNucleus.Enhancer] - Enhancing metodo original Classes.Trip.<init> : ignorando enhance de set del campo "Classes.Trip.cost"
+15:39:26,762 (main) DEBUG [DataNucleus.Enhancer] - Enhancing metodo original Classes.Trip.<init> : ignorando enhance de set del campo "Classes.Trip.destiny"
+15:39:26,762 (main) DEBUG [DataNucleus.Enhancer] - Enhancing metodo original Classes.Trip.<init> : ignorando enhance de set del campo "Classes.Trip.date"
+15:39:26,762 (main) DEBUG [DataNucleus.Enhancer] - Enhancing metodo original Classes.Trip.<init> : ignorando enhance de set del campo "Classes.Trip.busID"
+15:39:26,762 (main) DEBUG [DataNucleus.Enhancer] - Enhancing metodo original Classes.Trip.<init> : ignorando enhance de set del campo "Classes.Trip.tripCode"
+15:39:26,762 (main) DEBUG [DataNucleus.Enhancer] - Enhancing metodo original Classes.Trip.<init> : ignorando enhance de set del campo "Classes.Trip.cost"
+15:39:26,762 (main) DEBUG [DataNucleus.Enhancer] - Enhancing metodo original Classes.Trip.getDestiny, cambiando el uso del campo "Classes.Trip.destiny" para utilisar "dnGetdestiny()"
+15:39:26,762 (main) DEBUG [DataNucleus.Enhancer] - Enhancing metodo original Classes.Trip.setDestiny, cambiando el uso del campo "Classes.Trip.destiny" para utilisar "dnSetdestiny()"
+15:39:26,762 (main) DEBUG [DataNucleus.Enhancer] - Enhancing metodo original Classes.Trip.getDate, cambiando el uso del campo "Classes.Trip.date" para utilisar "dnGetdate()"
+15:39:26,762 (main) DEBUG [DataNucleus.Enhancer] - Enhancing metodo original Classes.Trip.setDate, cambiando el uso del campo "Classes.Trip.date" para utilisar "dnSetdate()"
+15:39:26,763 (main) DEBUG [DataNucleus.Enhancer] - Enhancing metodo original Classes.Trip.getBusID, cambiando el uso del campo "Classes.Trip.busID" para utilisar "dnGetbusID()"
+15:39:26,763 (main) DEBUG [DataNucleus.Enhancer] - Enhancing metodo original Classes.Trip.setBusID, cambiando el uso del campo "Classes.Trip.busID" para utilisar "dnSetbusID()"
+15:39:26,764 (main) DEBUG [DataNucleus.Enhancer] - Enhancing metodo original Classes.Trip.getTripCode, cambiando el uso del campo "Classes.Trip.tripCode" para utilisar "dnGettripCode()"
+15:39:26,765 (main) DEBUG [DataNucleus.Enhancer] - Enhancing metodo original Classes.Trip.setTripCode, cambiando el uso del campo "Classes.Trip.tripCode" para utilisar "dnSettripCode()"
+15:39:26,765 (main) DEBUG [DataNucleus.Enhancer] - Enhancing metodo original Classes.Trip.getCost, cambiando el uso del campo "Classes.Trip.cost" para utilisar "dnGetcost()"
+15:39:26,765 (main) DEBUG [DataNucleus.Enhancer] - Enhancing metodo original Classes.Trip.setCost, cambiando el uso del campo "Classes.Trip.cost" para utilisar "dnSetcost()"
+15:39:26,765 (main) DEBUG [DataNucleus.Enhancer] - Enhancing metodo original Classes.Trip.toString, cambiando el uso del campo "Classes.Trip.destiny" para utilisar "dnGetdestiny()"
+15:39:26,765 (main) DEBUG [DataNucleus.Enhancer] - Enhancing metodo original Classes.Trip.toString, cambiando el uso del campo "Classes.Trip.date" para utilisar "dnGetdate()"
+15:39:26,765 (main) DEBUG [DataNucleus.Enhancer] - Enhancing metodo original Classes.Trip.toString, cambiando el uso del campo "Classes.Trip.busID" para utilisar "dnGetbusID()"
+15:39:26,765 (main) DEBUG [DataNucleus.Enhancer] - Enhancing metodo original Classes.Trip.toString, cambiando el uso del campo "Classes.Trip.tripCode" para utilisar "dnGettripCode()"
+15:39:26,765 (main) DEBUG [DataNucleus.Enhancer] - Enhancing metodo original Classes.Trip.toString, cambiando el uso del campo "Classes.Trip.cost" para utilisar "dnGetcost()"
+15:39:26,765 (main) DEBUG [DataNucleus.Enhancer] - Agregando el campo "org.datanucleus.enhancement.StateManager dnStateManager"
+15:39:26,765 (main) DEBUG [DataNucleus.Enhancer] - Agregando el campo "byte dnFlags"
+15:39:26,766 (main) DEBUG [DataNucleus.Enhancer] - Agregando el campo "[Ljava.lang.String; dnFieldNames"
+15:39:26,766 (main) DEBUG [DataNucleus.Enhancer] - Agregando el campo "int dnInheritedFieldCount"
+15:39:26,766 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "void <clinit>()"
+15:39:26,766 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "void dnCopyKeyFieldsFromObjectId(org.datanucleus.enhancement.Persistable$ObjectIdFieldConsumer fc, java.lang.Object oid)"
+15:39:26,766 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "void dnCopyKeyFieldsFromObjectId(java.lang.Object oid)"
+15:39:26,766 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "void dnCopyKeyFieldsToObjectId(java.lang.Object oid)"
+15:39:26,766 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "void dnCopyKeyFieldsToObjectId(org.datanucleus.enhancement.Persistable$ObjectIdFieldSupplier fs, java.lang.Object oid)"
+15:39:26,766 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "java.lang.Object dnGetObjectId()"
+15:39:26,766 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "java.lang.Object dnGetVersion()"
+15:39:26,766 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "void dnPreSerialize()"
+15:39:26,766 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "org.datanucleus.enhancement.ExecutionContextReference dnGetExecutionContext()"
+15:39:26,766 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "org.datanucleus.enhancement.StateManager dnGetStateManager()"
+15:39:26,767 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "java.lang.Object dnGetTransactionalObjectId()"
+15:39:26,767 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "boolean dnIsDeleted()"
+15:39:26,767 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "boolean dnIsDirty()"
+15:39:26,767 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "boolean dnIsNew()"
+15:39:26,767 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "boolean dnIsPersistent()"
+15:39:26,767 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "boolean dnIsTransactional()"
+15:39:26,767 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "void dnMakeDirty(java.lang.String fieldName)"
+15:39:26,767 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "java.lang.Object dnNewObjectIdInstance()"
+15:39:26,767 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "java.lang.Object dnNewObjectIdInstance(java.lang.Object key)"
+15:39:26,767 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "void dnProvideFields([I indices)"
+15:39:26,767 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "void dnReplaceFields([I indices)"
+15:39:26,768 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "void dnReplaceFlags()"
+15:39:26,768 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "void dnReplaceStateManager(org.datanucleus.enhancement.StateManager sm)"
+15:39:26,768 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "boolean dnIsDetached()"
+15:39:26,768 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "org.datanucleus.enhancement.Persistable dnNewInstance(org.datanucleus.enhancement.StateManager sm)"
+15:39:26,768 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "org.datanucleus.enhancement.Persistable dnNewInstance(org.datanucleus.enhancement.StateManager sm, java.lang.Object obj)"
+15:39:26,768 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "void dnReplaceField(int index)"
+15:39:26,768 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "void dnProvideField(int index)"
+15:39:26,768 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "void dnCopyField(Classes.Trip obj, int index)"
+15:39:26,769 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "void dnCopyFields(java.lang.Object obj, [I indices)"
+15:39:26,769 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "[Ljava.lang.String; __dnFieldNamesInit()"
+15:39:26,769 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "int __dnGetInheritedFieldCount()"
+15:39:26,769 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "int dnGetManagedFieldCount()"
+15:39:26,769 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "java.lang.Class ___dn$loadClass(java.lang.String className)"
+15:39:26,769 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "int dnGetbusID(Classes.Trip objPC)"
+15:39:26,769 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "void dnSetbusID(Classes.Trip objPC, int val)"
+15:39:26,769 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "int dnGetcost(Classes.Trip objPC)"
+15:39:26,769 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "void dnSetcost(Classes.Trip objPC, int val)"
+15:39:26,769 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "java.lang.String dnGetdate(Classes.Trip objPC)"
+15:39:26,769 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "void dnSetdate(Classes.Trip objPC, java.lang.String val)"
+15:39:26,769 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "java.lang.String dnGetdestiny(Classes.Trip objPC)"
+15:39:26,769 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "void dnSetdestiny(Classes.Trip objPC, java.lang.String val)"
+15:39:26,769 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "java.lang.String dnGettripCode(Classes.Trip objPC)"
+15:39:26,770 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "void dnSettripCode(Classes.Trip objPC, java.lang.String val)"
+15:39:26,770 (main) INFO  [DataNucleus.Enhancer] - Escribiendo el archivo de clase "C:\Users\PC-John\git\BSPQ21-E5\target\classes\Classes\Trip.class" con definicion enhanced
+15:39:26,770 (main) INFO  [DataNucleus.Enhancer] - ENHANCED (Persistable) : Classes.Trip
+15:39:26,772 (main) DEBUG [DataNucleus.Enhancer] - Enhance de la clase "Classes.Trip" ha terminado
+15:39:26,779 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer ha terminado con exito para 2 clases. Tiempos : input=978 ms, enhance=162 ms, total=1140 ms. Compruebe el LOG para los detalles
+15:39:53,667 (main) INFO  [DataNucleus.SchemaTool] - DataNucleus SchemaTool : Creación del esquema para clases
+15:39:53,670 (main) INFO  [DataNucleus.SchemaTool] - DataNucleus SchemaTool : Classpath
+15:39:53,671 (main) INFO  [DataNucleus.SchemaTool] - >>  C:/apache-maven-3.6.3/boot/plexus-classworlds-2.6.0.jar
+15:39:53,708 (main) DEBUG [DataNucleus.General] - Using PluginRegistry org.datanucleus.plugin.NonManagedPluginRegistry
+15:39:53,792 (main) DEBUG [DataNucleus.General] - Registering bundle org.sonatype.inject version 2.3.0 at URL file:/C:/Users/PC-John/.m2/repository/org/sonatype/sisu/sisu-inject-bean/2.3.0/sisu-inject-bean-2.3.0.jar.
+15:39:53,820 (main) DEBUG [DataNucleus.General] - Leyendo extension-points y extensiones del archivo de plug-in jar:file:/C:/Users/PC-John/.m2/repository/org/sonatype/sisu/sisu-inject-bean/2.3.0/sisu-inject-bean-2.3.0.jar!/plugin.xml.
+15:39:53,825 (main) DEBUG [DataNucleus.General] - Registering bundle org.datanucleus version 5.2.6 at URL file:/C:/Users/PC-John/.m2/repository/org/datanucleus/datanucleus-core/5.2.6/datanucleus-core-5.2.6.jar.
+15:39:53,843 (main) DEBUG [DataNucleus.General] - Leyendo extension-points y extensiones del archivo de plug-in jar:file:/C:/Users/PC-John/.m2/repository/org/datanucleus/datanucleus-core/5.2.6/datanucleus-core-5.2.6.jar!/plugin.xml.
+15:39:53,868 (main) DEBUG [DataNucleus.General] - Registering bundle org.datanucleus.api.jdo version 5.2.5 at URL file:/C:/Users/PC-John/.m2/repository/org/datanucleus/datanucleus-api-jdo/5.2.5/datanucleus-api-jdo-5.2.5.jar.
+15:39:53,892 (main) DEBUG [DataNucleus.General] - Leyendo extension-points y extensiones del archivo de plug-in jar:file:/C:/Users/PC-John/.m2/repository/org/datanucleus/datanucleus-api-jdo/5.2.5/datanucleus-api-jdo-5.2.5.jar!/plugin.xml.
+15:39:53,901 (main) DEBUG [DataNucleus.General] - Registering bundle org.datanucleus.store.rdbms version 5.2.6 at URL file:/C:/Users/PC-John/.m2/repository/org/datanucleus/datanucleus-rdbms/5.2.6/datanucleus-rdbms-5.2.6.jar.
+15:39:53,932 (main) DEBUG [DataNucleus.General] - Leyendo extension-points y extensiones del archivo de plug-in jar:file:/C:/Users/PC-John/.m2/repository/org/datanucleus/datanucleus-rdbms/5.2.6/datanucleus-rdbms-5.2.6.jar!/plugin.xml.
+15:39:54,030 (main) INFO  [DataNucleus.Persistence] - Propiedad datanucleus.validateconstraints desconocida - vamos a ignorarla
+15:39:54,031 (main) INFO  [DataNucleus.Persistence] - Propiedad datanucleus.metadata.validate desconocida - vamos a ignorarla
+15:39:54,031 (main) INFO  [DataNucleus.Persistence] - Propiedad datanucleus.validatetables desconocida - vamos a ignorarla
+15:39:54,031 (main) DEBUG [DataNucleus.Datastore] - Creating StoreManager for datastore
+15:39:54,591 (main) DEBUG [DataNucleus.Connection] - Creado ConnectionPool "tx" con data source de tipo dbcp2-builtin
+15:39:54,591 (main) DEBUG [DataNucleus.Connection] - Registrado la factoria de connecciones transaccionales bajo el nombre "rdbms/tx"
+15:39:54,591 (main) DEBUG [DataNucleus.Connection] - Registrado la factoria de connecciones nontransaccionales bajo el nombre "rdbms/nontx"
+15:39:54,625 (main) DEBUG [DataNucleus.Connection] - Creado ConnectionPool "nontx" con data source de tipo dbcp2-builtin
+15:39:55,740 (main) DEBUG [DataNucleus.Connection] - ManagedConnection ABIERTO : "org.datanucleus.store.rdbms.ConnectionFactoryImpl$ManagedConnectionImpl@5dc3fcb7 [conn=null, commitOnRelease=true, closeOnRelease=true, closeOnTxnEnd=true]" en resource "nontx"
+15:39:56,558 (main) DEBUG [DataNucleus.Datastore] - No Soportando el tipo RDBMS de Java java.lang.Integer, jdbc-type=NUMERIC
+15:39:56,558 (main) DEBUG [DataNucleus.Datastore] - No Soportando el tipo RDBMS de Java java.math.BigDecimal, jdbc-type=NUMERIC
+15:39:56,558 (main) DEBUG [DataNucleus.Datastore] - No Soportando el tipo RDBMS de Java java.lang.Long, jdbc-type=NUMERIC
+15:39:56,558 (main) DEBUG [DataNucleus.Datastore] - No Soportando el tipo RDBMS de Java java.math.BigInteger, jdbc-type=NUMERIC
+15:39:56,558 (main) WARN  [DataNucleus.Datastore] - Default type for java type of java.math.BigInteger was previously jdbc-type=NUMERIC but this is not provided by the JDBC driver! Please report this to the DataNucleus developers
+15:39:56,558 (main) DEBUG [DataNucleus.Datastore] - No Soportando el tipo RDBMS de Java org.datanucleus.identity.DatastoreId, jdbc-type=NUMERIC
+15:39:56,559 (main) DEBUG [DataNucleus.Datastore] - No Soportando el tipo RDBMS de Java java.lang.Float, jdbc-type=REAL
+15:39:56,559 (main) DEBUG [DataNucleus.Datastore] - No Soportando el tipo RDBMS de Java java.lang.String, jdbc-type=NVARCHAR
+15:39:56,559 (main) DEBUG [DataNucleus.Datastore] - No Soportando el tipo RDBMS de Java java.lang.String, jdbc-type=NCHAR
+15:39:56,560 (main) DEBUG [DataNucleus.Datastore] - Soporte de RDBMS configurado para el tipo "[B" con jdbc-types=[BLOB, BINARY, VARBINARY, LONGVARBINARY], sql-types=[BLOB, BINARY, VARBINARY, LONGVARBINARY] y defecto (jdbc-type=LONGVARBINARY, sql-type=LONGVARBINARY)
+15:39:56,560 (main) DEBUG [DataNucleus.Datastore] - Soporte de RDBMS configurado para el tipo "java.io.File" con jdbc-types=[LONGVARBINARY], sql-types=[LONGVARBINARY] y defecto (jdbc-type=LONGVARBINARY, sql-type=LONGVARBINARY)
+15:39:56,561 (main) DEBUG [DataNucleus.Datastore] - Soporte de RDBMS configurado para el tipo "java.io.Serializable" con jdbc-types=[BLOB, BINARY, VARBINARY, LONGVARBINARY], sql-types=[BLOB, BINARY, VARBINARY, LONGVARBINARY] y defecto (jdbc-type=LONGVARBINARY, sql-type=LONGVARBINARY)
+15:39:56,561 (main) DEBUG [DataNucleus.Datastore] - Soporte de RDBMS configurado para el tipo "java.lang.Boolean" con jdbc-types=[SMALLINT, CHAR, BIT, BOOLEAN, TINYINT], sql-types=[SMALLINT, CHAR, BIT, BOOLEAN, TINYINT] y defecto (jdbc-type=BIT, sql-type=BIT)
+15:39:56,561 (main) DEBUG [DataNucleus.Datastore] - Soporte de RDBMS configurado para el tipo "java.lang.Byte" con jdbc-types=[SMALLINT, TINYINT], sql-types=[SMALLINT, TINYINT] y defecto (jdbc-type=TINYINT, sql-type=TINYINT)
+15:39:56,561 (main) DEBUG [DataNucleus.Datastore] - Soporte de RDBMS configurado para el tipo "java.lang.Character" con jdbc-types=[CHAR, INTEGER], sql-types=[CHAR, INTEGER] y defecto (jdbc-type=CHAR, sql-type=CHAR)
+15:39:56,561 (main) DEBUG [DataNucleus.Datastore] - Soporte de RDBMS configurado para el tipo "java.lang.Double" con jdbc-types=[DECIMAL, DOUBLE], sql-types=[DECIMAL, DOUBLE] y defecto (jdbc-type=DOUBLE, sql-type=DOUBLE)
+15:39:56,561 (main) DEBUG [DataNucleus.Datastore] - Soporte de RDBMS configurado para el tipo "java.lang.Float" con jdbc-types=[FLOAT, DECIMAL, DOUBLE], sql-types=[FLOAT, DECIMAL, DOUBLE] y defecto (jdbc-type=FLOAT, sql-type=FLOAT)
+15:39:56,565 (main) DEBUG [DataNucleus.Datastore] - Soporte de RDBMS configurado para el tipo "java.lang.Integer" con jdbc-types=[SMALLINT, BIGINT, TINYINT, INTEGER], sql-types=[SMALLINT, BIGINT, TINYINT, INTEGER] y defecto (jdbc-type=INTEGER, sql-type=INTEGER)
+15:39:56,565 (main) DEBUG [DataNucleus.Datastore] - Soporte de RDBMS configurado para el tipo "java.lang.Long" con jdbc-types=[SMALLINT, BIGINT, TINYINT, INTEGER], sql-types=[SMALLINT, BIGINT, INT, TINYINT] y defecto (jdbc-type=BIGINT, sql-type=BIGINT)
+15:39:56,565 (main) DEBUG [DataNucleus.Datastore] - Soporte de RDBMS configurado para el tipo "java.lang.Short" con jdbc-types=[SMALLINT, TINYINT, INTEGER], sql-types=[SMALLINT, TINYINT, INTEGER] y defecto (jdbc-type=SMALLINT, sql-type=SMALLINT)
+15:39:56,565 (main) DEBUG [DataNucleus.Datastore] - Soporte de RDBMS configurado para el tipo "java.lang.String" con jdbc-types=[BLOB, LONGVARCHAR, CLOB, VARCHAR, CHAR, BIGINT], sql-types=[BLOB, LONGVARCHAR, CLOB, LONGTEXT, CHAR, BIGINT, TEXT, MEDIUMTEXT, MEDIUMBLOB, VARCHAR, LONGBLOB] y defecto (jdbc-type=VARCHAR, sql-type=VARCHAR)
+15:39:56,567 (main) DEBUG [DataNucleus.Datastore] - Soporte de RDBMS configurado para el tipo "java.math.BigDecimal" con jdbc-types=[DECIMAL], sql-types=[DECIMAL] y defecto (jdbc-type=DECIMAL, sql-type=DECIMAL)
+15:39:56,567 (main) DEBUG [DataNucleus.Datastore] - Soporte de RDBMS configurado para el tipo "java.math.BigInteger" con jdbc-types=[<none>], sql-types=[<none>] y defecto (jdbc-type=, sql-type=)
+15:39:56,567 (main) DEBUG [DataNucleus.Datastore] - Soporte de RDBMS configurado para el tipo "java.sql.Date" con jdbc-types=[DATE, TIMESTAMP, VARCHAR, CHAR, BIGINT], sql-types=[DATE, TIMESTAMP, VARCHAR, CHAR, BIGINT] y defecto (jdbc-type=DATE, sql-type=DATE)
+15:39:56,569 (main) DEBUG [DataNucleus.Datastore] - Soporte de RDBMS configurado para el tipo "java.sql.Time" con jdbc-types=[TIMESTAMP, VARCHAR, CHAR, TIME, BIGINT], sql-types=[TIMESTAMP, VARCHAR, CHAR, TIME, BIGINT] y defecto (jdbc-type=TIME, sql-type=TIME)
+15:39:56,569 (main) DEBUG [DataNucleus.Datastore] - Soporte de RDBMS configurado para el tipo "java.sql.Timestamp" con jdbc-types=[DATE, TIMESTAMP, VARCHAR, CHAR, TIME], sql-types=[DATE, TIMESTAMP, VARCHAR, CHAR, TIME] y defecto (jdbc-type=TIMESTAMP, sql-type=TIMESTAMP)
+15:39:56,569 (main) DEBUG [DataNucleus.Datastore] - Soporte de RDBMS configurado para el tipo "java.util.Date" con jdbc-types=[DATE, TIMESTAMP, VARCHAR, CHAR, TIME, BIGINT], sql-types=[DATE, TIMESTAMP, VARCHAR, CHAR, TIME, BIGINT] y defecto (jdbc-type=TIMESTAMP, sql-type=TIMESTAMP)
+15:39:56,570 (main) DEBUG [DataNucleus.Datastore] - Soporte de RDBMS configurado para el tipo "org.datanucleus.identity.DatastoreId" con jdbc-types=[VARCHAR, CHAR, BIGINT, INTEGER], sql-types=[VARCHAR, CHAR, BIGINT, INTEGER] y defecto (jdbc-type=BIGINT, sql-type=BIGINT)
+15:39:56,604 (main) DEBUG [DataNucleus.Datastore.Schema] - Vamos a añadir/drop una tabla para determinar el catalogo/esquema para el datasource. Pon "datanucleus.mapping.Catalog"/"datanucleus.mapping.Schema" para evitarlo
+15:39:56,819 (main) DEBUG [DataNucleus.Datastore.Schema] - CREATE TABLE `DELETEME1618580396656`
+(
+    `UNUSED` INTEGER NOT NULL
+) ENGINE=INNODB
+15:39:56,837 (main) DEBUG [DataNucleus.Datastore.Schema] - SQL Tiempo de cumplir = 17 ms
+15:39:56,895 (main) DEBUG [DataNucleus.Datastore.Schema] - No era posible determinar el nombre del esquema por este DataStore
+15:39:56,896 (main) DEBUG [DataNucleus.Datastore.Schema] - DROP TABLE `DELETEME1618580396656` CASCADE
+15:39:56,916 (main) DEBUG [DataNucleus.Datastore.Schema] - SQL Tiempo de cumplir = 20 ms
+15:39:56,918 (main) DEBUG [DataNucleus.Datastore] - ======================= Datastore =========================
+15:39:56,918 (main) DEBUG [DataNucleus.Datastore] - StoreManager : "rdbms" (org.datanucleus.store.rdbms.RDBMSStoreManager)
+15:39:56,918 (main) DEBUG [DataNucleus.Datastore] - Datastore : read-write
+15:39:56,918 (main) DEBUG [DataNucleus.Datastore] - Schema Control : AutoCreate(Tables,Columns,Constraints), Validate(None)
+15:39:56,918 (main) DEBUG [DataNucleus.Datastore] - Schema : NamingFactory=datanucleus2 identifierCase=null
+15:39:56,919 (main) DEBUG [DataNucleus.Datastore] - Query Languages : JDOQL, JPQL, STOREDPROC, SQL
+15:39:56,919 (main) DEBUG [DataNucleus.Datastore] - Queries : Timeout=0
+15:39:56,919 (main) DEBUG [DataNucleus.Datastore] - ===========================================================
+15:39:56,919 (main) DEBUG [DataNucleus.Datastore] - Datastore Adapter : org.datanucleus.store.rdbms.adapter.MySQLAdapter
+15:39:56,919 (main) DEBUG [DataNucleus.Datastore] - Datastore : name="MySQL" version="5.5.5-10.4.18-MariaDB"
+15:39:56,919 (main) DEBUG [DataNucleus.Datastore] - Datastore Driver : name="MySQL Connector/J" version="mysql-connector-java-8.0.23 (Revision: 18bbd5e68195d0da083cbd5bd0d05d76320df7cd)"
+15:39:56,919 (main) DEBUG [DataNucleus.Datastore] - Primary Connection Factory : URL[jdbc:mysql://localhost/termibusDB?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC]
+15:39:56,919 (main) DEBUG [DataNucleus.Datastore] - Secondary Connection Factory : URL[jdbc:mysql://localhost/termibusDB?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC]
+15:39:56,919 (main) DEBUG [DataNucleus.Datastore] - Datastore Identifiers : factory="datanucleus2" case="UPPERCASE" catalog=termibusdb
+15:39:56,919 (main) DEBUG [DataNucleus.Datastore] - Supported Identifier Cases : lowercase "lowercase" "UPPERCASE" 
+15:39:56,919 (main) DEBUG [DataNucleus.Datastore] - Supported Identifier Lengths (max) : Table=64 Column=64 Constraint=64 Index=64 Delimiter=`
+15:39:56,919 (main) DEBUG [DataNucleus.Datastore] - Support for Identifiers in DDL : catalog=true schema=false
+15:39:56,920 (main) DEBUG [DataNucleus.Datastore] - Datastore : rdbmsConstraintCreateMode=DataNucleus, initialiseColumnInfo=ALL, checkTableViewExistence
+15:39:56,920 (main) DEBUG [DataNucleus.Datastore] - Support Statement Batching : yes (max-batch-size=50)
+15:39:56,920 (main) DEBUG [DataNucleus.Datastore] - Queries : Results direction=forward, type=forward-only, concurrency=read-only
+15:39:56,920 (main) DEBUG [DataNucleus.Datastore] - Java-Types : string-default-length=255
+15:39:56,920 (main) DEBUG [DataNucleus.Datastore] - JDBC-Types : VARCHAR, LONGVARCHAR, BOOLEAN, BINARY, VARBINARY, LONGVARBINARY, BIGINT, TINYINT, BIT, CHAR, DECIMAL, INTEGER, CLOB, SMALLINT, BLOB, FLOAT, DOUBLE, DATE, TIME, TIMESTAMP
+15:39:56,920 (main) DEBUG [DataNucleus.Datastore] - ===========================================================
+15:39:56,920 (main) DEBUG [DataNucleus.Connection] - ManagedConnection CERRADO : "org.datanucleus.store.rdbms.ConnectionFactoryImpl$ManagedConnectionImpl@5dc3fcb7 [conn=org.datanucleus.store.rdbms.datasource.dbcp2.PoolingDataSource$PoolGuardConnectionWrapper@14fc5d40, commitOnRelease=true, closeOnRelease=true, closeOnTxnEnd=true]" 
+15:39:56,922 (main) DEBUG [DataNucleus.Datastore] - StoreManager now created
+15:39:56,957 (main) DEBUG [DataNucleus.Persistence] - Tipos de Java inicializando ...
+15:39:57,157 (main) DEBUG [DataNucleus.Persistence] - Soporte para tipos de Java listo : tipos soportados = [B, [C, [D, [F, [I, [J, [Ljava.lang.Boolean;, [Ljava.lang.Byte;, [Ljava.lang.Character;, [Ljava.lang.Double;, [Ljava.lang.Enum;, [Ljava.lang.Float;, [Ljava.lang.Integer;, [Ljava.lang.Long;, [Ljava.lang.Number;, [Ljava.lang.Object;, [Ljava.lang.Short;, [Ljava.lang.String;, [Ljava.math.BigDecimal;, [Ljava.math.BigInteger;, [Ljava.util.Date;, [Ljava.util.Locale;, [S, [Z, boolean, byte, char, double, float, int, java.awt.Color, java.awt.image.BufferedImage, java.lang.Boolean, java.lang.Byte, java.lang.Character, java.lang.Class, java.lang.Double, java.lang.Enum, java.lang.Float, java.lang.Integer, java.lang.Long, java.lang.Number, java.lang.Short, java.lang.String, java.lang.StringBuffer, java.lang.StringBuilder, java.math.BigDecimal, java.math.BigInteger, java.net.URI, java.net.URL, java.sql.Date, java.sql.Time, java.sql.Timestamp, java.time.Duration, java.time.Instant, java.time.LocalDate, java.time.LocalDateTime, java.time.LocalTime, java.time.MonthDay, java.time.OffsetDateTime, java.time.OffsetTime, java.time.Period, java.time.Year, java.time.YearMonth, java.time.ZonedDateTime, java.time.ZoneId, java.time.ZoneOffset, java.util.ArrayList, java.util.Arrays$ArrayList, java.util.BitSet, java.util.Calendar, java.util.Collection, java.util.Currency, java.util.Date, java.util.GregorianCalendar, java.util.HashMap, java.util.HashSet, java.util.Hashtable, java.util.LinkedHashMap, java.util.LinkedHashSet, java.util.LinkedList, java.util.List, java.util.Locale, java.util.Map, java.util.Optional, java.util.PriorityQueue, java.util.Properties, java.util.Queue, java.util.Set, java.util.SortedMap, java.util.SortedSet, java.util.Stack, java.util.TimeZone, java.util.TreeMap, java.util.TreeSet, java.util.UUID, java.util.Vector, long, short
+15:39:57,157 (main) DEBUG [DataNucleus.Persistence] - Inicializando TypeConverters ...
+15:39:57,310 (main) DEBUG [DataNucleus.Persistence] - TypeConverters listo
+15:39:57,317 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for byte[] to : java.nio.ByteBuffer
+15:39:57,318 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for char[] to : java.nio.ByteBuffer
+15:39:57,318 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for double[] to : java.nio.ByteBuffer
+15:39:57,318 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for float[] to : java.nio.ByteBuffer
+15:39:57,318 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for int[] to : java.nio.ByteBuffer
+15:39:57,318 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for long[] to : java.nio.ByteBuffer
+15:39:57,319 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for [Ljava.math.BigDecimal; to : java.nio.ByteBuffer
+15:39:57,319 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for [Ljava.math.BigInteger; to : java.nio.ByteBuffer
+15:39:57,319 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for short[] to : java.nio.ByteBuffer
+15:39:57,319 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for boolean[] to : java.nio.ByteBuffer
+15:39:57,319 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.awt.Color to : int[],java.lang.String
+15:39:57,319 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.awt.image.BufferedImage to : byte[],java.nio.ByteBuffer
+15:39:57,319 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.io.Serializable to : byte[],java.nio.ByteBuffer,java.lang.String
+15:39:57,319 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.lang.Boolean to : java.lang.Integer,java.lang.Character
+15:39:57,319 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.lang.Character to : java.lang.String
+15:39:57,320 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.lang.Class to : java.lang.String
+15:39:57,320 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.lang.Integer to : java.lang.String
+15:39:57,320 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.lang.Long to : java.lang.String
+15:39:57,320 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.lang.StringBuffer to : java.lang.String
+15:39:57,320 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.lang.StringBuilder to : java.lang.String
+15:39:57,320 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.math.BigDecimal to : java.lang.Double,java.lang.String
+15:39:57,320 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.math.BigInteger to : java.lang.Long,java.lang.String
+15:39:57,320 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.net.URI to : java.lang.String
+15:39:57,320 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.net.URL to : java.lang.String
+15:39:57,320 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.sql.Date to : java.lang.Long,java.util.Date,java.lang.String
+15:39:57,320 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.sql.Time to : java.lang.Long,java.util.Date,java.lang.String
+15:39:57,321 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.sql.Timestamp to : java.lang.Long,java.util.Date,java.lang.String
+15:39:57,321 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.Duration to : java.lang.Long,java.lang.Double,java.lang.String
+15:39:57,321 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.Instant to : java.lang.Long,java.util.Date,java.sql.Timestamp,java.lang.String
+15:39:57,321 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.LocalDate to : java.util.Date,java.sql.Date,java.lang.String
+15:39:57,321 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.LocalDateTime to : java.util.Date,java.lang.String,java.sql.Timestamp
+15:39:57,321 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.LocalTime to : java.lang.Long,java.util.Date,java.lang.String,java.sql.Time
+15:39:57,322 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.MonthDay to : int[],java.util.Date,java.sql.Date,java.lang.String
+15:39:57,322 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.OffsetDateTime to : java.util.Date,java.lang.String,java.sql.Timestamp
+15:39:57,322 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.OffsetTime to : java.lang.Long,java.lang.String,java.sql.Time
+15:39:57,322 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.Period to : int[],java.lang.String
+15:39:57,322 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.Year to : java.lang.Integer,java.lang.String
+15:39:57,322 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.YearMonth to : int[],java.util.Date,java.sql.Date,java.lang.String
+15:39:57,322 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.ZonedDateTime to : java.lang.String,java.sql.Timestamp
+15:39:57,322 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.ZoneId to : java.lang.String
+15:39:57,323 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.ZoneOffset to : java.lang.String
+15:39:57,323 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.util.BitSet to : java.lang.String
+15:39:57,326 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.util.Calendar to : [Ljava.lang.Object;,java.util.Date,java.lang.String,java.sql.Timestamp
+15:39:57,427 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.util.Currency to : java.lang.String
+15:39:57,428 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.util.Date to : java.lang.Long,java.lang.String
+15:39:57,429 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.util.Locale to : java.lang.String
+15:39:57,429 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.util.TimeZone to : java.lang.String
+15:39:57,429 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.util.UUID to : java.lang.String
+15:39:57,429 (main) DEBUG [DataNucleus.MetaData] - MetaDataManager : Input=(XML,Annotations), XML-Validation=false, XML-Suffices=(persistence=*.jdo, orm=orm, query=*.jdoquery) mapping-name=mysql, JDO-listener=true
+15:39:57,434 (main) DEBUG [DataNucleus.MetaData] - Registering listener for metadata initialisation
+15:39:57,461 (main) DEBUG [DataNucleus.Persistence] - Started pool of ExecutionContext (maxPool=20, reaperThread=false)
+15:39:57,537 (main) DEBUG [DataNucleus.Persistence] - ================= NucleusContext ===============
+15:39:57,537 (main) DEBUG [DataNucleus.Persistence] - DataNucleus Context : Versión: "5.2.6" con JRE "1.8.0_281" en "Windows 10"
+15:39:57,537 (main) DEBUG [DataNucleus.Persistence] - Persistence API : JDO
+15:39:57,537 (main) DEBUG [DataNucleus.Persistence] - Plugin Registry : org.datanucleus.plugin.NonManagedPluginRegistry
+15:39:57,537 (main) DEBUG [DataNucleus.Persistence] - ClassLoading : default
+15:39:57,538 (main) DEBUG [DataNucleus.Persistence] - Persistence : pm-singlethreaded, nontransactional-read, nontransactional-write, reachability-at-commit, copy-on-attach, managed-relations(checked), deletion-policy=JDO2, serverTimeZone=Europe/Paris
+15:39:57,542 (main) DEBUG [DataNucleus.Persistence] - Transactions : type=RESOURCE_LOCAL, mode=datastore, isolation=read-committed
+15:39:57,542 (main) DEBUG [DataNucleus.Persistence] - ValueGeneration : txn-isolation=read-committed connection=New
+15:39:57,543 (main) DEBUG [DataNucleus.Persistence] - Cache : Level1 (soft), Level2 (soft, mode=UNSPECIFIED), QueryResults (soft), Collections/Maps 
+15:39:57,543 (main) DEBUG [DataNucleus.Persistence] - ================================================
+15:39:57,543 (main) INFO  [DataNucleus.SchemaTool] - DataNucleus SchemaTool : Propiedades para persistencia
+15:39:57,555 (main) INFO  [DataNucleus.SchemaTool] - >>  datanucleus.autostartmechanism=None
+15:39:57,555 (main) INFO  [DataNucleus.SchemaTool] - >>  datanucleus.connectiondrivername=com.mysql.cj.jdbc.Driver
+15:39:57,557 (main) INFO  [DataNucleus.SchemaTool] - >>  datanucleus.connectionurl=jdbc:mysql://localhost/termibusDB?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+15:39:57,560 (main) INFO  [DataNucleus.SchemaTool] - >>  datanucleus.connectionusername=spq
+15:39:57,560 (main) INFO  [DataNucleus.SchemaTool] - >>  datanucleus.mapping=mysql
+15:39:57,562 (main) INFO  [DataNucleus.SchemaTool] - >>  datanucleus.metadata.validate=false
+15:39:57,566 (main) INFO  [DataNucleus.SchemaTool] - >>  datanucleus.rdbms.checkexisttablesorviews=true
+15:39:57,571 (main) INFO  [DataNucleus.SchemaTool] - >>  datanucleus.readonlydatastore=false
+15:39:57,575 (main) INFO  [DataNucleus.SchemaTool] - >>  datanucleus.schema.autocreatecolumns=true
+15:39:57,580 (main) INFO  [DataNucleus.SchemaTool] - >>  datanucleus.schema.autocreateconstraints=true
+15:39:57,586 (main) INFO  [DataNucleus.SchemaTool] - >>  datanucleus.schema.autocreatetables=true
+15:39:57,587 (main) INFO  [DataNucleus.SchemaTool] - >>  datanucleus.validateconstraints=false
+15:39:57,587 (main) INFO  [DataNucleus.SchemaTool] - >>  datanucleus.validatetables=false
+15:39:57,587 (main) INFO  [DataNucleus.SchemaTool] - DataNucleus SchemaTool : Ficheros
+15:39:57,588 (main) INFO  [DataNucleus.SchemaTool] - >>  C:\Users\PC-John\git\BSPQ21-E5\target\classes\BD\DBException.class
+15:39:57,589 (main) INFO  [DataNucleus.SchemaTool] - >>  C:\Users\PC-John\git\BSPQ21-E5\target\classes\BD\DBManager.class
+15:39:57,589 (main) INFO  [DataNucleus.SchemaTool] - >>  C:\Users\PC-John\git\BSPQ21-E5\target\classes\Classes\Cliente.class
+15:39:57,590 (main) INFO  [DataNucleus.SchemaTool] - >>  C:\Users\PC-John\git\BSPQ21-E5\target\classes\Classes\Trip.class
+15:39:57,591 (main) INFO  [DataNucleus.SchemaTool] - >>  C:\Users\PC-John\git\BSPQ21-E5\target\classes\es\termibus\client\VentanaEjemplo$1.class
+15:39:57,626 (main) INFO  [DataNucleus.SchemaTool] - >>  C:\Users\PC-John\git\BSPQ21-E5\target\classes\es\termibus\client\VentanaEjemplo.class
+15:39:57,638 (main) DEBUG [DataNucleus.SchemaTool] - Leyendo 6 ficheros (metadata/class) ...
+15:39:57,726 (main) DEBUG [DataNucleus.MetaData] - MetaData Management : Carga de Metadata de los archivos de metadata "[]" ...
+15:39:57,726 (main) DEBUG [DataNucleus.MetaData] - MetaData Management : Carga de Metadata ya ha terminado
+15:39:57,728 (main) DEBUG [DataNucleus.MetaData] - MetaData Management : Carga de Metadata de las clases "[es.termibus.client.VentanaEjemplo, BD.DBManager, Classes.Trip, es.termibus.client.VentanaEjemplo$1, Classes.Cliente, BD.DBException]" ...
+15:39:57,737 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.termibus.client.VentanaEjemplo" en /META-INF/package.jdo
+15:39:57,737 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.termibus.client.VentanaEjemplo" en /WEB-INF/package.jdo
+15:39:57,738 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.termibus.client.VentanaEjemplo" en /package.jdo
+15:39:57,739 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.termibus.client.VentanaEjemplo" en /es/package.jdo
+15:39:57,740 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.termibus.client.VentanaEjemplo" en /es/termibus/package.jdo
+15:39:57,744 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.termibus.client.VentanaEjemplo" en /es/termibus/client/package.jdo
+15:39:57,745 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.termibus.client.VentanaEjemplo" en /es/termibus/client/VentanaEjemplo.jdo
+15:39:57,745 (main) DEBUG [DataNucleus.MetaData] - No hemos encontrado el MetaData del tipo "jdo" por la clase "es.termibus.client.VentanaEjemplo"
+15:39:57,745 (main) DEBUG [DataNucleus.MetaData] - Registrando la clase "es.termibus.client.VentanaEjemplo" no tener Meta-Data
+15:39:57,745 (main) DEBUG [DataNucleus.MetaData] - La clase "es.termibus.client.VentanaEjemplo" no tiene MetaData o annotaciones.
+15:39:57,749 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "BD.DBManager" en /META-INF/package.jdo
+15:39:57,750 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "BD.DBManager" en /WEB-INF/package.jdo
+15:39:57,750 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "BD.DBManager" en /package.jdo
+15:39:57,751 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "BD.DBManager" en /BD/package.jdo
+15:39:57,752 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "BD.DBManager" en /BD/DBManager.jdo
+15:39:57,752 (main) DEBUG [DataNucleus.MetaData] - No hemos encontrado el MetaData del tipo "jdo" por la clase "BD.DBManager"
+15:39:57,752 (main) DEBUG [DataNucleus.MetaData] - Registrando la clase "BD.DBManager" no tener Meta-Data
+15:39:57,752 (main) DEBUG [DataNucleus.MetaData] - La clase "BD.DBManager" no tiene MetaData o annotaciones.
+15:39:57,990 (main) DEBUG [DataNucleus.MetaData] - Clase "Classes.Trip" tiene anotaciones de JDO y vamos a usarlas.
+15:39:58,011 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.termibus.client.VentanaEjemplo$1" en /META-INF/package.jdo
+15:39:58,012 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.termibus.client.VentanaEjemplo$1" en /WEB-INF/package.jdo
+15:39:58,012 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.termibus.client.VentanaEjemplo$1" en /package.jdo
+15:39:58,013 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.termibus.client.VentanaEjemplo$1" en /es/package.jdo
+15:39:58,013 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.termibus.client.VentanaEjemplo$1" en /es/termibus/package.jdo
+15:39:58,022 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.termibus.client.VentanaEjemplo$1" en /es/termibus/client/package.jdo
+15:39:58,023 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.termibus.client.VentanaEjemplo$1" en /es/termibus/client/VentanaEjemplo$1.jdo
+15:39:58,027 (main) DEBUG [DataNucleus.MetaData] - No hemos encontrado el MetaData del tipo "jdo" por la clase "es.termibus.client.VentanaEjemplo$1"
+15:39:58,029 (main) DEBUG [DataNucleus.MetaData] - Registrando la clase "es.termibus.client.VentanaEjemplo$1" no tener Meta-Data
+15:39:58,032 (main) DEBUG [DataNucleus.MetaData] - La clase "es.termibus.client.VentanaEjemplo$1" no tiene MetaData o annotaciones.
+15:39:58,032 (main) DEBUG [DataNucleus.MetaData] - Clase "Classes.Cliente" tiene anotaciones de JDO y vamos a usarlas.
+15:39:58,035 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "BD.DBException" en /META-INF/package.jdo
+15:39:58,036 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "BD.DBException" en /WEB-INF/package.jdo
+15:39:58,037 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "BD.DBException" en /package.jdo
+15:39:58,038 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "BD.DBException" en /BD/package.jdo
+15:39:58,038 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "BD.DBException" en /BD/DBException.jdo
+15:39:58,039 (main) DEBUG [DataNucleus.MetaData] - No hemos encontrado el MetaData del tipo "jdo" por la clase "BD.DBException"
+15:39:58,043 (main) DEBUG [DataNucleus.MetaData] - Registrando la clase "BD.DBException" no tener Meta-Data
+15:39:58,046 (main) DEBUG [DataNucleus.MetaData] - La clase "BD.DBException" no tiene MetaData o annotaciones.
+15:39:58,050 (main) DEBUG [DataNucleus.MetaData] - Populación del MetaData ...
+15:39:58,051 (main) DEBUG [DataNucleus.MetaData] - Clase "Classes.Trip" : Populando Meta-Data
+15:39:58,053 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "orm" por la clase "Classes.Trip" en /META-INF/package-mysql.orm
+15:39:58,056 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "orm" por la clase "Classes.Trip" en /WEB-INF/package-mysql.orm
+15:39:58,057 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "orm" por la clase "Classes.Trip" en /package-mysql.orm
+15:39:58,057 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "orm" por la clase "Classes.Trip" en /Classes/package-mysql.orm
+15:39:58,060 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "orm" por la clase "Classes.Trip" en /Classes/Trip-mysql.orm
+15:39:58,061 (main) DEBUG [DataNucleus.MetaData] - No hemos encontrado el MetaData del tipo "orm" por la clase "Classes.Trip"
+15:39:58,071 (main) DEBUG [DataNucleus.MetaData] - Clase "Classes.Trip" campo "destiny" : añadiendo el Meta-Data por el campo como no estaba en la definición de Meta-Data.
+15:39:58,072 (main) DEBUG [DataNucleus.MetaData] - Clase "Classes.Trip" campo "date" : añadiendo el Meta-Data por el campo como no estaba en la definición de Meta-Data.
+15:39:58,072 (main) DEBUG [DataNucleus.MetaData] - Clase "Classes.Trip" campo "busID" : añadiendo el Meta-Data por el campo como no estaba en la definición de Meta-Data.
+15:39:58,073 (main) DEBUG [DataNucleus.MetaData] - Clase "Classes.Trip" campo "tripCode" : añadiendo el Meta-Data por el campo como no estaba en la definición de Meta-Data.
+15:39:58,073 (main) DEBUG [DataNucleus.MetaData] - Clase "Classes.Trip" campo "cost" : añadiendo el Meta-Data por el campo como no estaba en la definición de Meta-Data.
+15:39:58,086 (main) DEBUG [DataNucleus.MetaData] - Clase "Classes.Cliente" : Populando Meta-Data
+15:39:58,087 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "orm" por la clase "Classes.Cliente" en /META-INF/package-mysql.orm
+15:39:58,087 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "orm" por la clase "Classes.Cliente" en /WEB-INF/package-mysql.orm
+15:39:58,087 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "orm" por la clase "Classes.Cliente" en /package-mysql.orm
+15:39:58,090 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "orm" por la clase "Classes.Cliente" en /Classes/package-mysql.orm
+15:39:58,090 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "orm" por la clase "Classes.Cliente" en /Classes/Cliente-mysql.orm
+15:39:58,090 (main) DEBUG [DataNucleus.MetaData] - No hemos encontrado el MetaData del tipo "orm" por la clase "Classes.Cliente"
+15:39:58,091 (main) DEBUG [DataNucleus.MetaData] - Clase "Classes.Cliente" campo "name" : añadiendo el Meta-Data por el campo como no estaba en la definición de Meta-Data.
+15:39:58,091 (main) DEBUG [DataNucleus.MetaData] - Clase "Classes.Cliente" campo "age" : añadiendo el Meta-Data por el campo como no estaba en la definición de Meta-Data.
+15:39:58,091 (main) DEBUG [DataNucleus.MetaData] - Clase "Classes.Cliente" campo "id" : añadiendo el Meta-Data por el campo como no estaba en la definición de Meta-Data.
+15:39:58,091 (main) DEBUG [DataNucleus.MetaData] - Inicialisación del MetaData ...
+15:39:58,092 (main) DEBUG [DataNucleus.MetaData] - Clase "Classes.Trip" : Inicializando Meta-Data
+15:39:58,095 (main) DEBUG [DataNucleus.MetaData] - Clase "Classes.Cliente" : Inicializando Meta-Data
+15:39:58,096 (main) DEBUG [DataNucleus.MetaData] - MetaData Management : Carga de Metadata ya ha terminado
+15:39:58,096 (main) DEBUG [DataNucleus.SchemaTool] - Hemos acabado de leer 6 ficheros (metadata/class)
+15:39:58,153 (main) DEBUG [DataNucleus.Persistence] - Va a manjejar la persistencia de Clase : Classes.Cliente [Tabla : `CLIENTE`, Estrategia de heredar : new-table]
+15:39:58,157 (main) DEBUG [DataNucleus.Datastore.Schema] - Campo [DATASTORE_ID] -> Columnas [`CLIENTE`.`CLIENTE_ID`] usando mapping del tipo "org.datanucleus.store.rdbms.mapping.java.DatastoreIdMapping" (org.datanucleus.store.rdbms.mapping.column.BigIntColumnMapping)
+15:39:58,159 (main) DEBUG [DataNucleus.Persistence] - Va a manjejar la persistencia de Clase : Classes.Trip [Tabla : `TRIP`, Estrategia de heredar : new-table]
+15:39:58,160 (main) DEBUG [DataNucleus.Datastore.Schema] - Campo [DATASTORE_ID] -> Columnas [`TRIP`.`TRIP_ID`] usando mapping del tipo "org.datanucleus.store.rdbms.mapping.java.DatastoreIdMapping" (org.datanucleus.store.rdbms.mapping.column.BigIntColumnMapping)
+15:39:58,167 (main) DEBUG [DataNucleus.Datastore.Schema] - La tabla `TRIP` va a manejar la persistencia de los campos de la clase Classes.Trip (estrategia de heredar="new-table")
+15:39:58,169 (main) DEBUG [DataNucleus.Datastore.Schema] - Campo [Classes.Trip.busID] -> Columnas [`TRIP`.`BUSID`] usando mapping del tipo "org.datanucleus.store.rdbms.mapping.java.IntegerMapping" (org.datanucleus.store.rdbms.mapping.column.IntegerColumnMapping)
+15:39:58,169 (main) DEBUG [DataNucleus.Datastore.Schema] - Campo [Classes.Trip.cost] -> Columnas [`TRIP`.`COST`] usando mapping del tipo "org.datanucleus.store.rdbms.mapping.java.IntegerMapping" (org.datanucleus.store.rdbms.mapping.column.IntegerColumnMapping)
+15:39:58,171 (main) DEBUG [DataNucleus.Datastore.Schema] - Attempt to find JDBC driver 'typeInfo' for jdbc-type=VARCHAR but sql-type=VARCHAR is not found. Using default sql-type for this jdbc-type.
+15:39:58,173 (main) DEBUG [DataNucleus.Datastore.Schema] - Campo [Classes.Trip.date] -> Columnas [`TRIP`.`DATE`] usando mapping del tipo "org.datanucleus.store.rdbms.mapping.java.StringMapping" (org.datanucleus.store.rdbms.mapping.column.VarCharColumnMapping)
+15:39:58,173 (main) DEBUG [DataNucleus.Datastore.Schema] - Attempt to find JDBC driver 'typeInfo' for jdbc-type=VARCHAR but sql-type=VARCHAR is not found. Using default sql-type for this jdbc-type.
+15:39:58,176 (main) DEBUG [DataNucleus.Datastore.Schema] - Campo [Classes.Trip.destiny] -> Columnas [`TRIP`.`DESTINY`] usando mapping del tipo "org.datanucleus.store.rdbms.mapping.java.StringMapping" (org.datanucleus.store.rdbms.mapping.column.VarCharColumnMapping)
+15:39:58,182 (main) DEBUG [DataNucleus.Datastore.Schema] - Attempt to find JDBC driver 'typeInfo' for jdbc-type=VARCHAR but sql-type=VARCHAR is not found. Using default sql-type for this jdbc-type.
+15:39:58,183 (main) DEBUG [DataNucleus.Datastore.Schema] - Campo [Classes.Trip.tripCode] -> Columnas [`TRIP`.`TRIPCODE`] usando mapping del tipo "org.datanucleus.store.rdbms.mapping.java.StringMapping" (org.datanucleus.store.rdbms.mapping.column.VarCharColumnMapping)
+15:39:58,184 (main) DEBUG [DataNucleus.Datastore.Schema] - Table/View `TRIP` ha sido inicializado
+15:39:58,184 (main) DEBUG [DataNucleus.Datastore.Schema] - La tabla `CLIENTE` va a manejar la persistencia de los campos de la clase Classes.Cliente (estrategia de heredar="new-table")
+15:39:58,185 (main) DEBUG [DataNucleus.Datastore.Schema] - Campo [Classes.Cliente.age] -> Columnas [`CLIENTE`.`AGE`] usando mapping del tipo "org.datanucleus.store.rdbms.mapping.java.IntegerMapping" (org.datanucleus.store.rdbms.mapping.column.IntegerColumnMapping)
+15:39:58,185 (main) DEBUG [DataNucleus.Datastore.Schema] - Campo [Classes.Cliente.id] -> Columnas [`CLIENTE`.`ID`] usando mapping del tipo "org.datanucleus.store.rdbms.mapping.java.IntegerMapping" (org.datanucleus.store.rdbms.mapping.column.IntegerColumnMapping)
+15:39:58,186 (main) DEBUG [DataNucleus.Datastore.Schema] - Attempt to find JDBC driver 'typeInfo' for jdbc-type=VARCHAR but sql-type=VARCHAR is not found. Using default sql-type for this jdbc-type.
+15:39:58,187 (main) DEBUG [DataNucleus.Datastore.Schema] - Campo [Classes.Cliente.name] -> Columnas [`CLIENTE`.`NAME`] usando mapping del tipo "org.datanucleus.store.rdbms.mapping.java.StringMapping" (org.datanucleus.store.rdbms.mapping.column.VarCharColumnMapping)
+15:39:58,187 (main) DEBUG [DataNucleus.Datastore.Schema] - Table/View `CLIENTE` ha sido inicializado
+15:39:58,191 (main) DEBUG [DataNucleus.Connection] - ManagedConnection ABIERTO : "org.datanucleus.store.rdbms.ConnectionFactoryImpl$ManagedConnectionImpl@1a480135 [conn=org.datanucleus.store.rdbms.datasource.dbcp2.PoolingDataSource$PoolGuardConnectionWrapper@778db7c5, commitOnRelease=true, closeOnRelease=true, closeOnTxnEnd=true]" en resource "nontx" con isolación "serializable" y auto-commit=false
+15:39:58,192 (main) DEBUG [DataNucleus.Datastore.Schema] - Empezando transaccion del esquema con conneccion "org.datanucleus.store.rdbms.datasource.dbcp2.PoolingDataSource$PoolGuardConnectionWrapper@778db7c5" y isolacion "serializable"
+15:39:58,205 (main) DEBUG [DataNucleus.Datastore.Schema] - Check of existence of `TRIP` returned table type of TABLE
+15:39:58,218 (main) DEBUG [DataNucleus.Datastore.Schema] - Cargando información de columna para las tablas "trip" por el Catalogo "", el Esquema ""
+15:39:58,267 (main) DEBUG [DataNucleus.Datastore.Schema] - Información de columna cargado por el Catalogo "", el Esquema "", 1 tablas, tiempo = 49 ms
+15:39:58,267 (main) DEBUG [DataNucleus.Datastore.Schema] - Información de columna cargado por la tabla "TRIP" : hemos encontrado 6 columnas
+15:39:58,290 (main) DEBUG [DataNucleus.Datastore.Schema] - Check of existence of `CLIENTE` returned no table
+15:39:58,290 (main) DEBUG [DataNucleus.Datastore.Schema] - CREATE TABLE `CLIENTE`
+(
+    `CLIENTE_ID` BIGINT NOT NULL AUTO_INCREMENT,
+    `AGE` INTEGER NOT NULL,
+    `ID` INTEGER NOT NULL,
+    `NAME` VARCHAR(255) BINARY NULL,
+    CONSTRAINT `CLIENTE_PK` PRIMARY KEY (`CLIENTE_ID`)
+) ENGINE=INNODB
+15:39:58,324 (main) DEBUG [DataNucleus.Datastore.Schema] - SQL Tiempo de cumplir = 34 ms
+15:39:58,344 (main) WARN  [DataNucleus.Datastore] - SQL Warning : Name 'CLIENTE_PK' ignored for PRIMARY key.
+15:39:58,355 (main) DEBUG [DataNucleus.Datastore.Schema] - Cargando información de columna para las tablas "cliente" por el Catalogo "", el Esquema ""
+15:39:58,390 (main) DEBUG [DataNucleus.Datastore.Schema] - Información de columna cargado por el Catalogo "", el Esquema "", 1 tablas, tiempo = 35 ms
+15:39:58,390 (main) DEBUG [DataNucleus.Datastore.Schema] - Información de columna cargado por la tabla "CLIENTE" : hemos encontrado 4 columnas
+15:39:58,439 (main) DEBUG [DataNucleus.Datastore.Schema] - Validando 1 indic(es) de la tabla `TRIP`
+15:39:58,456 (main) DEBUG [DataNucleus.Datastore.Schema] - Validando 0 foreign key(s) de la tabla `TRIP`
+15:39:58,469 (main) DEBUG [DataNucleus.Datastore.Schema] - Validando 1 llaves unicas de la tabla `TRIP`
+15:39:58,470 (main) DEBUG [DataNucleus.Datastore.Schema] - Committing transaccion del esquema "org.datanucleus.store.rdbms.datasource.dbcp2.PoolingDataSource$PoolGuardConnectionWrapper@778db7c5"
+15:39:58,471 (main) DEBUG [DataNucleus.Datastore.Schema] - Cerrando la conneccion de la transaccion del esquema "org.datanucleus.store.rdbms.datasource.dbcp2.PoolingDataSource$PoolGuardConnectionWrapper@778db7c5"
+15:39:58,472 (main) DEBUG [DataNucleus.Connection] - ManagedConnection VA A COMMIT : "org.datanucleus.store.rdbms.ConnectionFactoryImpl$ManagedConnectionImpl@1a480135 [conn=org.datanucleus.store.rdbms.datasource.dbcp2.PoolingDataSource$PoolGuardConnectionWrapper@778db7c5, commitOnRelease=true, closeOnRelease=true, closeOnTxnEnd=true]"
+15:39:58,473 (main) DEBUG [DataNucleus.Connection] - ManagedConnection CERRADO : "org.datanucleus.store.rdbms.ConnectionFactoryImpl$ManagedConnectionImpl@1a480135 [conn=org.datanucleus.store.rdbms.datasource.dbcp2.PoolingDataSource$PoolGuardConnectionWrapper@778db7c5, commitOnRelease=true, closeOnRelease=true, closeOnTxnEnd=true]" 
+15:39:58,486 (main) INFO  [DataNucleus.SchemaTool] - DataNucleus SchemaTool ha terminado con exito
+15:39:58,487 (main) DEBUG [DataNucleus.Connection] - Cerrando ConnectionPool "tx"
+15:39:58,487 (main) DEBUG [DataNucleus.Connection] - Cerrando ConnectionPool "nontx"
+15:39:58,524 (main) DEBUG [DataNucleus.Persistence] - Desmanejando la persistencia de todas las clases

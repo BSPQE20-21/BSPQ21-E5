@@ -1,3 +1,4 @@
+package BD;
 
 public class DBException extends Exception {
 	/**
