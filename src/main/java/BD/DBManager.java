@@ -9,6 +9,7 @@ import javax.jdo.Query;
 import javax.jdo.Transaction;
 
 import Classes.Cliente;
+import Classes.Ticket;
 
 
 
@@ -23,8 +24,14 @@ public class DBManager {
 			try {
 				tx.begin();
 				
-				Cliente client = new Cliente("Hiquer", 20, 11);
-				pm.makePersistent(client);
+				Cliente client1 = new Cliente("Antonio", "antonio@gmail.com", "1234");
+				pm.makePersistent(client1);
+				Cliente client2 = new Cliente("Paco", "paco@hotmail.com", "5678");
+				pm.makePersistent(client2);
+				Cliente client3 = new Cliente("Juanjo", "juanjo@gmail.com", "91011");
+				pm.makePersistent(client3);
+				
+							
 				
 				
 				
@@ -47,7 +54,7 @@ public class DBManager {
 			
 			tx.begin();
 			
-			Query<Cliente> query = pm.newQuery("javax.jdo.query.SQL","select * from " + "Cliente");
+			Query<Cliente> query = pm.newQuery("javax.jdo.query.SQL","select * from " + "cliente");
 			query.setClass(Cliente.class);
 				
 			List<Cliente> results = query.executeList();
@@ -61,11 +68,11 @@ public class DBManager {
 		public boolean exiteCliente(Cliente Cliente) throws DBException{
 			
 			boolean existe = false;
-			List<Cliente> Clientes = listarClientes();
+			List<Cliente> clientes = listarClientes();
 			
-			for (Cliente client : Clientes) {
+			for (Cliente client : clientes) {
 				if (client.getName().equals(Cliente.getName())) {
-					existe = true;
+					 existe = true;
 				}
 			}
 
@@ -74,7 +81,7 @@ public class DBManager {
 		}
 		
 		//INSERTAR Cliente
-		public void insertarCliente(Cliente user) throws DBException{
+		public void insertarCliente(Cliente client) throws DBException{
 			
 			PersistenceManagerFactory pmf = JDOHelper.getPersistenceManagerFactory("datanucleus.properties");
 			PersistenceManager pm = pmf.getPersistenceManager();
@@ -83,7 +90,7 @@ public class DBManager {
 			try {
 				tx.begin();
 				
-				pm.makePersistent(user);
+				pm.makePersistent(client);
 
 				tx.commit();
 				
@@ -93,6 +100,16 @@ public class DBManager {
 				}
 				pm.close();
 			}
+			
+		}
+		
+		public Ticket bookATicketaso(Cliente client) {
+			PersistenceManagerFactory pmf = JDOHelper.getPersistenceManagerFactory("datanucleus.properties");
+			PersistenceManager pm = pmf.getPersistenceManager();
+			Transaction tx = pm.currentTransaction();
+			
+			return null;
+		
 			
 		}
 }

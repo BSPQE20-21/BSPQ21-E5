@@ -9,19 +9,25 @@ import javax.jdo.annotations.PersistenceCapable;
 
 public class Cliente {
 	private String name;
+	private String mail;
+	private String pw;
 	private int age;
 	private int id;
 	
-	public Cliente(String name, int age, int id) {
+	public Cliente(String name, String mail, String pw) {
 		super();
 		this.name = name;
-		this.age = age;
-		this.id = id;
+		this.mail = mail;
+		this.pw = pw;
+		
+		
 	}
-	
+
 	public Cliente() {
 		super();
-		this.name = " ";
+		this.name = "";
+		this.mail = "";
+		this.pw = "";
 		this.age = 0;
 		this.id = 0;
 	}
@@ -32,6 +38,22 @@ public class Cliente {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public String getMail() {
+		return mail;
+	}
+
+	public void setMail(String mail) {
+		this.mail = mail;
+	}
+
+	public String getPw() {
+		return pw;
+	}
+
+	public void setPw(String pw) {
+		this.pw = pw;
 	}
 
 	public int getAge() {
@@ -52,8 +74,9 @@ public class Cliente {
 
 	@Override
 	public String toString() {
-		return "Cliente [name=" + name + ", age=" + age + ", id=" + id + "]";
+		return "Cliente [name=" + name + ", mail=" + mail + ", pw=" + pw + ", age=" + age + ", id=" + id + "]";
 	}
-	
+
 	
 }
+	
