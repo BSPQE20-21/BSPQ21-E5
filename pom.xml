@@ -159,6 +159,7 @@
 	</build>
 	
 	<profiles>
+	<!-- run as 'mvn exec:java -Pmanager' -->
 		<profile>
 			<id>cliente</id>
 			<build>
@@ -176,12 +177,19 @@
 						</executions>
 						<configuration>
 							<mainClass>es.termibus.client.VentanaEjemplo</mainClass>
+						<!-- Cambios para el cliente servidor -->
+							<arguments>
+								<argument>${server.hostname}</argument>
+								<argument>${server.port}</argument>
+							</arguments>
 						</configuration>
 					</plugin>
 				</plugins>
 			</build>
 		</profile>
+		
 		<profile>
+		<!-- run as 'mvn exec:java -Pclient' -->
 			<id>datos</id>
 			<build>
 				<plugins>
@@ -198,6 +206,10 @@
 						</executions>
 						<configuration>
 							<mainClass>com.decode.main.PrepareData</mainClass>
+							<arguments>
+								<argument>${server.hostname}</argument>
+								<argument>${server.port}</argument>
+							</arguments>
 						</configuration>
 					</plugin>
 				</plugins>
