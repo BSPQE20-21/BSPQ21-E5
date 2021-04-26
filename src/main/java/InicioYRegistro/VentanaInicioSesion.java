@@ -9,7 +9,9 @@ package InicioYRegistro;
 	import javax.swing.JPanel;
 	import javax.swing.border.EmptyBorder;
 
-	import BD.DBException;
+
+
+import BD.DBException;
 	import BD.DBManager;
 	import Classes.Cliente;
 
@@ -30,6 +32,7 @@ package InicioYRegistro;
 
 	public class VentanaInicioSesion extends JFrame {
 
+		private static Cliente user;
 		private JPanel contentPane;
 		private JTextField txtClientName;
 		private JTextField txtPw;
@@ -164,20 +167,25 @@ package InicioYRegistro;
 				@Override
 				public void mouseEntered(MouseEvent e) {
 					// TODO Auto-generated method stub
-					
+
 				}
-				
+
 				@Override
 				public void mouseClicked(MouseEvent e) {
 					VentanaRegistro vr = new VentanaRegistro();
 					vr.setVisible(true);
 					setVisible(false);
-					
+
 				}
 			});
-			
-			
+
 		}
+
+		public static Cliente getUser() {
+			return user;
+
+		}
+
 	}
 
 
