@@ -56,6 +56,7 @@ public class VentanaPrincipal extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 893, 578);
 		contentPane = new JPanel();
+		contentPane.setBackground(Color.LIGHT_GRAY);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -102,7 +103,7 @@ public class VentanaPrincipal extends JFrame {
 		chckbxCastellano.setBounds(716, 61, 93, 21);
 		panelNorte.add(chckbxCastellano);
 		
-		ImageIcon ico1= new ImageIcon("imagenes/logo.png");//meter las rutas en la bd
+		ImageIcon ico1= new ImageIcon("images/logo.JPG");//meter las rutas en la bd
 		ImageIcon img1= new ImageIcon(ico1.getImage().getScaledInstance(lblLogo.getWidth(),lblLogo.getHeight(), Image.SCALE_SMOOTH));
 		lblLogo.setIcon(img1);
 
@@ -256,6 +257,34 @@ public class VentanaPrincipal extends JFrame {
 		lblknowUs.setBounds(665, 89, 194, 29);
 		panelSur.add(lblknowUs);
 	
+
+		DBManager dbm = new DBManager();
+		List<Trip> trips;
+		
+		btnSearchSalida.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				panelCentro.removeAll();
+				panelCentro.revalidate();
+				
+				String destino = comboBoxDestination.getName();
+				
+				List<Trip> tripsChosen;
+				
+				tripsChosen = dbm.getSelectedTrip(destino, fechaSalida.getCalendar());
+				
+				for(Trip t: tripsChosen) {
+					if(t.getDestiny()!= null) {
+						
+					}
+				}
+				
+			}
+		});
+		
+		
 		lblknowUs.addMouseListener(new MouseListener() {
 			
 			@Override
