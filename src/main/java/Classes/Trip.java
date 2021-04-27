@@ -11,15 +11,13 @@ public class Trip {
 	private String destiny; // Madrid
 	private String date; // 12/02/21 , 12:00
 	private int busID;
-	private String tripCode;
-	int cost;
+	private int cost;
 	
-	public Trip(String destiny, String date, int busID, String tripCode, int cost) {
+	public Trip(String destiny, String date, int busID, int cost) {
 		super();
 		this.destiny = destiny;
 		this.date = date;
 		this.busID = busID;
-		this.tripCode = tripCode;
 		this.cost = cost;
 	}
 	
@@ -28,7 +26,7 @@ public class Trip {
 		this.destiny = "";
 		this.date = "";
 		this.busID = 0;
-		this.tripCode = "";
+		
 		this.cost = 0;
 	}
 
@@ -56,13 +54,7 @@ public class Trip {
 		this.busID = busID;
 	}
 
-	public String getTripCode() {
-		return tripCode;
-	}
-
-	public void setTripCode(String tripCode) {
-		this.tripCode = tripCode;
-	}
+	
 
 	public int getCost() {
 		return cost;
@@ -74,6 +66,6 @@ public class Trip {
 
 	@Override
 	public String toString() {
-		return "\nOrigin: Bilbao\nDestiny: " + destiny + "\nDate: " + date + "\nBus: " + busID + "\nTrip Code: " + tripCode + "\nCost: " + cost + "\n";
+		return "\nOrigin: Bilbao\nDestiny: " + destiny + "\nDate: " + date + "\nBus: " + busID +  "\nCost: " + cost + "\n";
 	}
 }

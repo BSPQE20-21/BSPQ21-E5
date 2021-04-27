@@ -127,7 +127,7 @@
 				<version>1.2.1</version>
 
 				<configuration>
-					<mainClass>VentanaPrincipal.VentanaPrincipal</mainClass>
+					<mainClass>Main.Main</mainClass>
 					<systemProperties>
 						<systemProperty>
 							<key>log4j.configuration</key>

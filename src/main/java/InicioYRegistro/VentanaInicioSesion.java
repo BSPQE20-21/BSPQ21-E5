@@ -11,7 +11,7 @@ package InicioYRegistro;
 
 
 
-import BD.DBException;
+	import BD.DBException;
 	import BD.DBManager;
 	import Classes.Cliente;
 
@@ -73,7 +73,7 @@ import BD.DBException;
 			}
 			
 			setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-			setBounds(100, 100, 329, 274);
+			setBounds(100, 100, 394, 303);
 			contentPane = new JPanel();
 			contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 			setContentPane(contentPane);
@@ -134,10 +134,10 @@ import BD.DBException;
 						
 					}
 					if (acceso) {
-						JOptionPane.showMessageDialog(null, "Inicio de sesion correcto", "Incio correcto", 1, null);
+						JOptionPane.showMessageDialog(null, "Incorrect log in", "Incio correcto", 1, null);
 						
 					}else {
-						JOptionPane.showMessageDialog(null, "Error con las credenciales", "Error", 0, null);
+						JOptionPane.showMessageDialog(null, "Error", "Error", 0, null);
 					}
 					
 					

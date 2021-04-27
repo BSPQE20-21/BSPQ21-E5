@@ -34,13 +34,13 @@ public class DBManager {
 			pm.makePersistent(client3);
 
 			tx.begin();
-			Trip trip1 = new Trip("Madrid", "21/03/2021", 1, "123", 40);
+			Trip trip1 = new Trip("Madrid", "21/03/2021", 1, 40);
 			pm.makePersistent(trip1);
-			Trip trip2 = new Trip("Barcelona", "01/07/2021", 2, "456", 60);
-			pm.makePersistent(trip1);
-			Trip trip3 = new Trip("Madrid", "13/02/2021", 3, "789", 70);
-			pm.makePersistent(trip1);
-
+			Trip trip2 = new Trip("Barcelona", "01/07/2021", 2,  60);
+			pm.makePersistent(trip2);
+			Trip trip3 = new Trip("Madrid", "13/02/2021", 3, 70);
+			pm.makePersistent(trip3);
+		
 			tx.commit();
 
 		} finally {
@@ -123,7 +123,7 @@ public class DBManager {
 		PersistenceManagerFactory pmf = JDOHelper.getPersistenceManagerFactory("datanucleus.properties");
 		PersistenceManager pm = pmf.getPersistenceManager();
 		Transaction tx = pm.currentTransaction();
-
+		
 		try {
 			tx.begin();
 			pm.makePersistent(trip);
@@ -152,8 +152,7 @@ public class DBManager {
 
 			for (Trip trip : tripExtent) {
 
-				Trip t = new Trip(trip.getDestiny(), trip.getDate(), trip.getBusID(), trip.getTripCode(),
-						trip.getCost());
+				Trip t = new Trip(trip.getDestiny(), trip.getDate(), trip.getBusID(), trip.getCost());
 
 				trips.add(t);
 
@@ -172,6 +171,8 @@ public class DBManager {
 		return trips;
 
 	}
+	
+	
 
 	public List<Trip> getSelectedTrip(String destiny, Calendar date ){
 			  PersistenceManagerFactory pmf = JDOHelper.getPersistenceManagerFactory("datanucleus.properties");
@@ -187,7 +188,7 @@ public class DBManager {
 
 	                for (Trip trip : tripsExtent) {
 
-	                		Trip t = new Trip(trip.getDestiny(), trip.getDate(), trip.getBusID(), trip.getTripCode(), trip.getCost());
+	                		Trip t = new Trip(trip.getDestiny(), trip.getDate(), trip.getBusID(), trip.getCost());
 
 	                    	  
 	     
