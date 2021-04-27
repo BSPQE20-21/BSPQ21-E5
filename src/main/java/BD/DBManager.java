@@ -34,11 +34,11 @@ public class DBManager {
 			pm.makePersistent(client3);
 
 			tx.begin();
-			Trip trip1 = new Trip("Madrid", "21/03/2021", 1, 40);
+			Trip trip1 = new Trip(1234, 40, "21/03/2021", "Madrid");
 			pm.makePersistent(trip1);
-			Trip trip2 = new Trip("Barcelona", "01/07/2021", 2,  60);
+			Trip trip2 = new Trip(5678, 60, "07/01/2021", "Barcelona");
 			pm.makePersistent(trip2);
-			Trip trip3 = new Trip("Madrid", "13/02/2021", 3, 70);
+			Trip trip3 = new Trip(91011, 70, "13/02/2021", "Madrid");
 			pm.makePersistent(trip3);
 		
 			tx.commit();
@@ -70,7 +70,7 @@ public class DBManager {
 
 	}
 
-	public boolean exiteCliente(Cliente Cliente) throws DBException {
+	public boolean existeCliente(Cliente Cliente) throws DBException {
 
 		boolean existe = false;
 		List<Cliente> clientes = listarClientes();
@@ -152,7 +152,7 @@ public class DBManager {
 
 			for (Trip trip : tripExtent) {
 
-				Trip t = new Trip(trip.getDestiny(), trip.getDate(), trip.getBusID(), trip.getCost());
+				Trip t = new Trip( trip.getBusID(), trip.getCost(),trip.getDate(), trip.getDestiny());
 
 				trips.add(t);
 
@@ -188,7 +188,7 @@ public class DBManager {
 
 	                for (Trip trip : tripsExtent) {
 
-	                		Trip t = new Trip(trip.getDestiny(), trip.getDate(), trip.getBusID(), trip.getCost());
+	                		Trip t = new Trip(trip.getBusID(), trip.getCost(),trip.getDate(), trip.getDestiny());
 
 	                    	  
 	     

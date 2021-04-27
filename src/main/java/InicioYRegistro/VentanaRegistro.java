@@ -28,11 +28,10 @@ public class VentanaRegistro extends JFrame{
 	private JTextField txtClientPw;
 	private JTextField txtClientPw2;
 	private List<Cliente> clientes;
-	private String name;
-	private String mail;
-	private String pw;
-	private String pwRepeat;
+	private String name, mail, pw, pwRepeat, age;
+	
 	private DBManager dbm;
+	private JTextField txtClientAge;
 
 	/**
 	 * Launch the application.
@@ -67,38 +66,43 @@ public class VentanaRegistro extends JFrame{
 		contentPane.add(lblNewLabel);
 		
 		JLabel lblName = new JLabel("Name");
-		lblName.setBounds(10, 71, 90, 14);
+		lblName.setBounds(10, 54, 90, 14);
 		contentPane.add(lblName);
 		
 		JLabel lblMail = new JLabel("Mail");
-		lblMail.setBounds(10, 96, 90, 14);
+		lblMail.setBounds(10, 123, 90, 14);
 		contentPane.add(lblMail);
 		
 		JLabel lblPw = new JLabel("Password");
-		lblPw.setBounds(10, 121, 90, 14);
+		lblPw.setBounds(10, 147, 90, 14);
 		contentPane.add(lblPw);
 		
 		JLabel lblPw2 = new JLabel("Repeat Password");
-		lblPw2.setBounds(10, 146, 99, 14);
+		lblPw2.setBounds(10, 171, 99, 14);
 		contentPane.add(lblPw2);
 		
 		txtClientName = new JTextField();
-		txtClientName.setBounds(147, 68, 222, 20);
+		txtClientName.setBounds(147, 52, 222, 20);
 		contentPane.add(txtClientName);
 		txtClientName.setColumns(10);
 		
+		txtClientAge = new JTextField();
+		txtClientAge.setBounds(147, 90, 222, 19);
+		contentPane.add(txtClientAge);
+		txtClientAge.setColumns(10);
+		
 		txtClientMail = new JTextField();
-		txtClientMail.setBounds(147, 93, 222, 20);
+		txtClientMail.setBounds(147, 119, 222, 20);
 		contentPane.add(txtClientMail);
 		txtClientMail.setColumns(10);
 		
 		txtClientPw = new JTextField();
-		txtClientPw.setBounds(147, 118, 222, 20);
+		txtClientPw.setBounds(147, 144, 222, 20);
 		contentPane.add(txtClientPw);
 		txtClientPw.setColumns(10);
 		
 		txtClientPw2 = new JTextField();
-		txtClientPw2.setBounds(147, 143, 222, 20);
+		txtClientPw2.setBounds(147, 169, 222, 20);
 		contentPane.add(txtClientPw2);
 		txtClientPw2.setColumns(10);
 		
@@ -109,6 +113,10 @@ public class VentanaRegistro extends JFrame{
 		});
 		btnSingUp.setBounds(280, 214, 89, 23);
 		contentPane.add(btnSingUp);
+		
+		JLabel lblAge = new JLabel("Age");
+		lblAge.setBounds(10, 89, 45, 13);
+		contentPane.add(lblAge);
 		
 		dbm = new DBManager();
 		try {
@@ -125,13 +133,14 @@ public class VentanaRegistro extends JFrame{
 				
 				name = txtClientName.getText();
 				mail = txtClientMail.getText();
+				age = txtClientAge.getText();
 				pw = txtClientPw.getText();
 				pwRepeat = txtClientPw2.getText();
 				
 				Cliente user = new Cliente(name, mail, pw);
 			
 				try {
-					if (!dbm.exiteCliente(user)) {
+					if (!dbm.existeCliente(user)) {
 						if (pw.equals(pwRepeat)) {
 
 							try {

@@ -13,7 +13,7 @@ public class Trip {
 	private int busID;
 	private int cost;
 	
-	public Trip(String destiny, String date, int busID, int cost) {
+	public Trip(int busID, int cost, String date,  String destiny ) {
 		super();
 		this.destiny = destiny;
 		this.date = date;

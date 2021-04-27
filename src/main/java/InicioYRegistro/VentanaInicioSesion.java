@@ -14,8 +14,9 @@ package InicioYRegistro;
 	import BD.DBException;
 	import BD.DBManager;
 	import Classes.Cliente;
+import VentanaPrincipal.VentanaPrincipal;
 
-	//import VentanaPrincipal.VentanaPrincipal;
+//import VentanaPrincipal.VentanaPrincipal;
 
 	import javax.swing.JLabel;
 	import javax.swing.JOptionPane;
@@ -127,15 +128,15 @@ package InicioYRegistro;
 					for (Cliente user : clientes) {
 						if (user.getMail().equals(name) && user.getPw().equals(pw)) {
 							acceso = true;
-							//VentanaPrincipal vp = new VentanaPrincipal();
-						//	vp.setVisible(true);
-							setVisible(false);
+							
 						}
 						
 					}
 					if (acceso) {
-						JOptionPane.showMessageDialog(null, "Incorrect log in", "Incio correcto", 1, null);
-						
+						JOptionPane.showMessageDialog(null, "Correct log in", "Inicio correcto", 1, null);
+						VentanaPrincipal vp = new VentanaPrincipal();
+						vp.setVisible(true);
+						setVisible(false);
 					}else {
 						JOptionPane.showMessageDialog(null, "Error", "Error", 0, null);
 					}
