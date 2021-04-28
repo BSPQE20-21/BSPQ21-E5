@@ -11,6 +11,8 @@ import javax.jdo.PersistenceManagerFactory;
 import javax.jdo.Query;
 import javax.jdo.Transaction;
 
+
+
 import Classes.Cliente;
 import Classes.Ticket;
 import Classes.Trip;
@@ -192,7 +194,21 @@ public class DBManager {
 
 	}
 	
-	
+	public List<Trip> trips(int clientID) throws DBException{
+		PersistenceManagerFactory pmf = JDOHelper.getPersistenceManagerFactory("datanucleus.properties");
+		PersistenceManager pm = pmf.getPersistenceManager();
+		Transaction tx = pm.currentTransaction();
+		
+		tx.begin();
+		
+		Query<Trip> query = pm.newQuery("javax.jdo.query.SQL","SELECT * FROM trip where clientID='"+clientID+"'");
+		query.setClass(Trip.class);
+		List<Trip> conclusion = query.executeList();
+		
+		tx.commit();
+		pm.close();
+		return conclusion;
+	}
 
 	public List<Trip> getSelectedTrip(String destiny, Calendar date ){
 			  PersistenceManagerFactory pmf = JDOHelper.getPersistenceManagerFactory("datanucleus.properties");

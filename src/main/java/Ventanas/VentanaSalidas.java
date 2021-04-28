@@ -11,12 +11,24 @@ import javax.swing.table.DefaultTableModel;
 
 import com.toedter.calendar.JDateChooser;
 
+import BD.DBManager;
+import Classes.Cliente;
+import Classes.Trip;
+
 import java.awt.Color;
 import java.awt.Component;
 
 import javax.swing.JLabel;
 import javax.swing.JComboBox;
 import java.awt.Font;
+import java.awt.List;
+import java.util.ArrayList;
+
+import javax.swing.DefaultListModel;
+import javax.swing.JFrame;
+import javax.swing.JList;
+
+import java.util.*;
 import javax.swing.JCheckBox;
 import java.awt.FlowLayout;
 import javax.swing.SwingConstants;
@@ -28,27 +40,23 @@ public class VentanaSalidas extends JFrame {
 	private JPanel contentPane;
 	private JTextField textFieldDestino;
 	
-
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					VentanaSalidas frame = new VentanaSalidas();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+	
 
 	/**
 	 * Create the frame.
 	 */
-	public VentanaSalidas() {
+	public VentanaSalidas(Cliente client) {
+	
+		
+		
+		
+		
+		
+		
+		
 		setForeground(Color.DARK_GRAY);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 873, 548);
@@ -147,33 +155,10 @@ public class VentanaSalidas extends JFrame {
 		JDateChooser fechaLlegada = new JDateChooser();
 		fechaLlegada.setBounds(302, 10, 147, 28);
 		panelArriba.add(fechaLlegada);
-		
-		DefaultTableModel modeloTabla;
-		  modeloTabla = new DefaultTableModel() {
-				public boolean isCellEditable(int row,int column) {
-						return false;
-				}
-			};
-		JTable table = new JTable(modeloTabla);
-		String[] ids = {"Destiny", "Date", "Price"};
-		modeloTabla.setColumnIdentifiers(ids);
-		table.setBounds(0, 54, 499, 197);
-		panelArriba.add(table);
+	
 		
 		
-		table.setDefaultRenderer(Object.class, new DefaultTableCellRenderer() {
-			
-			@Override
-			public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus,
-					int row, int column) {
-				Component c = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
-				Font fuente = new Font("Arial", Font.BOLD, 12);
-				if(isSelected)
-					c.setFont(fuente);
-				return c;
-			
-			}
-		});
+	
 		
 		
 	}

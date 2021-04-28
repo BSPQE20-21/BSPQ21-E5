@@ -37,23 +37,11 @@ public class VentanaPrincipal extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					VentanaPrincipal frame = new VentanaPrincipal();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	/**
 	 * Create the frame.
 	 */
-	public VentanaPrincipal() {
+	public VentanaPrincipal(Cliente client) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 893, 578);
 		contentPane = new JPanel();
@@ -274,7 +262,7 @@ public class VentanaPrincipal extends JFrame {
 					trip.setDate(fechaSalida.getDateFormatString());
 					dbm.insertarTrip(trip);
 				
-					VentanaSalidas vs = new VentanaSalidas();
+					VentanaSalidas vs = new VentanaSalidas(client);
 					vs.setVisible(true);
 					dispose();
 					

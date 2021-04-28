@@ -1,18 +1,24 @@
 package Classes;
 
+import javax.jdo.annotations.IdGeneratorStrategy;
 import javax.jdo.annotations.Inheritance;
 import javax.jdo.annotations.InheritanceStrategy;
 import javax.jdo.annotations.PersistenceCapable;
+import javax.jdo.annotations.Persistent;
+import javax.jdo.annotations.PrimaryKey;
 
 @PersistenceCapable
 @Inheritance(strategy=InheritanceStrategy.NEW_TABLE)
 
 public class Cliente {
+	@PrimaryKey
+	@Persistent(valueStrategy = IdGeneratorStrategy.INCREMENT)
+	private int clientID;
 	private String name;
 	private String mail;
 	private String pw;
 	private int age;
-	private int id;
+	
 	
 	public Cliente(String name, String mail, String pw) {
 		super();
@@ -29,7 +35,7 @@ public class Cliente {
 		this.mail = "";
 		this.pw = "";
 		this.age = 0;
-		this.id = 0;
+	
 	}
 
 	public String getName() {
@@ -64,17 +70,17 @@ public class Cliente {
 		this.age = age;
 	}
 
-	public int getId() {
-		return id;
+	public int getClientID() {
+		return clientID;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setClientID(int clientID) {
+		this.clientID = clientID;
 	}
 
 	@Override
 	public String toString() {
-		return "Cliente [name=" + name + ", mail=" + mail + ", pw=" + pw + ", age=" + age + ", id=" + id + "]";
+		return "Cliente [name=" + name + ", mail=" + mail + ", pw=" + pw + ", age=" + age + ", clientID=" + clientID + "]";
 	}
 
 	
