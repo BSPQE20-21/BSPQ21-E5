@@ -107,6 +107,26 @@ public class DBManager {
 		}
 
 	}
+	
+	 public void  introduceATrip(Trip trip) throws DBException{
+	 		
+	 		PersistenceManagerFactory pmf = JDOHelper.getPersistenceManagerFactory("datanucleus.properties");
+	 		PersistenceManager pm = pmf.getPersistenceManager();
+	 		Transaction tx = pm.currentTransaction();
+	 		
+	        tx.begin();
+	 		
+	 		Query query = pm.newQuery("javax.jdo.query.SQL", "INSERT INTO TRIP(busID, cost, date, destiny) VALUES()");
+	 		
+	 		query.setClass(Trip.class);
+	 		Long update = (Long)query.execute();
+	 		
+	 		tx.commit();
+	 		pm.close();
+				 		
+	 		
+	 	}
+	    
 
 	public Ticket bookATicketaso(Cliente client) {
 		PersistenceManagerFactory pmf = JDOHelper.getPersistenceManagerFactory("datanucleus.properties");
@@ -211,7 +231,7 @@ public class DBManager {
 	                tx.commit();
 	                 }
 	            } catch (Exception ex) {
-	                System.out.println("$ Error viendo todos Anuncios: " + ex.getMessage());
+	                System.out.println("$ Error showing trips: " + ex.getMessage());
 	            } finally {
 	                if (tx != null && tx.isActive()) {
 	                    tx.rollback();

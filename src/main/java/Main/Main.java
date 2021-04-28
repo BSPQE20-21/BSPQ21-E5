@@ -2,6 +2,7 @@ package Main;
 
 import InicioYRegistro.VentanaRegistro;
 import VentanaPrincipal.VentanaPrincipal;
+import Ventanas.VentanaSalidas;
 
 public class Main {
 	
@@ -10,7 +11,10 @@ public class Main {
 //		VentanaRegistro vr = new VentanaRegistro();
 //		vr.setVisible(true);
 		
-		VentanaPrincipal vp = new VentanaPrincipal();
-		vp.setVisible(true);
+//		VentanaPrincipal vp = new VentanaPrincipal();
+//		vp.setVisible(true);
+		
+		VentanaSalidas vs = new VentanaSalidas();
+		vs.setVisible(true);
 	}
 }

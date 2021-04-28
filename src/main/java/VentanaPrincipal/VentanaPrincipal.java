@@ -10,6 +10,7 @@ import javax.swing.border.EmptyBorder;
 import com.toedter.calendar.JDateChooser;
 
 import InicioYRegistro.*;
+import Ventanas.VentanaSalidas;
 import BD.*;
 import Classes.*;
 
@@ -32,7 +33,7 @@ public class VentanaPrincipal extends JFrame {
 
 	private JPanel contentPane;
 	private final JPanel panelNorte = new JPanel();
-
+	private Trip trip;
 	/**
 	 * Launch the application.
 	 */
@@ -266,6 +267,26 @@ public class VentanaPrincipal extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
+				
+				DBManager dbm = new DBManager();
+				try {
+					trip.setDestiny(comboBoxDestination.getName());
+					trip.setDate(fechaSalida.getDateFormatString());
+					dbm.insertarTrip(trip);
+				
+					VentanaSalidas vs = new VentanaSalidas();
+					vs.setVisible(true);
+					dispose();
+					
+				}catch (Exception e1) {
+					// TODO: handle exception
+					e1.printStackTrace();
+				}
+				
+				
+				
+				
+				
 				panelCentro.removeAll();
 				panelCentro.revalidate();
 				
