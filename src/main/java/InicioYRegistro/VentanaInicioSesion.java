@@ -134,7 +134,7 @@ import VentanaPrincipal.VentanaPrincipal;
 					}
 					if (acceso) {
 						JOptionPane.showMessageDialog(null, "Correct log in", "Inicio correcto", 1, null);
-						VentanaPrincipal vp = new VentanaPrincipal();
+						VentanaPrincipal vp = new VentanaPrincipal(null);
 						vp.setVisible(true);
 						setVisible(false);
 					}else {

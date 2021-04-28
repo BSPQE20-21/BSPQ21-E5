@@ -197,7 +197,7 @@
 							</execution>
 						</executions>
 						<configuration>
-							<mainClass>es.termibus.client.VentanaEjemplo</mainClass>
+							<mainClass>Main.main</mainClass>
 						<!-- Cambios para el cliente servidor -->
 							<arguments>
 								<argument>${server.hostname}</argument>
@@ -226,7 +226,7 @@
 							</execution>
 						</executions>
 						<configuration>
-							<mainClass>com.decode.main.PrepareData</mainClass>
+							<mainClass>Main.Main</mainClass>
 							<arguments>
 								<argument>${server.hostname}</argument>
 								<argument>${server.port}</argument>

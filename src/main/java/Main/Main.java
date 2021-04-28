@@ -11,10 +11,10 @@ public class Main {
 //		VentanaRegistro vr = new VentanaRegistro();
 //		vr.setVisible(true);
 		
-//		VentanaPrincipal vp = new VentanaPrincipal();
-//		vp.setVisible(true);
-		
-		VentanaSalidas vs = new VentanaSalidas();
-		vs.setVisible(true);
+		VentanaPrincipal vp = new VentanaPrincipal(null);
+		vp.setVisible(true);
+//		
+//		VentanaSalidas vs = new VentanaSalidas(null);
+//		vs.setVisible(true);
 	}
 }
