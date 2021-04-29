@@ -1,27 +1,25 @@
 package Ventanas;
 
 import java.awt.BorderLayout;
-import java.awt.EventQueue;
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.Font;
 
+import com.toedter.calendar.JDateChooser;
+
+import javax.swing.JCheckBox;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
-import com.toedter.calendar.JDateChooser;
 
-import java.awt.Color;
-import java.awt.Component;
-
-import javax.swing.JLabel;
-import javax.swing.JComboBox;
-import java.awt.Font;
-import javax.swing.JCheckBox;
-import java.awt.FlowLayout;
-import javax.swing.SwingConstants;
-import javax.swing.JTextField;
-import javax.swing.JTable;
 
 public class VentanaLlegadas extends JFrame {
 

@@ -1,20 +1,22 @@
 package Main;
 
-import InicioYRegistro.VentanaRegistro;
+import BD.DBException;
+import BD.DBManager;
 import VentanaPrincipal.VentanaPrincipal;
-import Ventanas.VentanaSalidas;
 
 public class Main {
-	
-	public static void main(String[] args) {
-		
+
+	public static void main(String[] args) throws DBException {
+
 //		VentanaRegistro vr = new VentanaRegistro();
 //		vr.setVisible(true);
-		
+
 		VentanaPrincipal vp = new VentanaPrincipal(null);
 		vp.setVisible(true);
 //		
 //		VentanaSalidas vs = new VentanaSalidas(null);
 //		vs.setVisible(true);
+
+		DBManager.getInstance().preparedData();
 	}
 }

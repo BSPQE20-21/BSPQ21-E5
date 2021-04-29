@@ -18,7 +18,22 @@ import Classes.Ticket;
 import Classes.Trip;
 
 public class DBManager {
-	// INSTALACION DE DATOS
+	
+	private static DBManager instance = null;
+	private PersistenceManagerFactory pmf = null;
+
+	public static DBManager getInstance() {
+		if (instance == null) {
+			instance = new DBManager();
+		}
+
+		return instance;
+	}
+
+	private DBManager() {
+		pmf = JDOHelper.getPersistenceManagerFactory("datanucleus.properties");
+	}
+
 	public void preparedData() throws DBException {
 
 		PersistenceManagerFactory pmf = JDOHelper.getPersistenceManagerFactory("datanucleus.properties");
@@ -42,7 +57,7 @@ public class DBManager {
 			pm.makePersistent(trip2);
 			Trip trip3 = new Trip(91011, 70, "13/02/2021", "Madrid");
 			pm.makePersistent(trip3);
-		
+
 			tx.commit();
 
 		} finally {
@@ -109,26 +124,24 @@ public class DBManager {
 		}
 
 	}
-	
-	 public void  introduceATrip(Trip trip) throws DBException{
-	 		
-	 		PersistenceManagerFactory pmf = JDOHelper.getPersistenceManagerFactory("datanucleus.properties");
-	 		PersistenceManager pm = pmf.getPersistenceManager();
-	 		Transaction tx = pm.currentTransaction();
-	 		
-	        tx.begin();
-	 		
-	 		Query query = pm.newQuery("javax.jdo.query.SQL", "INSERT INTO TRIP(busID, cost, date, destiny) VALUES()");
-	 		
-	 		query.setClass(Trip.class);
-	 		Long update = (Long)query.execute();
-	 		
-	 		tx.commit();
-	 		pm.close();
-				 		
-	 		
-	 	}
-	    
+
+	public void introduceATrip(Trip trip) throws DBException {
+
+		PersistenceManagerFactory pmf = JDOHelper.getPersistenceManagerFactory("datanucleus.properties");
+		PersistenceManager pm = pmf.getPersistenceManager();
+		Transaction tx = pm.currentTransaction();
+
+		tx.begin();
+
+		Query query = pm.newQuery("javax.jdo.query.SQL", "INSERT INTO TRIP(busID, cost, date, destiny) VALUES()");
+
+		query.setClass(Trip.class);
+		Long update = (Long) query.execute();
+
+		tx.commit();
+		pm.close();
+
+	}
 
 	public Ticket bookATicketaso(Cliente client) {
 		PersistenceManagerFactory pmf = JDOHelper.getPersistenceManagerFactory("datanucleus.properties");
@@ -145,7 +158,7 @@ public class DBManager {
 		PersistenceManagerFactory pmf = JDOHelper.getPersistenceManagerFactory("datanucleus.properties");
 		PersistenceManager pm = pmf.getPersistenceManager();
 		Transaction tx = pm.currentTransaction();
-		
+
 		try {
 			tx.begin();
 			pm.makePersistent(trip);
@@ -174,7 +187,7 @@ public class DBManager {
 
 			for (Trip trip : tripExtent) {
 
-				Trip t = new Trip( trip.getBusID(), trip.getCost(),trip.getDate(), trip.getDestiny());
+				Trip t = new Trip(trip.getBusID(), trip.getCost(), trip.getDate(), trip.getDestiny());
 
 				trips.add(t);
 
@@ -193,71 +206,66 @@ public class DBManager {
 		return trips;
 
 	}
-	
-	public List<Trip> trips(int clientID) throws DBException{
+
+	public List<Trip> trips(int clientID) throws DBException {
 		PersistenceManagerFactory pmf = JDOHelper.getPersistenceManagerFactory("datanucleus.properties");
 		PersistenceManager pm = pmf.getPersistenceManager();
 		Transaction tx = pm.currentTransaction();
-		
+
 		tx.begin();
-		
-		Query<Trip> query = pm.newQuery("javax.jdo.query.SQL","SELECT * FROM trip where clientID='"+clientID+"'");
+
+		Query<Trip> query = pm.newQuery("javax.jdo.query.SQL", "SELECT * FROM trip where clientID='" + clientID + "'");
 		query.setClass(Trip.class);
 		List<Trip> conclusion = query.executeList();
-		
+
 		tx.commit();
 		pm.close();
 		return conclusion;
 	}
 
-	public List<Trip> getSelectedTrip(String destiny, Calendar date ){
-			  PersistenceManagerFactory pmf = JDOHelper.getPersistenceManagerFactory("datanucleus.properties");
-			  PersistenceManager pm = pmf.getPersistenceManager();
-			  Transaction tx = pm.currentTransaction();
+	public List<Trip> getSelectedTrip(String destiny, Calendar date) {
+		PersistenceManagerFactory pmf = JDOHelper.getPersistenceManagerFactory("datanucleus.properties");
+		PersistenceManager pm = pmf.getPersistenceManager();
+		Transaction tx = pm.currentTransaction();
 
-	          List<Trip> trips = new ArrayList<Trip>();
-	          try {
-	                System.out.println("* Checking trips");
-	                tx.begin();
+		List<Trip> trips = new ArrayList<Trip>();
+		try {
+			System.out.println("* Checking trips");
+			tx.begin();
 
-	                Extent<Trip> tripsExtent = pm.getExtent(Trip.class, true);
+			Extent<Trip> tripsExtent = pm.getExtent(Trip.class, true);
 
-	                for (Trip trip : tripsExtent) {
+			for (Trip trip : tripsExtent) {
 
-	                		Trip t = new Trip(trip.getBusID(), trip.getCost(),trip.getDate(), trip.getDestiny());
+				Trip t = new Trip(trip.getBusID(), trip.getCost(), trip.getDate(), trip.getDestiny());
 
-	                    	  
-	     
-	                    	int account1 = 0;
-	                    	int account2 = 0;
-	                    	
-	                
-	                		if (!t.getDestiny().equals("")) {
-	                    		account1++;
-	                    		if (t.getDestiny().contains(destiny) || t.getDestiny().toLowerCase().contains(destiny)) {
-	                    			account2++;
-	                    		}
-	                    	}
-	                		if (account1 == account2) {
-	                    		trips.add(t);
-					
-	                    	}
-	                		
-	                 
-	                tx.commit();
-	                 }
-	            } catch (Exception ex) {
-	                System.out.println("$ Error showing trips: " + ex.getMessage());
-	            } finally {
-	                if (tx != null && tx.isActive()) {
-	                    tx.rollback();
-	                }
+				int account1 = 0;
+				int account2 = 0;
 
-	                pm.close();
-	            }
-		  
-		    return trips;
-	          }
-		  
+				if (!t.getDestiny().equals("")) {
+					account1++;
+					if (t.getDestiny().contains(destiny) || t.getDestiny().toLowerCase().contains(destiny)) {
+						account2++;
+					}
+				}
+				if (account1 == account2) {
+					trips.add(t);
+
+				}
+
+				tx.commit();
+			}
+		} catch (Exception ex) {
+			System.out.println("$ Error showing trips: " + ex.getMessage());
+		} finally {
+			if (tx != null && tx.isActive()) {
+				tx.rollback();
+			}
+
+			pm.close();
+		}
+
+		return trips;
+	}
+
 }
-

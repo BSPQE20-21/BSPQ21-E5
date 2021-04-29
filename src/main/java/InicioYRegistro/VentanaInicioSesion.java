@@ -64,10 +64,10 @@ import VentanaPrincipal.VentanaPrincipal;
 		public VentanaInicioSesion() {
 			
 
-			DBManager dbm = new DBManager();
+			DBManager dbm = DBManager.getInstance();
 			try {
 				
-				clientes =dbm.listarClientes();
+				clientes = dbm.listarClientes();
 				
 			} catch (DBException e1) {
 				e1.printStackTrace();
