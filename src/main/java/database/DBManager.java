@@ -2,6 +2,7 @@ package database;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Iterator;
 import java.util.List;
 
 import javax.jdo.Extent;
@@ -11,9 +12,9 @@ import javax.jdo.PersistenceManagerFactory;
 import javax.jdo.Query;
 import javax.jdo.Transaction;
 
-
-
-import data.*;
+import data.Cliente;
+import data.Ticket;
+import data.Trip;
 
 
 public class DBManager {
@@ -130,10 +131,12 @@ public class DBManager {
 	
 	// Ticket booking
 
-	public Ticket bookATicket(Cliente client) {		// WIP
-		return null;
+	public void bookATicket(String code, String date, String orig, String dest, float price) {
+		pushToDB(new Ticket(code, date, orig, dest, price));
 	}
 
+	// Return a list of trips
+	
 	public List<Trip> getTrips() {
 		PersistenceManagerFactory pmf = JDOHelper.getPersistenceManagerFactory("datanucleus.properties");
 		PersistenceManager pm = pmf.getPersistenceManager();
@@ -227,5 +230,44 @@ public class DBManager {
 			pm.close();
 		}
 		return trips;
+	}
+	
+	// Return a list of tickets 
+	
+	public List<Ticket> getTickets() {
+		PersistenceManager pm = pmf.getPersistenceManager();
+		pm.getFetchPlan().setMaxFetchDepth(4);
+		Transaction tx = pm.currentTransaction();
+
+		List<Ticket> tickets = new ArrayList<>();
+
+		try {
+			System.out.println("* Viewing the tickets");
+			tx.begin();
+			Extent<Ticket> e = pm.getExtent(Ticket.class, true);
+			Iterator<Ticket> i = e.iterator();
+			while (i.hasNext()) {
+				Ticket t = (Ticket) i.next();
+
+				pm.makeTransient(t.getCodigo());
+				pm.makeTransient(t.getDate());
+				pm.makeTransient(t.getOrigen());
+				pm.makeTransient(t.getDestino());
+				pm.makeTransient(t.getPrecio());
+
+				pm.makeTransient(t); // 😐
+				tickets.add(t);
+			}
+			tx.commit();
+		} catch (Exception ex) {
+			System.out.println("$ Error viendo todos facturas: " + ex.getMessage());
+		} finally {
+			if (tx != null && tx.isActive()) {
+				tx.rollback();
+			}
+
+			pm.close();
+		}
+		return tickets;
 	}
 }

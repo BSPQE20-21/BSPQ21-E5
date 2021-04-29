@@ -71,8 +71,8 @@ public class ExampleClient {
 		String hostname = args[0];
 		String port = args[1];
 
-//		Client exampleClient = new Client(hostname, port);
-//		exampleClient.registerUser("dipina", "dipina");
-//		exampleClient.sayMessage("dipina", "dipina", "This is a test!...");
+		ExampleClient exampleClient = new ExampleClient(hostname, port);
+		exampleClient.registerUser("dipina", "dipina");
+		exampleClient.sayMessage("dipina", "dipina", "This is a test!...");
 	}
 }
