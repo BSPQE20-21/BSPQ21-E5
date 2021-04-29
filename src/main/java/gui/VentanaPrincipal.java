@@ -1,4 +1,4 @@
-package VentanaPrincipal;
+package gui;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
@@ -9,10 +9,9 @@ import javax.swing.border.EmptyBorder;
 
 import com.toedter.calendar.JDateChooser;
 
-import InicioYRegistro.*;
-import Ventanas.VentanaSalidas;
-import BD.*;
-import Classes.*;
+import gui.*;
+import database.*;
+import data.*;
 
 import javax.swing.JLabel;
 import java.awt.Color;
@@ -67,7 +66,7 @@ public class VentanaPrincipal extends JFrame {
 		comboBoxInformacion.addItem("Termibus Station");
 		comboBoxInformacion.addItem("General information");
 		comboBoxInformacion.addItem("Services");
-		comboBoxInformacion.addItem("Maps");
+		comboBoxInformacion.addItem("Maps");		
 
 		JComboBox comboBoxLocation = new JComboBox();
 		comboBoxLocation.setFont(new Font("Tahoma", Font.BOLD, 12));
@@ -260,8 +259,8 @@ public class VentanaPrincipal extends JFrame {
 					trip.setDate(fechaSalida.getDateFormatString());
 					dbm.insertarTrip(trip);
 
-					VentanaSalidas vs = new VentanaSalidas(client);
-					vs.setVisible(true);
+					//VentanaSalidas vs = new VentanaSalidas(client);
+					//vs.setVisible(true);
 					dispose();
 
 				} catch (Exception e1) {

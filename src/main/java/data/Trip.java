@@ -1,4 +1,4 @@
-package Classes;
+package data;
 import javax.jdo.annotations.ForeignKey;
 import javax.jdo.annotations.IdGeneratorStrategy;
 import javax.jdo.annotations.Inheritance;

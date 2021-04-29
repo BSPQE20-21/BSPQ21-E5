@@ -1,44 +1,65 @@
-package Ventanas;
+package gui;
 
 import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Component;
-import java.awt.Font;
+import java.awt.EventQueue;
 
-import com.toedter.calendar.JDateChooser;
-
-import javax.swing.JCheckBox;
-import javax.swing.JComboBox;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTable;
-import javax.swing.JTextField;
-import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
+import com.toedter.calendar.JDateChooser;
+
+import database.*;
+import data.*;
 
 
-public class VentanaLlegadas extends JFrame {
+import java.awt.Color;
+import java.awt.Component;
+
+import javax.swing.JLabel;
+import javax.swing.JComboBox;
+import java.awt.Font;
+import java.awt.List;
+import java.util.ArrayList;
+
+import javax.swing.DefaultListModel;
+import javax.swing.JFrame;
+import javax.swing.JList;
+
+import java.util.*;
+import javax.swing.JCheckBox;
+import java.awt.FlowLayout;
+import javax.swing.SwingConstants;
+import javax.swing.JTextField;
+import javax.swing.JTable;
+
+public class VentanaSalidas extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textFieldDestino;
 	
-
 	/**
 	 * Launch the application.
 	 */
-
 	
 
 	/**
 	 * Create the frame.
 	 */
-	public VentanaLlegadas() {
+	public VentanaSalidas(Cliente client) {
+	
+		
+		
+		
+		
+		
+		
+		
+		setForeground(Color.DARK_GRAY);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 917, 574);
+		setBounds(100, 100, 873, 548);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -89,28 +110,33 @@ public class VentanaLlegadas extends JFrame {
 		panelNorte.add(chckbxCastellano);
 		
 		JPanel panelCentral = new JPanel();
+		panelCentral.setBackground(Color.DARK_GRAY);
 		panelCentral.setBounds(10, 98, 870, 429);
 		contentPane.add(panelCentral);
 		panelCentral.setLayout(new BorderLayout(0, 0));
 		
 		JLabel lblNewLabel = new JLabel("Departures ");
+		lblNewLabel.setForeground(Color.WHITE);
 		lblNewLabel.setVerticalAlignment(SwingConstants.TOP);
 		lblNewLabel.setBackground(Color.RED);
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 18));
 		panelCentral.add(lblNewLabel, BorderLayout.NORTH);
 		
 		JPanel panelViaje = new JPanel();
+		panelViaje.setBackground(Color.GRAY);
 		panelCentral.add(panelViaje, BorderLayout.CENTER);
 		panelViaje.setLayout(null);
 		
 		JPanel panelArriba = new JPanel();
-		panelArriba.setBounds(153, 38, 534, 276);
+		panelArriba.setBackground(Color.RED);
+		panelArriba.setForeground(Color.RED);
+		panelArriba.setBounds(188, 38, 499, 251);
 		panelViaje.add(panelArriba);
 		panelArriba.setLayout(null);
 		
 		JLabel lblDestino = new JLabel("Destination");
-		lblDestino.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		lblDestino.setForeground(Color.WHITE);
+		lblDestino.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lblDestino.setForeground(Color.BLACK);
 		lblDestino.setBackground(Color.DARK_GRAY);
 		lblDestino.setBounds(23, 10, 85, 34);
 		panelArriba.add(lblDestino);
@@ -123,41 +149,17 @@ public class VentanaLlegadas extends JFrame {
 		JLabel lblDate = new JLabel("Date:");
 		lblDate.setBackground(Color.DARK_GRAY);
 		lblDate.setFont(new Font("Tahoma", Font.BOLD, 12));
-		lblDate.setBounds(244, 10, 78, 25);
+		lblDate.setBounds(244, 15, 78, 25);
 		panelArriba.add(lblDate);
 		
 		JDateChooser fechaLlegada = new JDateChooser();
 		fechaLlegada.setBounds(302, 10, 147, 28);
 		panelArriba.add(fechaLlegada);
-		
-		DefaultTableModel modeloTabla;
-		  modeloTabla = new DefaultTableModel() {
-				public boolean isCellEditable(int row,int column) {
-						return false;
-				}
-			};
-		JTable table = new JTable(modeloTabla);
-		String[] ids = {"Destiny", "Date", "Price"};
-		modeloTabla.setColumnIdentifiers(ids);
-		table.setBounds(21, 69, 475, 181);
-		panelArriba.add(table);
+	
 		
 		
-		table.setDefaultRenderer(Object.class, new DefaultTableCellRenderer() {
-			
-			@Override
-			public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus,
-					int row, int column) {
-				Component c = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
-				Font fuente = new Font("Arial", Font.BOLD, 12);
-				if(isSelected)
-					c.setFont(fuente);
-				return c;
-			
-			}
-		});
+	
 		
 		
 	}
 }
-

@@ -1,4 +1,4 @@
-package BD;
+package database;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -13,9 +13,8 @@ import javax.jdo.Transaction;
 
 
 
-import Classes.Cliente;
-import Classes.Ticket;
-import Classes.Trip;
+import data.*;
+
 
 public class DBManager {
 	

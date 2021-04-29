@@ -1,4 +1,4 @@
-package Classes;
+package data;
 
 import javax.jdo.annotations.Inheritance;
 import javax.jdo.annotations.InheritanceStrategy;

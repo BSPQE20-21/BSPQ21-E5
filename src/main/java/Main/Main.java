@@ -1,8 +1,8 @@
 package Main;
 
-import BD.DBException;
-import BD.DBManager;
-import VentanaPrincipal.VentanaPrincipal;
+import database.DBException;
+import database.DBManager;
+import gui.VentanaPrincipal;
 
 public class Main {
 
@@ -11,8 +11,8 @@ public class Main {
 //		VentanaRegistro vr = new VentanaRegistro();
 //		vr.setVisible(true);
 
-		VentanaPrincipal vp = new VentanaPrincipal(null);
-		vp.setVisible(true);
+		//VentanaPrincipal vp = new VentanaPrincipal(null);
+		//vp.setVisible(true);
 //		
 //		VentanaSalidas vs = new VentanaSalidas(null);
 //		vs.setVisible(true);

@@ -8,7 +8,7 @@ public class testCliente {
 
 	@Test
 	public void test() {
-		fail("Not yet implemented");
+		
 	}
 
 }

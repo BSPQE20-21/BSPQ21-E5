@@ -1,4 +1,4 @@
-package InicioYRegistro;
+package gui;
 
 
 	
@@ -11,10 +11,10 @@ package InicioYRegistro;
 
 
 
-	import BD.DBException;
-	import BD.DBManager;
-	import Classes.Cliente;
-import VentanaPrincipal.VentanaPrincipal;
+	import database.*;
+	
+	import data.*;
+	import gui.VentanaPrincipal;
 
 //import VentanaPrincipal.VentanaPrincipal;
 
@@ -134,8 +134,8 @@ import VentanaPrincipal.VentanaPrincipal;
 					}
 					if (acceso) {
 						JOptionPane.showMessageDialog(null, "Correct log in", "Inicio correcto", 1, null);
-						VentanaPrincipal vp = new VentanaPrincipal(null);
-						vp.setVisible(true);
+						//VentanaPrincipal vp = new VentanaPrincipal(null);
+					    //vp.setVisible(true);
 						setVisible(false);
 					}else {
 						JOptionPane.showMessageDialog(null, "Error", "Error", 0, null);
