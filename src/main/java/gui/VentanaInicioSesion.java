@@ -67,7 +67,7 @@ package gui;
 			DBManager dbm = DBManager.getInstance();
 			try {
 				
-				clientes = dbm.listarClientes();
+				clientes = dbm.getClients();
 				
 			} catch (DBException e1) {
 				e1.printStackTrace();

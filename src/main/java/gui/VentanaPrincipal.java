@@ -257,7 +257,7 @@ public class VentanaPrincipal extends JFrame {
 				try {
 					trip.setDestiny(comboBoxDestination.getName());
 					trip.setDate(fechaSalida.getDateFormatString());
-					dbm.insertarTrip(trip);
+					dbm.pushToDB(trip);
 
 					//VentanaSalidas vs = new VentanaSalidas(client);
 					//vs.setVisible(true);

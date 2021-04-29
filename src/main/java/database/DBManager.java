@@ -21,11 +21,12 @@ public class DBManager {
 	private static DBManager instance = null;
 	private PersistenceManagerFactory pmf = null;
 
+	// Singleton usage to instance DB once at a time
+	
 	public static DBManager getInstance() {
 		if (instance == null) {
 			instance = new DBManager();
 		}
-
 		return instance;
 	}
 
@@ -33,42 +34,69 @@ public class DBManager {
 		pmf = JDOHelper.getPersistenceManagerFactory("datanucleus.properties");
 	}
 
+	// Testing data
+	
 	public void preparedData() throws DBException {
+		Cliente client1 = new Cliente("Antonio", "antonio@gmail.com", "1234");
+		Cliente client2 = new Cliente("Paco", "paco@hotmail.com", "5678");
+		Cliente client3 = new Cliente("Juanjo", "juanjo@gmail.com", "91011");
 
-		PersistenceManagerFactory pmf = JDOHelper.getPersistenceManagerFactory("datanucleus.properties");
-		PersistenceManager pm = pmf.getPersistenceManager();
-		Transaction tx = pm.currentTransaction();
+		Trip trip1 = new Trip(1234, 40, "21/03/2021", "Madrid");
+		Trip trip2 = new Trip(5678, 60, "07/01/2021", "Barcelona");
+		Trip trip3 = new Trip(91011, 70, "13/02/2021", "Sevilla");
 
-		try {
-			tx.begin();
-
-			Cliente client1 = new Cliente("Antonio", "antonio@gmail.com", "1234");
-			pm.makePersistent(client1);
-			Cliente client2 = new Cliente("Paco", "paco@hotmail.com", "5678");
-			pm.makePersistent(client2);
-			Cliente client3 = new Cliente("Juanjo", "juanjo@gmail.com", "91011");
-			pm.makePersistent(client3);
-
-			tx.begin();
-			Trip trip1 = new Trip(1234, 40, "21/03/2021", "Madrid");
-			pm.makePersistent(trip1);
-			Trip trip2 = new Trip(5678, 60, "07/01/2021", "Barcelona");
-			pm.makePersistent(trip2);
-			Trip trip3 = new Trip(91011, 70, "13/02/2021", "Madrid");
-			pm.makePersistent(trip3);
-
-			tx.commit();
-
-		} finally {
-			if (tx.isActive()) {
-				tx.rollback();
-			}
-			pm.close();
-		}
+		pushToDB(client1);
+		pushToDB(client2);
+		pushToDB(client3);
+		
+		pushToDB(trip1);
+		pushToDB(trip2);
+		pushToDB(trip3);
 	}
 
-	// LISTAR ClienteS DE BD
-	public List<Cliente> listarClientes() throws DBException {
+	// Push object to DB
+	
+    public void pushObjToDB(Object object) {
+        PersistenceManager pm = pmf.getPersistenceManager();
+        pm.getFetchPlan().setMaxFetchDepth(4);
+        Transaction tx = pm.currentTransaction();
+
+        try {
+            tx.begin();
+            System.out.println("* Storing an object: " + object);
+            pm.makePersistent(object);
+            tx.commit();
+        } catch (Exception ex) {
+            System.out.println("$ Error storing an object: " + ex.getMessage());
+        } finally {
+            if (tx != null && tx.isActive()) {
+                tx.rollback();
+            }
+            pm.close();
+        }
+    }
+    
+    // Push client to DB
+    
+    public void pushToDB(Cliente c) {
+        DBManager.getInstance().pushObjToDB(c);
+    }
+    
+    // Push trip to DB
+    
+    public void pushToDB(Trip t) {
+        DBManager.getInstance().pushObjToDB(t);
+    }
+    
+    // Push ticket to DB
+    
+    public void pushToDB(Ticket t) {
+        DBManager.getInstance().pushObjToDB(t);
+    }
+    
+    // Return a list of clients
+
+	public List<Cliente> getClients() throws DBException {
 		PersistenceManagerFactory pmf = JDOHelper.getPersistenceManagerFactory("datanucleus.properties");
 		PersistenceManager pm = pmf.getPersistenceManager();
 		Transaction tx = pm.currentTransaction();
@@ -83,92 +111,27 @@ public class DBManager {
 		tx.commit();
 		pm.close();
 		return results;
-
 	}
 
-	public boolean existeCliente(Cliente Cliente) throws DBException {
+	// Exists client
+	
+	public boolean existsClient(Cliente client) throws DBException {
 
 		boolean existe = false;
-		List<Cliente> clientes = listarClientes();
+		List<Cliente> clientes = getClients();
 
-		for (Cliente client : clientes) {
-			if (client.getName().equals(Cliente.getName())) {
+		for (Cliente c : clientes) {
+			if (c.getName().equals(client.getName())) {
 				existe = true;
 			}
 		}
-
 		return existe;
-
 	}
+	
+	// Ticket booking
 
-	// INSERTAR Cliente
-	public void insertarCliente(Cliente client) throws DBException {
-
-		PersistenceManagerFactory pmf = JDOHelper.getPersistenceManagerFactory("datanucleus.properties");
-		PersistenceManager pm = pmf.getPersistenceManager();
-		Transaction tx = pm.currentTransaction();
-
-		try {
-			tx.begin();
-
-			pm.makePersistent(client);
-
-			tx.commit();
-
-		} finally {
-			if (tx.isActive()) {
-				tx.rollback();
-			}
-			pm.close();
-		}
-
-	}
-
-	public void introduceATrip(Trip trip) throws DBException {
-
-		PersistenceManagerFactory pmf = JDOHelper.getPersistenceManagerFactory("datanucleus.properties");
-		PersistenceManager pm = pmf.getPersistenceManager();
-		Transaction tx = pm.currentTransaction();
-
-		tx.begin();
-
-		Query query = pm.newQuery("javax.jdo.query.SQL", "INSERT INTO TRIP(busID, cost, date, destiny) VALUES()");
-
-		query.setClass(Trip.class);
-		Long update = (Long) query.execute();
-
-		tx.commit();
-		pm.close();
-
-	}
-
-	public Ticket bookATicketaso(Cliente client) {
-		PersistenceManagerFactory pmf = JDOHelper.getPersistenceManagerFactory("datanucleus.properties");
-		PersistenceManager pm = pmf.getPersistenceManager();
-		Transaction tx = pm.currentTransaction();
-
+	public Ticket bookATicket(Cliente client) {		// WIP
 		return null;
-
-	}
-
-	// Create a new Trip
-	public void insertarTrip(Trip trip) throws DBException {
-
-		PersistenceManagerFactory pmf = JDOHelper.getPersistenceManagerFactory("datanucleus.properties");
-		PersistenceManager pm = pmf.getPersistenceManager();
-		Transaction tx = pm.currentTransaction();
-
-		try {
-			tx.begin();
-			pm.makePersistent(trip);
-			tx.commit();
-
-		} finally {
-			if (tx.isActive()) {
-				tx.rollback();
-			}
-			pm.close();
-		}
 	}
 
 	public List<Trip> getTrips() {
@@ -206,7 +169,9 @@ public class DBManager {
 
 	}
 
-	public List<Trip> trips(int clientID) throws DBException {
+	// Get trips from a specific client
+	
+	public List<Trip> getClientTrips(int clientID) throws DBException {
 		PersistenceManagerFactory pmf = JDOHelper.getPersistenceManagerFactory("datanucleus.properties");
 		PersistenceManager pm = pmf.getPersistenceManager();
 		Transaction tx = pm.currentTransaction();
@@ -222,6 +187,8 @@ public class DBManager {
 		return conclusion;
 	}
 
+	// Get a specific trip
+	
 	public List<Trip> getSelectedTrip(String destiny, Calendar date) {
 		PersistenceManagerFactory pmf = JDOHelper.getPersistenceManagerFactory("datanucleus.properties");
 		PersistenceManager pm = pmf.getPersistenceManager();
@@ -235,7 +202,6 @@ public class DBManager {
 			Extent<Trip> tripsExtent = pm.getExtent(Trip.class, true);
 
 			for (Trip trip : tripsExtent) {
-
 				Trip t = new Trip(trip.getBusID(), trip.getCost(), trip.getDate(), trip.getDestiny());
 
 				int account1 = 0;
@@ -249,9 +215,7 @@ public class DBManager {
 				}
 				if (account1 == account2) {
 					trips.add(t);
-
 				}
-
 				tx.commit();
 			}
 		} catch (Exception ex) {
@@ -260,11 +224,8 @@ public class DBManager {
 			if (tx != null && tx.isActive()) {
 				tx.rollback();
 			}
-
 			pm.close();
 		}
-
 		return trips;
 	}
-
 }

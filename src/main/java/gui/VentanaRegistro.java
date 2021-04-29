@@ -21,10 +21,7 @@ import data.*;
 public class VentanaRegistro extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField txtClientName;
-	private JTextField txtClientMail;
-	private JTextField txtClientPw;
-	private JTextField txtClientPw2;
+	private JTextField txtClientName, txtClientMail, txtClientPw, txtClientPw2;
 	private List<Cliente> clientes;
 	private String name, mail, pw, pwRepeat, age;
 
@@ -118,7 +115,7 @@ public class VentanaRegistro extends JFrame {
 
 		dbm = DBManager.getInstance();
 		try {
-			clientes = dbm.listarClientes();
+			clientes = dbm.getClients();
 		} catch (DBException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
@@ -137,16 +134,10 @@ public class VentanaRegistro extends JFrame {
 				Cliente user = new Cliente(name, mail, pw);
 
 				try {
-					if (!dbm.existeCliente(user)) {
+					if (!dbm.existsClient(user)) {
 						if (pw.equals(pwRepeat)) {
 
-							try {
-
-								dbm.insertarCliente(user);
-
-							} catch (DBException e1) {
-								e1.printStackTrace();
-							}
+							dbm.pushToDB(user);
 							JOptionPane.showMessageDialog(null, "Account created", "Welcome", 1, null);
 
 							VentanaInicioSesion vi = new VentanaInicioSesion();
@@ -167,9 +158,7 @@ public class VentanaRegistro extends JFrame {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
-
 			}
 		});
-
 	}
 }
