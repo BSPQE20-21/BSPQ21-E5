@@ -2,11 +2,11 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>org.datanucleus</groupId>
-	<artifactId>B5-Project</artifactId>
+	<groupId>es.termibus</groupId>
+	<artifactId>TermibusApp</artifactId>
 	<packaging>jar</packaging>
 	<version>3.0</version>
-	<name>termibus service jdo</name>
+	<name>Termibus Bus Service App</name>
 	<url>http://www.datanucleus.org</url>
 
 	<properties>
@@ -98,6 +98,22 @@
 				</configuration>
 			</plugin>
 			<plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>1.2.1</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>java</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                		<!-- run as 'mvn exec:java' -->
+                    <mainClass>es.termibus.Main</mainClass>
+                </configuration>
+            </plugin>
+			<plugin>
 				<groupId>org.datanucleus</groupId>
 				<artifactId>datanucleus-maven-plugin</artifactId>
 				<version>5.0.2</version>
@@ -144,6 +160,29 @@
 				</plugins>
 			</build>
 		</profile>
+		<!-- run as 'mvn exec:java -Pdata' -->
+		<profile>
+            <id>data</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>exec-maven-plugin</artifactId>
+                        <version>1.2.1</version>
+                        <executions>
+                            <execution>
+                                <goals>
+                                    <goal>java</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                        <configuration>
+                            <mainClass>es.termibus.util.PreparedData</mainClass>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
 	</profiles>
 	<repositories>
 		<repository>

@@ -7,8 +7,8 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import data.Ticket;
-import database.DBManager;
+import es.termibus.data.Ticket;
+import es.termibus.database.DBManager;
 
 public class Server {
 
