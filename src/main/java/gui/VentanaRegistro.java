@@ -101,13 +101,13 @@ public class VentanaRegistro extends JFrame {
 		contentPane.add(txtClientPw2);
 		txtClientPw2.setColumns(10);
 
-		JButton btnSingUp = new JButton("SingUp");
-		btnSingUp.addActionListener(new ActionListener() {
+		JButton btnSignUp = new JButton("Sign up");
+		btnSignUp.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnSingUp.setBounds(280, 214, 89, 23);
-		contentPane.add(btnSingUp);
+		btnSignUp.setBounds(280, 214, 89, 23);
+		contentPane.add(btnSignUp);
 
 		JLabel lblAge = new JLabel("Age");
 		lblAge.setBounds(10, 89, 45, 13);
@@ -121,7 +121,7 @@ public class VentanaRegistro extends JFrame {
 			e1.printStackTrace();
 		}
 
-		btnSingUp.addActionListener(new ActionListener() {
+		btnSignUp.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 

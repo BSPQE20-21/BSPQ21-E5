@@ -77,13 +77,13 @@
 			<version>[1.2.17, )</version>
 		</dependency>
 
-	<!-- https://mvnrepository.com/artifact/com.toedter/jcalendar -->
-	<dependency>
-		<groupId>com.toedter</groupId>
-		<artifactId>jcalendar</artifactId>
-		<version>1.4</version>
-	</dependency>
-		
+		<!-- https://mvnrepository.com/artifact/com.toedter/jcalendar -->
+		<dependency>
+			<groupId>com.toedter</groupId>
+			<artifactId>jcalendar</artifactId>
+			<version>1.4</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>
@@ -134,7 +134,7 @@
 						<artifactId>exec-maven-plugin</artifactId>
 						<version>1.2.1</version>
 						<configuration>
-							<mainClass>es.deusto.client.ExampleClient</mainClass>
+							<mainClass>es.termibus.client.ExampleClient</mainClass>
 							<arguments>
 								<argument>${server.hostname}</argument>
 								<argument>${server.port}</argument>

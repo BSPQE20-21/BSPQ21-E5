@@ -1,32 +1,32 @@
 package gui;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-
-import com.toedter.calendar.JDateChooser;
-
-import gui.*;
-import database.*;
-import data.*;
-
-import javax.swing.JLabel;
 import java.awt.Color;
-import javax.swing.JComboBox;
 import java.awt.Font;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.ImageIcon;
-import javax.swing.JCheckBox;
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+
+import com.toedter.calendar.JDateChooser;
+
+import data.Cliente;
+import data.Selection;
+import data.Trip;
+import database.DBManager;
 
 public class VentanaPrincipal extends JFrame {
 
@@ -43,6 +43,9 @@ public class VentanaPrincipal extends JFrame {
 	 */
 
 	public VentanaPrincipal(Cliente client) {
+		DBManager dbm = DBManager.getInstance();
+		List<Trip> trips = new ArrayList<Trip>(dbm.getTrips());
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 893, 578);
 		contentPane = new JPanel();
@@ -165,11 +168,10 @@ public class VentanaPrincipal extends JFrame {
 		JComboBox comboBoxDestination = new JComboBox();
 		comboBoxDestination.setBounds(106, 52, 133, 28);
 		panelSalidas.add(comboBoxDestination);
-		comboBoxDestination.addItem("All destinations...");
-		comboBoxDestination.addItem("Madrid");
-		comboBoxDestination.addItem("Sevilla.");
-		comboBoxDestination.addItem("Barcelona.");
-		comboBoxDestination.addItem("Valencia");
+		
+		for (int i = 0; i < trips.size(); i++) {
+			comboBoxDestination.addItem(trips.get(i).getDestiny());
+		}
 
 		JLabel lblDate = new JLabel("Date");
 		lblDate.setForeground(Color.WHITE);
@@ -180,12 +182,30 @@ public class VentanaPrincipal extends JFrame {
 		JDateChooser fechaSalida = new JDateChooser();
 		fechaSalida.setBounds(299, 52, 147, 28);
 		panelSalidas.add(fechaSalida);
-
+		
+		DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+		
 		JButton btnSearchSalida = new JButton("SEARCH");
 		btnSearchSalida.setBackground(Color.RED);
 		btnSearchSalida.setBounds(463, 58, 85, 21);
 		panelSalidas.add(btnSearchSalida);
 
+		// Search for the trip selected
+		
+		btnSearchSalida.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent arg0) {		
+				Selection s = new Selection(comboBoxDestination.getSelectedItem().toString(), df.format(fechaSalida.getDate()));
+				
+				for(Trip t : trips) {
+					if(s.getCity().equals(t.getDestiny()) && s.getDate().equals(t.getDate())) {
+						System.out.println("\nFunciona :)");
+					}
+				}
+			}
+		});
+		
 		JPanel panelLlegadas = new JPanel();
 		panelLlegadas.setLayout(null);
 		panelLlegadas.setBackground(Color.DARK_GRAY);
@@ -245,9 +265,6 @@ public class VentanaPrincipal extends JFrame {
 		lblknowUs.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblknowUs.setBounds(665, 89, 194, 29);
 		panelSur.add(lblknowUs);
-
-		DBManager dbm = DBManager.getInstance();
-		List<Trip> trips;
 
 		btnSearchSalida.addActionListener(new ActionListener() {
 

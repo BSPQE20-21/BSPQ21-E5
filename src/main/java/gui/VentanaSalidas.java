@@ -48,15 +48,8 @@ public class VentanaSalidas extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public VentanaSalidas(Cliente client) {
-	
-		
-		
-		
-		
-		
-		
-		
+	public VentanaSalidas() {
+
 		setForeground(Color.DARK_GRAY);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 873, 548);
