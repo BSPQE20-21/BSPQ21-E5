@@ -26,7 +26,7 @@ public class VentanaSalidas extends JFrame {
 	public VentanaSalidas(List<Selection> tripsSelection) {
 		DefaultListModel<Selection> model = new DefaultListModel<Selection>();
 		
-		//System.out.println(tripsSelection.size());
+		System.out.println(tripsSelection.size());
 		
 		setForeground(Color.DARK_GRAY);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
