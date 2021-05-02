@@ -192,20 +192,6 @@ public class VentanaPrincipal extends JFrame {
 
 		// Search for the trip selected
 		
-		btnSearchSalida.addActionListener(new ActionListener() {
-			
-			@Override
-			public void actionPerformed(ActionEvent arg0) {		
-				Selection s = new Selection(comboBoxDestination.getSelectedItem().toString(), df.format(fechaSalida.getDate()));
-				
-				for(Trip t : trips) {
-					if(s.getCity().equals(t.getDestiny()) && s.getDate().equals(t.getDate())) {
-						System.out.println("\nFunciona :)");
-					}
-				}
-			}
-		});
-		
 		JPanel panelLlegadas = new JPanel();
 		panelLlegadas.setLayout(null);
 		panelLlegadas.setBackground(Color.DARK_GRAY);
@@ -266,43 +252,27 @@ public class VentanaPrincipal extends JFrame {
 		lblknowUs.setBounds(665, 89, 194, 29);
 		panelSur.add(lblknowUs);
 
+		
 		btnSearchSalida.addActionListener(new ActionListener() {
-
+			
 			@Override
-			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
-				try {
-					trip.setDestiny(comboBoxDestination.getName());
-					trip.setDate(fechaSalida.getDateFormatString());
-					dbm.pushToDB(trip);
-
-					//VentanaSalidas vs = new VentanaSalidas(client);
-					//vs.setVisible(true);
-					dispose();
-
-				} catch (Exception e1) {
-					// TODO: handle exception
-					e1.printStackTrace();
-				}
-
-				panelCentro.removeAll();
-				panelCentro.revalidate();
-
-				String destino = comboBoxDestination.getName();
-
-				List<Trip> tripsChosen;
-
-				tripsChosen = dbm.getSelectedTrip(destino, fechaSalida.getCalendar());
-
-				for (Trip t : tripsChosen) {
-					if (t.getDestiny() != null) {
-
+			public void actionPerformed(ActionEvent arg0) {		
+				Selection s = new Selection(comboBoxDestination.getSelectedItem().toString(), df.format(fechaSalida.getDate()));
+				List<Selection> listOfSel = new ArrayList<Selection>();
+				
+				for(Trip t : trips) {
+					if(s.getCity().equals(t.getDestiny()) && s.getDate().equals(t.getDate())) {			
+						listOfSel.add(s);
+						System.out.println("\nFunciona: " + s.getCity());
 					}
 				}
-
+				setVisible(false);
+				VentanaSalidas vs = new VentanaSalidas(listOfSel);
+				vs.setVisible(true);
 			}
 		});
-
+		
+		
 		lblknowUs.addMouseListener(new MouseListener() {
 
 			@Override

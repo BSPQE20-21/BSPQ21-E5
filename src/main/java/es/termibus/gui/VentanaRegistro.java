@@ -146,7 +146,7 @@ public class VentanaRegistro extends JFrame {
 							vi.setVisible(true);
 
 						} else {
-							JOptionPane.showMessageDialog(null, "Passwords don't coincide", "Error", 0, null);
+							JOptionPane.showMessageDialog(null, "Passwords were not the same", "Error", 0, null);
 						}
 					} else {
 						JOptionPane.showMessageDialog(null, "Client's name already in use", "Error", 0, null);

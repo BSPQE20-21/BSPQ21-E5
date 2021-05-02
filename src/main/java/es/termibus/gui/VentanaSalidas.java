@@ -3,33 +3,31 @@ package es.termibus.gui;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
+import java.util.List;
 
+import javax.swing.DefaultListModel;
+import javax.swing.JButton;
 import javax.swing.JCheckBox;
-import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JList;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
+import javax.swing.JScrollPane;
+import javax.swing.ScrollPaneConstants;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
-import com.toedter.calendar.JDateChooser;
+import es.termibus.data.Selection;
 
 public class VentanaSalidas extends JFrame {
-
+	
 	private JPanel contentPane;
-	private JTextField textFieldDestino;
-	
-	/**
-	 * Launch the application.
-	 */
-	
 
-	/**
-	 * Create the frame.
-	 */
-	public VentanaSalidas() {
-
+	public VentanaSalidas(List<Selection> tripsSelection) {
+		DefaultListModel<Selection> model = new DefaultListModel<Selection>();
+		
+		//System.out.println(tripsSelection.size());
+		
 		setForeground(Color.DARK_GRAY);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 873, 548);
@@ -48,22 +46,6 @@ public class VentanaSalidas extends JFrame {
 		lblLogo.setBounds(10, 10, 152, 53);
 		panelNorte.add(lblLogo);
 		
-		JComboBox comboBoxInformacion = new JComboBox();
-		comboBoxInformacion.setFont(new Font("Tahoma", Font.BOLD, 12));
-		comboBoxInformacion.setBounds(194, 25, 152, 38);
-		panelNorte.add(comboBoxInformacion);
-		comboBoxInformacion.addItem("Termibus Station");
-		comboBoxInformacion.addItem("General information");
-		comboBoxInformacion.addItem("Services");
-		comboBoxInformacion.addItem("Maps");
-		
-		JComboBox comboBoxLocation = new JComboBox();
-		comboBoxLocation.setFont(new Font("Tahoma", Font.BOLD, 12));
-		comboBoxLocation.setBounds(437, 25, 145, 38);
-		panelNorte.add(comboBoxLocation);
-		comboBoxLocation.addItem("Location");
-		comboBoxLocation.addItem("How to get there");
-		
 		JCheckBox chckbxEnglish = new JCheckBox("EN");
 		chckbxEnglish.setFont(new Font("Tahoma", Font.ITALIC, 10));
 		chckbxEnglish.setBackground(Color.LIGHT_GRAY);
@@ -81,6 +63,10 @@ public class VentanaSalidas extends JFrame {
 		chckbxCastellano.setBackground(Color.LIGHT_GRAY);
 		chckbxCastellano.setBounds(716, 61, 93, 21);
 		panelNorte.add(chckbxCastellano);
+		
+		JButton btnNewButton = new JButton("Go Back");
+		btnNewButton.setBounds(20, 35, 85, 21);
+		panelNorte.add(btnNewButton);
 		
 		JPanel panelCentral = new JPanel();
 		panelCentral.setBackground(Color.DARK_GRAY);
@@ -101,38 +87,41 @@ public class VentanaSalidas extends JFrame {
 		panelViaje.setLayout(null);
 		
 		JPanel panelArriba = new JPanel();
-		panelArriba.setBackground(Color.RED);
+		panelArriba.setBackground(Color.LIGHT_GRAY);
 		panelArriba.setForeground(Color.RED);
-		panelArriba.setBounds(188, 38, 499, 251);
+		panelArriba.setBounds(21, 20, 806, 341);
 		panelViaje.add(panelArriba);
 		panelArriba.setLayout(null);
 		
-		JLabel lblDestino = new JLabel("Destination");
-		lblDestino.setFont(new Font("Tahoma", Font.BOLD, 12));
-		lblDestino.setForeground(Color.BLACK);
-		lblDestino.setBackground(Color.DARK_GRAY);
-		lblDestino.setBounds(23, 10, 85, 34);
-		panelArriba.add(lblDestino);
+		JLabel lblTripsOn = new JLabel("Trips on ");
+		lblTripsOn.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblTripsOn.setBounds(27, 12, 57, 27);
+		panelArriba.add(lblTripsOn);
 		
-		textFieldDestino = new JTextField();
-		textFieldDestino.setBounds(138, 10, 96, 28);
-		panelArriba.add(textFieldDestino);
-		textFieldDestino.setColumns(10);
+		JLabel lblTripNDate = new JLabel("(Trip selected)");
+		lblTripNDate.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblTripNDate.setBounds(82, 13, 101, 25);
+		panelArriba.add(lblTripNDate);
 		
-		JLabel lblDate = new JLabel("Date:");
-		lblDate.setBackground(Color.DARK_GRAY);
-		lblDate.setFont(new Font("Tahoma", Font.BOLD, 12));
-		lblDate.setBounds(244, 15, 78, 25);
-		panelArriba.add(lblDate);
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+		scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+		scrollPane.setBounds(27, 67, 388, 251);
+		panelArriba.add(scrollPane);
 		
-		JDateChooser fechaLlegada = new JDateChooser();
-		fechaLlegada.setBounds(302, 10, 147, 28);
-		panelArriba.add(fechaLlegada);
-	
+		JList<Selection> tripList = new JList<Selection>();
+		tripList.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		
+		for (Selection s : tripsSelection) {
+			model.addElement(s);
+		}	
+
+		tripList.setModel(model);
+		scrollPane.setViewportView(tripList);
 		
-	
-		
-		
+		JButton btnNewButton_1 = new JButton("Book selected trip");
+		btnNewButton_1.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		btnNewButton_1.setBounds(465, 67, 292, 50);
+		panelArriba.add(btnNewButton_1);
 	}
 }

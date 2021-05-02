@@ -33,6 +33,6 @@ public class Selection {
 
 	@Override
 	public String toString() {
-		return "Selection [city=" + city + ", date=" + date + "]";
+		return city.toUpperCase() + " - " + date;
 	}
 }
