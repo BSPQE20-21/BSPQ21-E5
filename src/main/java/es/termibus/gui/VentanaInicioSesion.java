@@ -128,8 +128,8 @@ import es.termibus.database.DBManager;
 					}
 					if (acceso) {
 						JOptionPane.showMessageDialog(null, "Correct log in", "Inicio correcto", 1, null);
-						//VentanaPrincipal vp = new VentanaPrincipal(null);
-					    //vp.setVisible(true);
+						VentanaPrincipal vp = new VentanaPrincipal(user);
+					    vp.setVisible(true);
 						setVisible(false);
 					}else {
 						JOptionPane.showMessageDialog(null, "Error", "Error", 0, null);

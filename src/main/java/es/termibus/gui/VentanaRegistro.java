@@ -25,9 +25,10 @@ public class VentanaRegistro extends JFrame {
 	private JTextField txtClientName, txtClientMail, txtClientPw, txtClientPw2;
 	private List<Cliente> clientes;
 	private String dni, name, mail, pw, pwRepeat, age;
-
+	private Cliente user;
 	private DBManager dbm;
 	private JTextField txtClientAge;
+	private JTextField txtDNI;
 
 	/**
 	 * Launch the application.
@@ -62,7 +63,7 @@ public class VentanaRegistro extends JFrame {
 		contentPane.add(lblNewLabel);
 
 		JLabel lblName = new JLabel("Name");
-		lblName.setBounds(10, 54, 90, 14);
+		lblName.setBounds(10, 41, 90, 14);
 		contentPane.add(lblName);
 
 		JLabel lblMail = new JLabel("Mail");
@@ -78,12 +79,12 @@ public class VentanaRegistro extends JFrame {
 		contentPane.add(lblPw2);
 
 		txtClientName = new JTextField();
-		txtClientName.setBounds(147, 52, 222, 20);
+		txtClientName.setBounds(147, 39, 222, 20);
 		contentPane.add(txtClientName);
 		txtClientName.setColumns(10);
 
 		txtClientAge = new JTextField();
-		txtClientAge.setBounds(147, 90, 222, 19);
+		txtClientAge.setBounds(147, 66, 222, 19);
 		contentPane.add(txtClientAge);
 		txtClientAge.setColumns(10);
 
@@ -111,8 +112,17 @@ public class VentanaRegistro extends JFrame {
 		contentPane.add(btnSignUp);
 
 		JLabel lblAge = new JLabel("Age");
-		lblAge.setBounds(10, 89, 45, 13);
+		lblAge.setBounds(10, 69, 45, 13);
 		contentPane.add(lblAge);
+		
+		JLabel lblDNI = new JLabel("DNI");
+		lblDNI.setBounds(10, 99, 90, 14);
+		contentPane.add(lblDNI);
+		
+		txtDNI = new JTextField();
+		txtDNI.setColumns(10);
+		txtDNI.setBounds(147, 95, 222, 19);
+		contentPane.add(txtDNI);
 
 		dbm = DBManager.getInstance();
 		try {
@@ -125,15 +135,15 @@ public class VentanaRegistro extends JFrame {
 		btnSignUp.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-
+				dni = txtDNI.getText();
 				name = txtClientName.getText();
 				mail = txtClientMail.getText();
 				age = txtClientAge.getText();
 				pw = txtClientPw.getText();
 				pwRepeat = txtClientPw2.getText();
 
-				Cliente user = new Cliente(dni, name, mail, pw);
-
+				user = new Cliente(dni, name, mail, pw);
+				
 				try {
 					if (!dbm.existsClient(user)) {
 						if (pw.equals(pwRepeat)) {
@@ -151,7 +161,6 @@ public class VentanaRegistro extends JFrame {
 					} else {
 						JOptionPane.showMessageDialog(null, "Client's name already in use", "Error", 0, null);
 					}
-
 				} catch (HeadlessException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
@@ -161,5 +170,6 @@ public class VentanaRegistro extends JFrame {
 				}
 			}
 		});
+		
 	}
 }
