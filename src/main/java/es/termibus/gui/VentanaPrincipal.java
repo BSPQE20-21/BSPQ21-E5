@@ -93,7 +93,14 @@ public class VentanaPrincipal extends JFrame {
 		lblWelcomeUser.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		lblWelcomeUser.setBounds(188, 17, 309, 53);
 		panelNorte.add(lblWelcomeUser);
+		
+		JButton btnViewTrips = new JButton("View Booked Trips");
+		btnViewTrips.setBounds(471, 35, 99, 21);
+		panelNorte.add(btnViewTrips);
 
+		
+		
+		
 		if (VentanaInicioSesion.getUser() == null) {
 
 			JButton btnRegistro = new JButton("Create an account");
@@ -264,6 +271,18 @@ public class VentanaPrincipal extends JFrame {
 					setVisible(false);
 					VentanaSalidas vs = new VentanaSalidas(listOfTrips, client);
 					vs.setVisible(true);		
+			}
+		});
+		
+
+		btnViewTrips.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				setVisible(false);
+				VentanaViewMyTrips vv = new VentanaViewMyTrips(null, client);
+				vv.setVisible(true);
 			}
 		});
 		
