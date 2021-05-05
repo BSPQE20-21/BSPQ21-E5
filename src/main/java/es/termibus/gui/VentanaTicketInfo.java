@@ -54,7 +54,7 @@ public class VentanaTicketInfo extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblThankYou = new JLabel("Thank you for your booking, ");
+		JLabel lblThankYou = new JLabel("Thank you for your booking " + c.getName());
 		lblThankYou.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblThankYou.setBounds(26, 20, 238, 46);
 		contentPane.add(lblThankYou);
@@ -102,7 +102,7 @@ public class VentanaTicketInfo extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 				// TODO Auto-generated method stub
 				setVisible(false);
-				VentanaPrincipal vp = new VentanaPrincipal(null);
+				VentanaPrincipal vp = new VentanaPrincipal(c);
 				vp.setVisible(true);
 			}
 		});

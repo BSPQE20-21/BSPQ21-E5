@@ -27,7 +27,7 @@ import es.termibus.database.DBManager;
 
 	public class VentanaInicioSesion extends JFrame {
 
-		private static Cliente user;
+		private static Cliente cl;
 		private JPanel contentPane;
 		private JTextField txtClientName;
 		private JTextField txtPw;
@@ -121,21 +121,19 @@ import es.termibus.database.DBManager;
 					
 					for (Cliente user : clientes) {
 						if (user.getMail().equals(name) && user.getPw().equals(pw)) {
-							acceso = true;
-							
-						}
-						
+							acceso = true;	
+							// String DNI, String name, String mail, String p
+							cl = new Cliente(user.getDNI(), user.getName(), user.getMail(), user.getPw());
+						}		
 					}
 					if (acceso) {
 						JOptionPane.showMessageDialog(null, "Correct log in", "Inicio correcto", 1, null);
-						VentanaPrincipal vp = new VentanaPrincipal(user);
+						VentanaPrincipal vp = new VentanaPrincipal(cl);
 					    vp.setVisible(true);
 						setVisible(false);
-					}else {
+					} else {
 						JOptionPane.showMessageDialog(null, "Error", "Error", 0, null);
 					}
-					
-					
 				}
 			});
 			
@@ -177,10 +175,9 @@ import es.termibus.database.DBManager;
 		}
 
 		public static Cliente getUser() {
-			return user;
+			return cl;
 
 		}
-
 	}
 
 

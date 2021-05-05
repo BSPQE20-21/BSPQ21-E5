@@ -88,6 +88,11 @@ public class VentanaPrincipal extends JFrame {
 		ImageIcon img1 = new ImageIcon(
 				ico1.getImage().getScaledInstance(lblLogo.getWidth(), lblLogo.getHeight(), Image.SCALE_SMOOTH));
 		lblLogo.setIcon(img1);
+		
+		JLabel lblWelcomeUser = new JLabel("Welcome " + client.getName());
+		lblWelcomeUser.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblWelcomeUser.setBounds(188, 17, 309, 53);
+		panelNorte.add(lblWelcomeUser);
 
 		if (VentanaInicioSesion.getUser() == null) {
 
@@ -257,7 +262,7 @@ public class VentanaPrincipal extends JFrame {
 						}
 					}
 					setVisible(false);
-					VentanaSalidas vs = new VentanaSalidas(listOfTrips);
+					VentanaSalidas vs = new VentanaSalidas(listOfTrips, client);
 					vs.setVisible(true);		
 			}
 		});

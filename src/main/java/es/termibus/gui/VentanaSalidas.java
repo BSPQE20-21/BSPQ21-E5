@@ -5,7 +5,6 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.DefaultListModel;
@@ -21,6 +20,7 @@ import javax.swing.ScrollPaneConstants;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
+import es.termibus.data.Cliente;
 import es.termibus.data.Ticket;
 import es.termibus.data.Trip;
 import es.termibus.database.DBManager;
@@ -29,7 +29,7 @@ public class VentanaSalidas extends JFrame {
 	
 	private JPanel contentPane;
 
-	public VentanaSalidas(List<Trip> listOfTrips) {
+	public VentanaSalidas(List<Trip> listOfTrips, Cliente c) {
 		DefaultListModel<Trip> model = new DefaultListModel<Trip>();
 		DBManager db = DBManager.getInstance();
 		String tr = "";
@@ -158,8 +158,8 @@ public class VentanaSalidas extends JFrame {
 				db.bookATicket(t);
 				
 				JOptionPane.showMessageDialog(null, "Ticket booked succesfully!");
-				dispose();
-				VentanaTicketInfo vti = new VentanaTicketInfo(t, null);
+				setVisible(false);
+				VentanaTicketInfo vti = new VentanaTicketInfo(t, c);
 				vti.setVisible(true);
 			}
 		});
