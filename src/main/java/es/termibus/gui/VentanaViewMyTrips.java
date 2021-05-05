@@ -29,6 +29,7 @@ public class VentanaViewMyTrips extends JFrame {
 	private JPanel panel;
 	private JButton btnGoBack;
 	private JLabel lblWelcomeClient;
+	private JButton btnClientServer;
 	/**
 	 * Launch the application.
 	
@@ -42,7 +43,7 @@ public class VentanaViewMyTrips extends JFrame {
 		String tr = "";
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 835, 502);
+		setBounds(100, 100, 835, 576);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -69,12 +70,13 @@ public class VentanaViewMyTrips extends JFrame {
 		btnGoBack = new JButton("Back");
 		panel.add(btnGoBack);
 		
-		lblWelcomeClient = new JLabel("These are the trips you already booked " + c.getName());
+		lblWelcomeClient = new JLabel("Viewing " + c.getName() + "'s past booked trips");
 		panel.add(lblWelcomeClient);
 		
-		List<Ticket> tckts = db.getTickets();
-		for(Ticket ticket: tckts) {
-			
+		btnClientServer = new JButton("View more info of the trip selected");
+		panel.add(btnClientServer);
+		
+		for(Ticket ticket: listOfTickets) {
 			String fila[] = {ticket.getDestino(), ticket.getDate()};
 			modelo.addRow(fila);
 		}	

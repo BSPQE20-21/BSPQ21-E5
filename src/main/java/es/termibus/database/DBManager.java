@@ -52,7 +52,7 @@ public class DBManager {
 		Trip trip8 = new Trip(6666, 60, "07/01/2021", "Barcelona", "22:15");
 		Trip trip9 = new Trip(0202, 70, "15/02/2021", "Cádiz", "09:00");
 		
-		Ticket t1 = new Ticket(1, "12/05/21", "Prueba", "12:00", 5929, 25);
+//		Ticket t1 = new Ticket(1, "12/05/21", "Prueba", "12:00", 5929, 25);
 
 		pushToDB(client1);
 		pushToDB(client2);
@@ -68,7 +68,7 @@ public class DBManager {
 		pushToDB(trip8);
 		pushToDB(trip9);
 		
-		pushToDB(t1);
+//		pushToDB(t1);
 	}
 
 	// Push object to DB

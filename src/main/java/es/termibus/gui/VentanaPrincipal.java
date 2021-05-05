@@ -25,6 +25,7 @@ import com.toedter.calendar.JDateChooser;
 
 import es.termibus.data.Cliente;
 import es.termibus.data.Selection;
+import es.termibus.data.Ticket;
 import es.termibus.data.Trip;
 import es.termibus.database.DBManager;
 
@@ -280,8 +281,9 @@ public class VentanaPrincipal extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
+				List<Ticket> lt = new ArrayList<Ticket>(dbm.getTickets());
 				setVisible(false);
-				VentanaViewMyTrips vv = new VentanaViewMyTrips(null, client);
+				VentanaViewMyTrips vv = new VentanaViewMyTrips(lt, client);
 				vv.setVisible(true);
 			}
 		});

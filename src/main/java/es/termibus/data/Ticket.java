@@ -1,8 +1,10 @@
 package es.termibus.data;
 
+import javax.jdo.annotations.IdGeneratorStrategy;
 import javax.jdo.annotations.Inheritance;
 import javax.jdo.annotations.InheritanceStrategy;
 import javax.jdo.annotations.PersistenceCapable;
+import javax.jdo.annotations.Persistent;
 import javax.jdo.annotations.PrimaryKey;
 
 @PersistenceCapable
@@ -10,6 +12,7 @@ import javax.jdo.annotations.PrimaryKey;
 public class Ticket{
 	
 	@PrimaryKey
+	@Persistent(valueStrategy = IdGeneratorStrategy.INCREMENT)
 	private int codigo; // Trip ID
 	
 	private String date; 
