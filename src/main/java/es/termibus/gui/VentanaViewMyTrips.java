@@ -3,6 +3,8 @@ package es.termibus.gui;
 import java.awt.BorderLayout;
 import java.awt.*;
 import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,6 +26,9 @@ public class VentanaViewMyTrips extends JFrame {
 	private DefaultTableModel modelo;
 	private static Ticket tckt;
 	DBManager db = DBManager.getInstance();
+	private JPanel panel;
+	private JButton btnGoBack;
+	private JLabel lblWelcomeClient;
 	/**
 	 * Launch the application.
 	
@@ -42,19 +47,6 @@ public class VentanaViewMyTrips extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(new BorderLayout(0, 0));
-		
-		JPanel titulopanel = new JPanel();
-		titulopanel.setBounds(0, 0, 811, 58);
-		titulopanel.setBackground(Color.LIGHT_GRAY);
-		getContentPane().add(titulopanel);
-		titulopanel.setLayout(null);
-		
-		JLabel titulo = new JLabel("TRIPS");
-		titulo.setForeground(Color.WHITE);
-		titulo.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		titulo.setHorizontalAlignment(SwingConstants.CENTER);
-		titulo.setBounds(0, 11, 602, 36);
-		titulopanel.add(titulo);
 	
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(30, 69, 751, 266);
@@ -71,6 +63,15 @@ public class VentanaViewMyTrips extends JFrame {
 		
 		scrollPane.setViewportView(table);
 		
+		panel = new JPanel();
+		contentPane.add(panel, BorderLayout.NORTH);
+		
+		btnGoBack = new JButton("Back");
+		panel.add(btnGoBack);
+		
+		lblWelcomeClient = new JLabel("These are the trips you already booked " + c.getName());
+		panel.add(lblWelcomeClient);
+		
 		List<Ticket> tckts = db.getTickets();
 		for(Ticket ticket: tckts) {
 			
@@ -81,7 +82,19 @@ public class VentanaViewMyTrips extends JFrame {
 		JButton btnBack = new JButton("Back");
 		btnBack.setBounds(21, 10, 85, 21);
 		
+		
+		btnGoBack.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				setVisible(false);
+				VentanaPrincipal vp = new VentanaPrincipal(c);
+				vp.setVisible(true);
+			}
+		});
 	}
+	
 	public void setTableContent() {
 		
 	}

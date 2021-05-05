@@ -18,6 +18,7 @@ import javax.swing.JFrame;
 	import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
@@ -30,7 +31,7 @@ import es.termibus.database.DBManager;
 		private static Cliente cl;
 		private JPanel contentPane;
 		private JTextField txtClientName;
-		private JTextField txtPw;
+		private JPasswordField pfPw;
 		private List<Cliente> clientes;
 		private String name;
 		private String pw;
@@ -74,7 +75,7 @@ import es.termibus.database.DBManager;
 			setContentPane(contentPane);
 			contentPane.setLayout(null);
 			
-			JLabel lblClientName = new JLabel("Name");
+			JLabel lblClientName = new JLabel("Mail");
 			lblClientName.setBounds(10, 78, 103, 14);
 			contentPane.add(lblClientName);
 			
@@ -87,10 +88,10 @@ import es.termibus.database.DBManager;
 			contentPane.add(txtClientName);
 			txtClientName.setColumns(10);
 			
-			txtPw = new JTextField();
-			txtPw.setBounds(154, 115, 137, 20);
-			contentPane.add(txtPw);
-			txtPw.setColumns(10);
+			pfPw = new JPasswordField();
+			pfPw.setBounds(154, 115, 137, 20);
+			contentPane.add(pfPw);
+			pfPw.setColumns(10);
 			
 			JButton btnLogIn = new JButton("LogIn");
 			btnLogIn.addActionListener(new ActionListener() {
@@ -117,7 +118,7 @@ import es.termibus.database.DBManager;
 				public void actionPerformed(ActionEvent e) {
 					
 					name = txtClientName.getText();
-					pw = txtPw.getText();
+					pw = pfPw.getText();
 					
 					for (Cliente user : clientes) {
 						if (user.getMail().equals(name) && user.getPw().equals(pw)) {
