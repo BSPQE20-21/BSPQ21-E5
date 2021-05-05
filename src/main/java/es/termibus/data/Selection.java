@@ -2,17 +2,20 @@ package es.termibus.data;
 
 public class Selection {
 
-	String city;
-	String date;
-	
-	public Selection(String city, String date) {
+	private String city;
+	private String date;
+	private String hour;
+
+	public Selection(String city, String date, String hour) {
 		this.city = city;
 		this.date = date;
+		this.hour = hour;
 	}
 	
 	public Selection() {
 		this.city = "";
 		this.date = "";
+		this.hour = "";
 	}
 
 	public String getCity() {
@@ -30,9 +33,17 @@ public class Selection {
 	public void setDate(String date) {
 		this.date = date;
 	}
+	
+	public String getHour() {
+		return hour;
+	}
+
+	public void setHour(String hour) {
+		this.hour = hour;
+	}
 
 	@Override
 	public String toString() {
-		return city.toUpperCase() + " - " + date;
+		return city.toUpperCase() + " - " + date + " - " + hour;
 	}
 }

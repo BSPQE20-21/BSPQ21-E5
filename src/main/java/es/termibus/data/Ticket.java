@@ -3,40 +3,46 @@ package es.termibus.data;
 import javax.jdo.annotations.Inheritance;
 import javax.jdo.annotations.InheritanceStrategy;
 import javax.jdo.annotations.PersistenceCapable;
+import javax.jdo.annotations.PrimaryKey;
 
 @PersistenceCapable
 @Inheritance(strategy=InheritanceStrategy.NEW_TABLE)
 public class Ticket{
 	
-	private String codigo;
-	private String date;
-	private String origen;
-	private String destino;
-	private float precio;
+	@PrimaryKey
+	private int codigo; // Trip ID
 	
-	public Ticket(String codigo, String date, String origen, String destino, float precio) {
+	private String date; 
+	private String destino;
+	private String hour;
+	private int bus;
+	private int precio;
+	
+	public Ticket(int codigo, String date, String destino, String hour, int bus, int precio) {
 		super();
 		this.codigo = codigo;
 		this.date = date;
-		this.origen = origen;
 		this.destino = destino;
+		this.hour = hour;
+		this.bus = bus;
 		this.precio = precio;
 	}
 	
 	public Ticket() {
 		super();
-		this.codigo = "";
+		this.codigo = 0;
 		this.date = "";
-		this.origen = "";
 		this.destino = "";
+		this.hour = "";
+		this.bus = 0;
 		this.precio = 0;
 	}
 
-	public String getCodigo() {
+	public int getCodigo() {
 		return codigo;
 	}
 
-	public void setCodigo(String codigo) {
+	public void setCodigo(int codigo) {
 		this.codigo = codigo;
 	}
 
@@ -48,14 +54,6 @@ public class Ticket{
 		this.date = date;
 	}
 
-	public String getOrigen() {
-		return origen;
-	}
-
-	public void setOrigen(String origen) {
-		this.origen = origen;
-	}
-
 	public String getDestino() {
 		return destino;
 	}
@@ -63,23 +61,35 @@ public class Ticket{
 	public void setDestino(String destino) {
 		this.destino = destino;
 	}
+	
 
-	public float getPrecio() {
+	public String getHour() {
+		return hour;
+	}
+
+	public void setHour(String hour) {
+		this.hour = hour;
+	}
+
+	public int getBus() {
+		return bus;
+	}
+
+	public void setBus(int bus) {
+		this.bus = bus;
+	}
+
+	public int getPrecio() {
 		return precio;
 	}
 
-	public void setPrecio(float precio) {
+	public void setPrecio(int precio) {
 		this.precio = precio;
 	}
 
 	@Override
 	public String toString() {
-		return "Ticket [codigo=" + codigo + ", date=" + date + ", origen=" + origen + ", destino=" + destino
-				+ ", precio=" + precio + "]";
+		return "Ticket [codigo=" + codigo + ", date=" + date + ", destino=" + destino + ", hour=" + hour + ", bus="
+				+ bus + ", precio=" + precio + "]";
 	}
-	
-	
-	
-	
-	
 }

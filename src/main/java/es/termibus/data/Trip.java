@@ -1,5 +1,4 @@
 package es.termibus.data;
-import javax.jdo.annotations.ForeignKey;
 import javax.jdo.annotations.IdGeneratorStrategy;
 import javax.jdo.annotations.Inheritance;
 import javax.jdo.annotations.InheritanceStrategy;
@@ -18,15 +17,15 @@ public class Trip {
 	private String date; // 12/02/21 , 12:00
 	private int busID;
 	private int cost;
-	@ForeignKey
-	private int clientID;
+	private String hour;
 	
-	public Trip(int busID, int cost, String date,  String destiny ) {
+	public Trip(int busID, int cost, String date,  String destiny, String hour ) {
 		super();
 		this.destiny = destiny;
 		this.date = date;
 		this.busID = busID;
 		this.cost = cost;
+		this.hour = hour;
 	}
 	
 	public Trip() {
@@ -34,8 +33,8 @@ public class Trip {
 		this.destiny = "";
 		this.date = "";
 		this.busID = 0;
-		
 		this.cost = 0;
+		this.hour = "";
 	}
 
 	public String getDestiny() {
@@ -62,7 +61,21 @@ public class Trip {
 		this.busID = busID;
 	}
 
-	
+	public int getTrip_ID() {
+		return trip_ID;
+	}
+
+	public void setTrip_ID(int trip_ID) {
+		this.trip_ID = trip_ID;
+	}
+
+	public String getHour() {
+		return hour;
+	}
+
+	public void setHour(String hour) {
+		this.hour = hour;
+	}
 
 	public int getCost() {
 		return cost;
@@ -74,6 +87,6 @@ public class Trip {
 
 	@Override
 	public String toString() {
-		return "\nOrigin: Bilbao\nDestiny: " + destiny + "\nDate: " + date + "\nBus: " + busID +  "\nCost: " + cost + "\n";
+		return destiny.toUpperCase() + " - " + date + " - " + hour;
 	}
 }

@@ -3,6 +3,9 @@ package es.termibus.gui;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.DefaultListModel;
@@ -11,22 +14,27 @@ import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.ScrollPaneConstants;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
-import es.termibus.data.Selection;
+import es.termibus.data.Ticket;
+import es.termibus.data.Trip;
+import es.termibus.database.DBManager;
 
 public class VentanaSalidas extends JFrame {
 	
 	private JPanel contentPane;
 
-	public VentanaSalidas(List<Selection> tripsSelection) {
-		DefaultListModel<Selection> model = new DefaultListModel<Selection>();
+	public VentanaSalidas(List<Trip> listOfTrips) {
+		DefaultListModel<Trip> model = new DefaultListModel<Trip>();
+		DBManager db = DBManager.getInstance();
+		String tr = "";
 		
-		System.out.println(tripsSelection.size());
+		System.out.println(listOfTrips.size());
 		
 		setForeground(Color.DARK_GRAY);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -64,9 +72,9 @@ public class VentanaSalidas extends JFrame {
 		chckbxCastellano.setBounds(716, 61, 93, 21);
 		panelNorte.add(chckbxCastellano);
 		
-		JButton btnNewButton = new JButton("Go Back");
-		btnNewButton.setBounds(20, 35, 85, 21);
-		panelNorte.add(btnNewButton);
+		JButton btnGoBack = new JButton("Go Back");
+		btnGoBack.setBounds(20, 35, 85, 21);
+		panelNorte.add(btnGoBack);
 		
 		JPanel panelCentral = new JPanel();
 		panelCentral.setBackground(Color.DARK_GRAY);
@@ -93,35 +101,67 @@ public class VentanaSalidas extends JFrame {
 		panelViaje.add(panelArriba);
 		panelArriba.setLayout(null);
 		
-		JLabel lblTripsOn = new JLabel("Trips on ");
-		lblTripsOn.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblTripsOn.setBounds(27, 12, 57, 27);
-		panelArriba.add(lblTripsOn);
-		
-		JLabel lblTripNDate = new JLabel("(Trip selected)");
-		lblTripNDate.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblTripNDate.setBounds(82, 13, 101, 25);
-		panelArriba.add(lblTripNDate);
-		
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 		scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 		scrollPane.setBounds(27, 67, 388, 251);
 		panelArriba.add(scrollPane);
 		
-		JList<Selection> tripList = new JList<Selection>();
+		JList<Trip> tripList = new JList<Trip>();
 		tripList.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		
-		for (Selection s : tripsSelection) {
-			model.addElement(s);
+		for (Trip t : listOfTrips) {
+			model.addElement(t);
+			tr = t.getDestiny();
 		}	
 
 		tripList.setModel(model);
 		scrollPane.setViewportView(tripList);
 		
-		JButton btnNewButton_1 = new JButton("Book selected trip");
-		btnNewButton_1.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		btnNewButton_1.setBounds(465, 67, 292, 50);
-		panelArriba.add(btnNewButton_1);
+		
+		JLabel lblTripsOn = new JLabel("Trips on " + tr);
+		lblTripsOn.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblTripsOn.setBounds(27, 12, 185, 27);
+		panelArriba.add(lblTripsOn);
+		
+		JButton btnBookTrip = new JButton("Book selected trip");
+		btnBookTrip.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		btnBookTrip.setBounds(465, 67, 292, 50);
+		panelArriba.add(btnBookTrip);
+		
+		// Listeners
+		
+		btnGoBack.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				// TODO Auto-generated method stub
+				setVisible(false);
+				 VentanaPrincipal vp = new VentanaPrincipal(null);
+				 vp.setVisible(true);
+			}
+		});
+		
+		btnBookTrip.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				Ticket t = new Ticket(
+						tripList.getSelectedValue().getTrip_ID(),
+						tripList.getSelectedValue().getDate(),
+						tripList.getSelectedValue().getDestiny(),
+						tripList.getSelectedValue().getHour(),
+						tripList.getSelectedValue().getBusID(),
+						tripList.getSelectedValue().getCost()
+						);
+				
+				db.bookATicket(t);
+				
+				JOptionPane.showMessageDialog(null, "Ticket booked succesfully!");
+				dispose();
+				VentanaTicketInfo vti = new VentanaTicketInfo(t, null);
+				vti.setVisible(true);
+			}
+		});
 	}
 }

@@ -32,7 +32,11 @@ public class VentanaPrincipal extends JFrame {
 
 	private JPanel contentPane;
 	private final JPanel panelNorte = new JPanel();
-	private Trip trip;
+	private List<Trip> trips;
+	private List<String> hours;
+	private JDateChooser fechaSalida;
+	private DateFormat df;
+	
 
 	/**
 	 * Launch the application.
@@ -44,7 +48,7 @@ public class VentanaPrincipal extends JFrame {
 
 	public VentanaPrincipal(Cliente client) {
 		DBManager dbm = DBManager.getInstance();
-		List<Trip> trips = new ArrayList<Trip>(dbm.getTrips());
+		trips = new ArrayList<Trip>(dbm.getTrips());
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 893, 578);
@@ -61,22 +65,6 @@ public class VentanaPrincipal extends JFrame {
 		JLabel lblLogo = new JLabel("");// Poner logo que creemos
 		lblLogo.setBounds(10, 10, 152, 53);
 		panelNorte.add(lblLogo);
-
-		JComboBox comboBoxInformacion = new JComboBox();
-		comboBoxInformacion.setFont(new Font("Tahoma", Font.BOLD, 12));
-		comboBoxInformacion.setBounds(194, 25, 152, 38);
-		panelNorte.add(comboBoxInformacion);
-		comboBoxInformacion.addItem("Termibus Station");
-		comboBoxInformacion.addItem("General information");
-		comboBoxInformacion.addItem("Services");
-		comboBoxInformacion.addItem("Maps");		
-
-		JComboBox comboBoxLocation = new JComboBox();
-		comboBoxLocation.setFont(new Font("Tahoma", Font.BOLD, 12));
-		comboBoxLocation.setBounds(437, 25, 145, 38);
-		panelNorte.add(comboBoxLocation);
-		comboBoxLocation.addItem("Location");
-		comboBoxLocation.addItem("How to get there");
 
 		JCheckBox chckbxEnglish = new JCheckBox("EN");
 		chckbxEnglish.setFont(new Font("Tahoma", Font.ITALIC, 10));
@@ -165,9 +153,11 @@ public class VentanaPrincipal extends JFrame {
 		lblDestination.setBounds(20, 56, 76, 24);
 		panelSalidas.add(lblDestination);
 
-		JComboBox comboBoxDestination = new JComboBox();
+		JComboBox<String> comboBoxDestination = new JComboBox();
 		comboBoxDestination.setBounds(106, 52, 133, 28);
 		panelSalidas.add(comboBoxDestination);
+		
+		hours = new ArrayList<String>();
 		
 		for (int i = 0; i < trips.size(); i++) {
 			comboBoxDestination.addItem(trips.get(i).getDestiny());
@@ -178,12 +168,13 @@ public class VentanaPrincipal extends JFrame {
 		lblDate.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblDate.setBounds(249, 56, 40, 24);
 		panelSalidas.add(lblDate);
+		
 
-		JDateChooser fechaSalida = new JDateChooser();
+		fechaSalida = new JDateChooser();
 		fechaSalida.setBounds(299, 52, 147, 28);
 		panelSalidas.add(fechaSalida);
 		
-		DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+		df = new SimpleDateFormat("dd/MM/yyyy");
 		
 		JButton btnSearchSalida = new JButton("SEARCH");
 		btnSearchSalida.setBackground(Color.RED);
@@ -256,19 +247,18 @@ public class VentanaPrincipal extends JFrame {
 		btnSearchSalida.addActionListener(new ActionListener() {
 			
 			@Override
-			public void actionPerformed(ActionEvent arg0) {		
-				Selection s = new Selection(comboBoxDestination.getSelectedItem().toString(), df.format(fechaSalida.getDate()));
-				List<Selection> listOfSel = new ArrayList<Selection>();
-				
-				for(Trip t : trips) {
-					if(s.getCity().equals(t.getDestiny()) && s.getDate().equals(t.getDate())) {			
-						listOfSel.add(s);
-						System.out.println("\nFunciona: " + s.getCity());
+			public void actionPerformed(ActionEvent arg0) {	
+					Selection s = new Selection(comboBoxDestination.getSelectedItem().toString(), df.format(fechaSalida.getDate()), "");
+					List<Trip> listOfTrips= new ArrayList<Trip>();
+					
+					for(Trip t : trips) {
+						if(s.getCity().equals(t.getDestiny()) && s.getDate().equals(t.getDate())) {			
+							listOfTrips.add(t);
+						}
 					}
-				}
-				setVisible(false);
-				VentanaSalidas vs = new VentanaSalidas(listOfSel);
-				vs.setVisible(true);
+					setVisible(false);
+					VentanaSalidas vs = new VentanaSalidas(listOfTrips);
+					vs.setVisible(true);		
 			}
 		});
 		
@@ -305,6 +295,5 @@ public class VentanaPrincipal extends JFrame {
 
 			}
 		});
-
 	}
 }
