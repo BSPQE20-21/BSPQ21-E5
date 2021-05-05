@@ -20,13 +20,13 @@ public class testSelection {
 
 	@Test
 	public void testGetCity() {
-		Selection select = new Selection( "Madrid","12/02/21, 12:00");
+		Selection select = new Selection( "Madrid","12/02/21", "13:00");
 		assertEquals(select.getCity(),"Madrid");	
 		}
 	
 	@Test
 	public void testGetDate() {
-		Selection select = new Selection( "Madrid","12/02/21, 12:00");
-		assertEquals(select.getDate(),"12/02/21, 12:00");	
+		Selection select = new Selection( "Madrid","12/02/21", "13:00");
+		assertEquals(select.getDate(),"12/02/21");	
 		}
 }

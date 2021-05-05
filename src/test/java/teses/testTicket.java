@@ -20,32 +20,31 @@ public class testTicket {
 
 	@Test
 	public void testGetCodigo() {
-		Ticket ticket = new Ticket("BM1", "12/02/21, 12:00", "Bilbao", "Madrid", 14f);
-		assertEquals(ticket.getCodigo(),"BM1");	
+		Ticket ticket = new Ticket(001, "12/02/21","Madrid", "13:00",1232, 14);
+		assertEquals(ticket.getCodigo(),001);	
 		}
 
 	@Test
 	public void testGetDate() {
-		Ticket ticket = new Ticket("001", "12/02/21, 12:00", "Bilbao", "Madrid", 14f);
-		assertEquals(ticket.getDate(),"12/02/21, 12:00");	
+		Ticket ticket = new Ticket(001, "12/02/21","Madrid", "13:00",1232, 14);
+		assertEquals(ticket.getDate(),"12/02/21");	
 		}
 	
 	@Test
-	public void testGetOrigen() {
-		Ticket ticket = new Ticket("001", "12/02/21, 12:00", "Bilbao", "Madrid", 14f);
-		assertEquals(ticket.getOrigen(),"Bilbao");	
+	public void testGetHour() {
+		Ticket ticket = new Ticket(001, "12/02/21","Madrid", "13:00",1232, 14);
+		assertEquals(ticket.getHour(),"13:00");	
 		}
 	
 	@Test
 	public void testGetDestino() {
-		Ticket ticket = new Ticket("001", "12/02/21, 12:00", "Bilbao", "Madrid", 14f);
+		Ticket ticket = new Ticket(001, "12/02/21","Madrid", "13:00",1232, 14);
 		assertEquals(ticket.getDestino(),"Madrid");	
 		}
-
-	@SuppressWarnings("deprecation")
+	
 	@Test
 	public void testGetPrecio() {
-		Ticket ticket = new Ticket("001", "12/02/21, 12:00", "Bilbao", "Madrid", 14f);
-		assertEquals(ticket.getPrecio(), 14f); 
+		Ticket ticket = new Ticket(001, "12/02/21","Madrid", "13:00",1232,  14);
+		assertEquals(ticket.getPrecio(), 14); 
 		}
 }
