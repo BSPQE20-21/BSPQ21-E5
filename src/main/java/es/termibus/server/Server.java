@@ -16,7 +16,7 @@ public class Server {
 	
 	@GET
 	@Path("/ticketinfo")
-	@Produces(MediaType.TEXT_PLAIN)
+	@Produces(MediaType.TEXT_PLAIN) // Json
 	public List<Ticket> getTicketInfo() {
 		return DBManager.getInstance().getTickets();
 	}
