@@ -161,7 +161,7 @@ public class DBManager {
 		List<Trip> trips = new ArrayList<Trip>();
 
 		try {
-			System.out.println("Check every trip");
+			System.out.println("getTrips(): Checking every trip");
 			tx.begin();
 
 			Extent<Trip> tripExtent = pm.getExtent(Trip.class, true);
@@ -169,76 +169,11 @@ public class DBManager {
 			for (Trip trip : tripExtent) {
 
 				Trip t = new Trip(trip.getBusID(), trip.getCost(), trip.getDate(), trip.getDestiny(), trip.getHour());
-
 				trips.add(t);
-
 			}
-
 			tx.commit();
 		} catch (Exception ex) {
-			System.out.println("$ Error cant Check trips: " + ex.getMessage());
-		} finally {
-			if (tx != null && tx.isActive()) {
-				tx.rollback();
-			}
-
-			pm.close();
-		}
-		return trips;
-
-	}
-
-	// Get trips from a specific client
-	
-	public List<Trip> getClientTrips(String DNI) throws DBException {
-		PersistenceManagerFactory pmf = JDOHelper.getPersistenceManagerFactory("datanucleus.properties");
-		PersistenceManager pm = pmf.getPersistenceManager();
-		Transaction tx = pm.currentTransaction();
-
-		tx.begin();
-
-		Query<Trip> query = pm.newQuery("javax.jdo.query.SQL", "SELECT * FROM trip where DNI='" + DNI + "'");
-		query.setClass(Trip.class);
-		List<Trip> conclusion = query.executeList();
-
-		tx.commit();
-		pm.close();
-		return conclusion;
-	}
-
-	// Get a specific trip
-	
-	public List<Trip> getSelectedTrip(String destiny, Calendar date) {
-		PersistenceManagerFactory pmf = JDOHelper.getPersistenceManagerFactory("datanucleus.properties");
-		PersistenceManager pm = pmf.getPersistenceManager();
-		Transaction tx = pm.currentTransaction();
-
-		List<Trip> trips = new ArrayList<Trip>();
-		try {
-			System.out.println("* Checking trips");
-			tx.begin();
-
-			Extent<Trip> tripsExtent = pm.getExtent(Trip.class, true);
-
-			for (Trip trip : tripsExtent) {
-				Trip t = new Trip(trip.getBusID(), trip.getCost(), trip.getDate(), trip.getDestiny(), trip.getHour());
-
-				int account1 = 0;
-				int account2 = 0;
-
-				if (!t.getDestiny().equals("")) {
-					account1++;
-					if (t.getDestiny().contains(destiny) || t.getDestiny().toLowerCase().contains(destiny)) {
-						account2++;
-					}
-				}
-				if (account1 == account2) {
-					trips.add(t);
-				}
-				tx.commit();
-			}
-		} catch (Exception ex) {
-			System.out.println("$ Error showing trips: " + ex.getMessage());
+			System.out.println("$ Error: can't check trips: " + ex.getMessage());
 		} finally {
 			if (tx != null && tx.isActive()) {
 				tx.rollback();
@@ -247,7 +182,7 @@ public class DBManager {
 		}
 		return trips;
 	}
-	
+
 	// Return a list of tickets 
 	
 	public List<Ticket> getTickets() {
@@ -258,20 +193,20 @@ public class DBManager {
 		List<Ticket> tickets = new ArrayList<Ticket>();
 
 		try {
-			System.out.println("Check every trip");
+			System.out.println("getTickets(): Checking every ticket");
 			tx.begin();
 
-			Extent<Ticket> te = pm.getExtent(Ticket.class, true);
+			Extent<Ticket> ticketExtent = pm.getExtent(Ticket.class, true);
 
-			for (Ticket t : te) {
-				Ticket tck = new Ticket(t.getCodigo(), t.getDate(), t.getDestino(), t.getHour(), t.getBus(),
-						t.getPrecio());
+			for (Ticket ticket : ticketExtent) {
 
-				tickets.add(tck);
+				Ticket t = new Ticket(ticket.getCodigo(), ticket.getDate(), ticket.getDestino(), ticket.getHour(), ticket.getBus(), ticket.getPrecio());
+
+				tickets.add(t);
 			}
 			tx.commit();
 		} catch (Exception ex) {
-			System.out.println("$ Error cant Check tick: " + ex.getMessage());
+			System.out.println("$ Error: can't check tickets: " + ex.getMessage());
 		} finally {
 			if (tx != null && tx.isActive()) {
 				tx.rollback();

@@ -39,6 +39,8 @@ public class VentanaViewMyTrips extends JFrame {
 	 */
 	public VentanaViewMyTrips(List<Ticket> listOfTickets, Cliente c) {
 	
+		System.out.println(listOfTickets);
+		
 		DBManager db = DBManager.getInstance();
 		String tr = "";
 		

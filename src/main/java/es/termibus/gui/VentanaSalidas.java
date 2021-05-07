@@ -5,6 +5,7 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.DefaultListModel;
@@ -156,11 +157,22 @@ public class VentanaSalidas extends JFrame {
 						);
 				
 				db.bookATicket(t);
+				System.out.println("\n" + t);
 				
 				JOptionPane.showMessageDialog(null, "Ticket booked succesfully!");
 				setVisible(false);
-				VentanaTicketInfo vti = new VentanaTicketInfo(t, c);
-				vti.setVisible(true);
+				
+				List<Ticket> lt = new ArrayList<Ticket>(db.getTickets());
+				
+				for (Ticket tck : lt) {
+					if(tck.getCodigo() == t.getCodigo()) {
+						
+						VentanaTicketInfo vti = new VentanaTicketInfo(tck, c);
+						vti.setVisible(true);
+					} else {
+						System.out.println("XD");
+					}
+				}
 			}
 		});
 	}

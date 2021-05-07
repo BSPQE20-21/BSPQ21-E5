@@ -21,7 +21,6 @@ public class VentanaTicketInfo extends JFrame {
 	private JPanel contentPane;
 		
 	public VentanaTicketInfo(Ticket t, Cliente c) {
-		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 572, 600);
 		contentPane = new JPanel();
