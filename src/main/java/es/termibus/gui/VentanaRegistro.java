@@ -125,12 +125,7 @@ public class VentanaRegistro extends JFrame {
 		contentPane.add(txtDNI);
 
 		dbm = DBManager.getInstance();
-		try {
-			clientes = dbm.getClients();
-		} catch (DBException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
+		clientes = dbm.getClients();
 
 		btnSignUp.addActionListener(new ActionListener() {
 			@Override

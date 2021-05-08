@@ -113,7 +113,7 @@ public class DBManager {
     
     // Return a list of clients
 
-	public List<Cliente> getClients() throws DBException {
+	public List<Cliente> getClients(){
 		PersistenceManagerFactory pmf = JDOHelper.getPersistenceManagerFactory("datanucleus.properties");
 		PersistenceManager pm = pmf.getPersistenceManager();
 		Transaction tx = pm.currentTransaction();

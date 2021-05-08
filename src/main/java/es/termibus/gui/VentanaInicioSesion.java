@@ -23,7 +23,6 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
 import es.termibus.data.Cliente;
-import es.termibus.database.DBException;
 import es.termibus.database.DBManager;
 
 	public class VentanaInicioSesion extends JFrame {
@@ -60,13 +59,7 @@ import es.termibus.database.DBManager;
 			
 
 			DBManager dbm = DBManager.getInstance();
-			try {
-				
-				clientes = dbm.getClients();
-				
-			} catch (DBException e1) {
-				e1.printStackTrace();
-			}
+			clientes = dbm.getClients();
 			
 			setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 			setBounds(100, 100, 394, 303);

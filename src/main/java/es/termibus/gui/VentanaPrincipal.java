@@ -23,6 +23,7 @@ import javax.swing.border.EmptyBorder;
 
 import com.toedter.calendar.JDateChooser;
 
+import es.termibus.client.ExampleClient;
 import es.termibus.data.Cliente;
 import es.termibus.data.Selection;
 import es.termibus.data.Ticket;
@@ -34,7 +35,6 @@ public class VentanaPrincipal extends JFrame {
 	private JPanel contentPane;
 	private final JPanel panelNorte = new JPanel();
 	private List<Trip> trips;
-	private List<String> hours;
 	private JDateChooser fechaSalida;
 	private DateFormat df;
 	
@@ -49,7 +49,9 @@ public class VentanaPrincipal extends JFrame {
 
 	public VentanaPrincipal(Cliente client) {
 		DBManager dbm = DBManager.getInstance();
-		trips = new ArrayList<Trip>(dbm.getTrips());
+		
+		ExampleClient ec = ExampleClient.getInstance();
+		trips = new ArrayList<Trip>(ec.viewTrips());
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 893, 578);
@@ -169,8 +171,6 @@ public class VentanaPrincipal extends JFrame {
 		JComboBox<String> comboBoxDestination = new JComboBox();
 		comboBoxDestination.setBounds(106, 52, 133, 28);
 		panelSalidas.add(comboBoxDestination);
-		
-		hours = new ArrayList<String>();
 		
 		for (int i = 0; i < trips.size(); i++) {
 			comboBoxDestination.addItem(trips.get(i).getDestiny());

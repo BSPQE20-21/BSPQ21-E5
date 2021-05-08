@@ -10,11 +10,37 @@
 	<url>http://www.datanucleus.org</url>
 
 	<properties>
+	<jersey.version>3.0.1</jersey.version>
 		<config.files.dir>${basedir}/src/main/resources</config.files.dir>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.glassfish.jersey</groupId>
+				<artifactId>jersey-bom</artifactId>
+				<version>${jersey.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
 	<dependencies>
+		<dependency>
+			<groupId>org.glassfish.jersey.containers</groupId>
+			<artifactId>jersey-container-grizzly2-http</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.glassfish.jersey.inject</groupId>
+			<artifactId>jersey-hk2</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.glassfish.jersey.media</groupId>
+			<artifactId>jersey-media-json-binding</artifactId>
+		</dependency>
 		<dependency>
 			<groupId>org.datanucleus</groupId>
 			<artifactId>datanucleus-core</artifactId>
@@ -41,31 +67,6 @@
 			<version>8.0.15</version>
 		</dependency>
 		<dependency>
-			<groupId>org.glassfish.jersey.core</groupId>
-			<artifactId>jersey-server</artifactId>
-			<version>2.29</version>
-		</dependency>
-		<dependency>
-			<groupId>org.glassfish.jersey.containers</groupId>
-			<artifactId>jersey-container-servlet</artifactId>
-			<version>2.29</version>
-		</dependency>
-		<dependency>
-			<groupId>org.glassfish.jersey.core</groupId>
-			<artifactId>jersey-common</artifactId>
-			<version>2.29</version>
-		</dependency>
-		<dependency>
-			<groupId>org.glassfish.jersey.inject</groupId>
-			<artifactId>jersey-hk2</artifactId>
-			<version>2.29</version>
-		</dependency>
-		<dependency>
-			<groupId>org.glassfish.jersey.media</groupId>
-			<artifactId>jersey-media-json-jackson</artifactId>
-			<version>2.29</version>
-		</dependency>
-		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>4.12</version>
@@ -77,7 +78,6 @@
 			<version>[1.2.17, )</version>
 		</dependency>
 
-		<!-- https://mvnrepository.com/artifact/com.toedter/jcalendar -->
 		<dependency>
 			<groupId>com.toedter</groupId>
 			<artifactId>jcalendar</artifactId>
@@ -87,65 +87,66 @@
 	</dependencies>
 
 	<build>
-	<plugins>
-		<plugin>
-			<groupId>com.soebes.maven.plugins.dmg</groupId>
-			<artifactId>doxygen-maven-plugin</artifactId>
-			<version>1.1.0</version>
-			<configuration>
-				<configurationFile>${doxygen.config.file}</configurationFile>
-			</configuration>
-		</plugin>
+		<plugins>
+			<plugin>
+				<groupId>com.soebes.maven.plugins.dmg</groupId>
+				<artifactId>doxygen-maven-plugin</artifactId>
+				<version>1.1.0</version>
+				<configuration>
+					<configurationFile>${doxygen.config.file}</configurationFile>
+				</configuration>
+			</plugin>
 
-		<plugin>
-			<artifactId>maven-compiler-plugin</artifactId>
-			<version>3.7.0</version>
-			<configuration>
-				<source>1.8</source>
-				<target>1.8</target>
-				<encoding>UTF-8</encoding>
-			</configuration>
-		</plugin>
-		<plugin>
-			<groupId>org.jacoco</groupId>
-			<artifactId>jacoco-maven-plugin</artifactId>
-			<version>0.8.2</version>
-			<executions>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.7.0</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+					<encoding>UTF-8</encoding>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.jacoco</groupId>
+				<artifactId>jacoco-maven-plugin</artifactId>
+				<version>0.8.2</version>
+				<executions>
+			
 				<execution>
-					<goals>
-						<goal>prepare-agent</goal>
-					</goals>
-				</execution>
-				<execution>
-					<id>report</id>
-					<phase>test</phase>
-					<goals>
-						<goal>report</goal>
-					</goals>
-				</execution>
-			</executions>
-		</plugin>
-		<plugin>
-			<groupId>org.codehaus.mojo</groupId>
-			<artifactId>exec-maven-plugin</artifactId>
-			<version>1.2.1</version>
-			<executions>
-				<execution>
-					<goals>
-						<goal>java</goal>
-					</goals>
-				</execution>
-			</executions>
-			<configuration>
-				<!-- run as 'mvn exec:java' -->
-				<mainClass>es.termibus.Main</mainClass>
-			</configuration>
-		</plugin>
-		<plugin>
-			<groupId>org.datanucleus</groupId>
-			<artifactId>datanucleus-maven-plugin</artifactId>
-			<version>5.0.2</version>
-			<configuration>
+						<goals>
+							<goal>prepare-agent</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>report</id>
+						<phase>test</phase>
+						<goals>
+							<goal>report</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>exec-maven-plugin</artifactId>
+				<version>1.2.1</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>java</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<!-- run as 'mvn exec:java' -->
+					<mainClass>es.termibus.Main</mainClass>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.datanucleus</groupId>
+				<artifactId>datanucleus-maven-plugin</artifactId>
+				<version>5.0.2</version>
+				<configuration>
 					<log4jConfiguration>${config.files.dir}/log4j.properties</log4jConfiguration>
 					<verbose>true</verbose>
 					<props>${config.files.dir}/datanucleus.properties</props>
@@ -190,40 +191,26 @@
 		</profile>
 		<!-- run as 'mvn exec:java -Pdata' -->
 		<profile>
-            <id>data</id>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.codehaus.mojo</groupId>
-                        <artifactId>exec-maven-plugin</artifactId>
-                        <version>1.2.1</version>
-                        <executions>
-                            <execution>
-                                <goals>
-                                    <goal>java</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                        <configuration>
-                            <mainClass>es.termibus.util.PreparedData</mainClass>
-                        </configuration>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
+			<id>data</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>exec-maven-plugin</artifactId>
+						<version>1.2.1</version>
+						<executions>
+							<execution>
+								<goals>
+									<goal>java</goal>
+								</goals>
+							</execution>
+						</executions>
+						<configuration>
+							<mainClass>es.termibus.util.PreparedData</mainClass>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
 	</profiles>
-	<repositories>
-		<repository>
-			<id>DN_M2_Repo</id>
-			<name>DataNucleus Repository</name>
-			<url>http://www.datanucleus.org/downloads/maven2</url>
-		</repository>
-	</repositories>
-	<pluginRepositories>
-		<pluginRepository>
-			<id>DataNucleus_2</id>
-			<url>http://www.datanucleus.org/downloads/maven2/</url>
-		</pluginRepository>
-	</pluginRepositories>
-
 </project>
