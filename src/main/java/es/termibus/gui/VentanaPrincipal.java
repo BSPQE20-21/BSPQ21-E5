@@ -23,12 +23,13 @@ import javax.swing.border.EmptyBorder;
 
 import com.toedter.calendar.JDateChooser;
 
-import es.termibus.client.ExampleClient;
+import es.termibus.client.ClienteClient;
+import es.termibus.client.TicketClient;
+import es.termibus.client.TripClient;
 import es.termibus.data.Cliente;
 import es.termibus.data.Selection;
 import es.termibus.data.Ticket;
 import es.termibus.data.Trip;
-import es.termibus.database.DBManager;
 
 public class VentanaPrincipal extends JFrame {
 
@@ -38,6 +39,9 @@ public class VentanaPrincipal extends JFrame {
 	private JDateChooser fechaSalida;
 	private DateFormat df;
 	
+	private TripClient tc;
+	private TicketClient tcc;
+	private ClienteClient cc;
 
 	/**
 	 * Launch the application.
@@ -48,10 +52,9 @@ public class VentanaPrincipal extends JFrame {
 	 */
 
 	public VentanaPrincipal(Cliente client) {
-		DBManager dbm = DBManager.getInstance();
 		
-		ExampleClient ec = ExampleClient.getInstance();
-		trips = new ArrayList<Trip>(ec.viewTrips());
+		tc = TripClient.getInstance();
+		trips = new ArrayList<Trip>(tc.viewTrips());
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 893, 578);
@@ -281,7 +284,8 @@ public class VentanaPrincipal extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				List<Ticket> lt = new ArrayList<Ticket>(dbm.getTickets());
+				tcc = TicketClient.getInstance();
+				List<Ticket> lt = new ArrayList<Ticket>(tcc.viewTickets());
 				setVisible(false);
 				VentanaViewMyTrips vv = new VentanaViewMyTrips(lt, client);
 				vv.setVisible(true);

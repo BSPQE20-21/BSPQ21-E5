@@ -22,6 +22,7 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
+import es.termibus.client.ClienteClient;
 import es.termibus.data.Cliente;
 import es.termibus.database.DBManager;
 
@@ -35,6 +36,8 @@ import es.termibus.database.DBManager;
 		private String name;
 		private String pw;
 		private boolean acceso;
+		private ClienteClient cc;
+		private DBManager db;
 
 		/**
 		 * Launch the application.
@@ -58,8 +61,8 @@ import es.termibus.database.DBManager;
 		public VentanaInicioSesion() {
 			
 
-			DBManager dbm = DBManager.getInstance();
-			clientes = dbm.getClients();
+			cc = ClienteClient.getInstance();
+			clientes = cc.viewClients();
 			
 			setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 			setBounds(100, 100, 394, 303);

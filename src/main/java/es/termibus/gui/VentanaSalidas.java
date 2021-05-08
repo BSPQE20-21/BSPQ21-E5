@@ -21,6 +21,7 @@ import javax.swing.ScrollPaneConstants;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
+import es.termibus.client.TicketClient;
 import es.termibus.data.Cliente;
 import es.termibus.data.Ticket;
 import es.termibus.data.Trip;
@@ -29,10 +30,13 @@ import es.termibus.database.DBManager;
 public class VentanaSalidas extends JFrame {
 	
 	private JPanel contentPane;
+	
+	private DBManager db;
+	private TicketClient tcc;
 
 	public VentanaSalidas(List<Trip> listOfTrips, Cliente c) {
 		DefaultListModel<Trip> model = new DefaultListModel<Trip>();
-		DBManager db = DBManager.getInstance();
+		db = DBManager.getInstance();
 		String tr = "";
 		
 		System.out.println(listOfTrips.size());
@@ -162,7 +166,8 @@ public class VentanaSalidas extends JFrame {
 				JOptionPane.showMessageDialog(null, "Ticket booked succesfully!");
 				setVisible(false);
 				
-				List<Ticket> lt = new ArrayList<Ticket>(db.getTickets());
+				tcc = TicketClient.getInstance();
+				List<Ticket> lt = new ArrayList<Ticket>(tcc.viewTickets());
 				
 				for (Ticket tck : lt) {
 					if(tck.getCodigo() == t.getCodigo()) {
@@ -170,7 +175,7 @@ public class VentanaSalidas extends JFrame {
 						VentanaTicketInfo vti = new VentanaTicketInfo(tck, c);
 						vti.setVisible(true);
 					} else {
-						System.out.println("XD");
+						System.out.println("Error");
 					}
 				}
 			}

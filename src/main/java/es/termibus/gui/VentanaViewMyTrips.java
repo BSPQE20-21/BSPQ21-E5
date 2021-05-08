@@ -24,25 +24,12 @@ public class VentanaViewMyTrips extends JFrame {
 	private JPanel contentPane;
 	private JTable table;
 	private DefaultTableModel modelo;
-	private static Ticket tckt;
-	DBManager db = DBManager.getInstance();
 	private JPanel panel;
 	private JButton btnGoBack;
 	private JLabel lblWelcomeClient;
 	private JButton btnClientServer;
-	/**
-	 * Launch the application.
-	
 
-	/**
-	 * Create the frame.
-	 */
 	public VentanaViewMyTrips(List<Ticket> listOfTickets, Cliente c) {
-	
-		System.out.println(listOfTickets);
-		
-		DBManager db = DBManager.getInstance();
-		String tr = "";
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 835, 576);
