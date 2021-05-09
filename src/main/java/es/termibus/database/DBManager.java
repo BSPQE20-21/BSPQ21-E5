@@ -1,9 +1,11 @@
 package es.termibus.database;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Iterator;
 import java.util.List;
+import java.util.Properties;
 
 import javax.jdo.Extent;
 import javax.jdo.JDOHelper;
@@ -11,6 +13,9 @@ import javax.jdo.PersistenceManager;
 import javax.jdo.PersistenceManagerFactory;
 import javax.jdo.Query;
 import javax.jdo.Transaction;
+
+import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
 
 import es.termibus.data.Cliente;
 import es.termibus.data.Ticket;
@@ -21,6 +26,9 @@ public class DBManager {
 	
 	private static DBManager instance = null;
 	private PersistenceManagerFactory pmf = null;
+	private static final String LOG_FILE = "src/main/resources/log4j.properties";
+	
+	private static Logger log = Logger.getLogger(DBManager.class.getName());
 
 	// Singleton usage to instance DB once at a time
 	
@@ -33,6 +41,18 @@ public class DBManager {
 
 	private DBManager() {
 		pmf = JDOHelper.getPersistenceManagerFactory("datanucleus.properties");
+		
+		Properties prop = new Properties();
+		try {
+			prop.load(new FileInputStream(LOG_FILE));
+			PropertyConfigurator.configure(prop);
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	// Testing data
@@ -80,11 +100,11 @@ public class DBManager {
 
         try {
             tx.begin();
-            System.out.println("* Storing an object: " + object);
+            log.info("* Storing an object: " + object);
             pm.makePersistent(object);
             tx.commit();
         } catch (Exception ex) {
-            System.out.println("$ Error storing an object: " + ex.getMessage());
+            log.error("$ Error storing an object: " + ex.getMessage());
         } finally {
             if (tx != null && tx.isActive()) {
                 tx.rollback();
@@ -120,6 +140,7 @@ public class DBManager {
 
 		tx.begin();
 
+		log.info("getClients(): Checking all the clients ");
 		Query<Cliente> query = pm.newQuery("javax.jdo.query.SQL", "select * from " + "cliente");
 		query.setClass(Cliente.class);
 
@@ -161,7 +182,7 @@ public class DBManager {
 		List<Trip> trips = new ArrayList<Trip>();
 
 		try {
-			System.out.println("getTrips(): Checking every trip");
+            log.info("getTrips(): Checking every trip: ");
 			tx.begin();
 
 			Extent<Trip> tripExtent = pm.getExtent(Trip.class, true);
@@ -173,7 +194,7 @@ public class DBManager {
 			}
 			tx.commit();
 		} catch (Exception ex) {
-			System.out.println("$ Error: can't check trips: " + ex.getMessage());
+            log.error("$ Error can't check trips: " + ex.getMessage());
 		} finally {
 			if (tx != null && tx.isActive()) {
 				tx.rollback();
@@ -193,7 +214,7 @@ public class DBManager {
 		List<Ticket> tickets = new ArrayList<Ticket>();
 
 		try {
-			System.out.println("getTickets(): Checking every ticket");
+            log.info("getTrips(): Checking every trip: ");
 			tx.begin();
 
 			Extent<Ticket> ticketExtent = pm.getExtent(Ticket.class, true);
@@ -206,7 +227,7 @@ public class DBManager {
 			}
 			tx.commit();
 		} catch (Exception ex) {
-			System.out.println("$ Error: can't check tickets: " + ex.getMessage());
+            log.error("$ Error can't check tickets: " + ex.getMessage());
 		} finally {
 			if (tx != null && tx.isActive()) {
 				tx.rollback();

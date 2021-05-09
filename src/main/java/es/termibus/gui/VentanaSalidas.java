@@ -21,6 +21,9 @@ import javax.swing.ScrollPaneConstants;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
+
 import es.termibus.client.TicketClient;
 import es.termibus.data.Cliente;
 import es.termibus.data.Ticket;
@@ -38,8 +41,6 @@ public class VentanaSalidas extends JFrame {
 		DefaultListModel<Trip> model = new DefaultListModel<Trip>();
 		db = DBManager.getInstance();
 		String tr = "";
-		
-		System.out.println(listOfTrips.size());
 		
 		setForeground(Color.DARK_GRAY);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -161,7 +162,6 @@ public class VentanaSalidas extends JFrame {
 						);
 				
 				db.bookATicket(t);
-				System.out.println("\n" + t);
 				
 				JOptionPane.showMessageDialog(null, "Ticket booked succesfully!");
 				setVisible(false);
@@ -174,8 +174,6 @@ public class VentanaSalidas extends JFrame {
 						
 						VentanaTicketInfo vti = new VentanaTicketInfo(tck, c);
 						vti.setVisible(true);
-					} else {
-						System.out.println("Error");
 					}
 				}
 			}
