@@ -26,7 +26,7 @@ public class DBManager {
 	
 	private static DBManager instance = null;
 	private PersistenceManagerFactory pmf = null;
-	private static final String LOG_FILE = "src/main/resources/log4j.properties";
+	private static final String LOG_FILE = "log4j.properties";
 	
 	private static Logger log = Logger.getLogger(DBManager.class.getName());
 
@@ -42,17 +42,17 @@ public class DBManager {
 	private DBManager() {
 		pmf = JDOHelper.getPersistenceManagerFactory("datanucleus.properties");
 		
-		Properties prop = new Properties();
-		try {
-			prop.load(new FileInputStream(LOG_FILE));
-			PropertyConfigurator.configure(prop);
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+//		Properties prop = new Properties();
+//		try {
+//			prop.load(new FileInputStream(LOG_FILE));
+//			PropertyConfigurator.configure(prop);
+//		} catch (FileNotFoundException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
 	}
 
 	// Testing data
@@ -175,7 +175,7 @@ public class DBManager {
 	// Return a list of trips
 	
 	public List<Trip> getTrips() {
-		PersistenceManagerFactory pmf = JDOHelper.getPersistenceManagerFactory("datanucleus.properties");
+		PersistenceManagerFactory pmf = JDOHelper.getPersistenceManagerFactory("datanucleus.properties"); // Sobra
 		PersistenceManager pm = pmf.getPersistenceManager();
 		Transaction tx = pm.currentTransaction();
 
@@ -199,7 +199,7 @@ public class DBManager {
 			if (tx != null && tx.isActive()) {
 				tx.rollback();
 			}
-			pm.close();
+			pm.close(); 
 		}
 		return trips;
 	}
