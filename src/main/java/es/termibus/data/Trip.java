@@ -13,7 +13,7 @@ public class Trip {
 	@Persistent(valueStrategy = IdGeneratorStrategy.INCREMENT)
 	private int trip_ID;
 	
-	private String destiny; // Madrid
+	private String destiny; // Madrid .
 	private String date; // 12/02/21 , 12:00
 	private int busID;
 	private int cost;
