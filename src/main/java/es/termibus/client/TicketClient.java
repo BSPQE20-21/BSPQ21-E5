@@ -51,4 +51,11 @@ public class TicketClient {
          t = response.readEntity(Ticket.class);
     	return t;
     }
+    
+    // Delete a ticket
+    
+    public void removeTicket(Ticket t) {
+        Invocation.Builder ib = target.path("/id/" + t.getCodigo()).request();
+        ib.delete();
+    }
 }

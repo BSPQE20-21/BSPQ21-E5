@@ -1,11 +1,8 @@
 package es.termibus.database;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
-import java.util.Properties;
 
 import javax.jdo.Extent;
 import javax.jdo.JDOHelper;
@@ -15,7 +12,6 @@ import javax.jdo.Query;
 import javax.jdo.Transaction;
 
 import org.apache.log4j.Logger;
-import org.apache.log4j.PropertyConfigurator;
 
 import es.termibus.data.Cliente;
 import es.termibus.data.Ticket;
@@ -41,18 +37,6 @@ public class DBManager {
 
 	private DBManager() {
 		pmf = JDOHelper.getPersistenceManagerFactory("datanucleus.properties");
-		
-//		Properties prop = new Properties();
-//		try {
-//			prop.load(new FileInputStream(LOG_FILE));
-//			PropertyConfigurator.configure(prop);
-//		} catch (FileNotFoundException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		} catch (IOException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
 	}
 
 	// Testing data
@@ -134,7 +118,6 @@ public class DBManager {
     // Return a list of clients
 
 	public List<Cliente> getClients(){
-		PersistenceManagerFactory pmf = JDOHelper.getPersistenceManagerFactory("datanucleus.properties");
 		PersistenceManager pm = pmf.getPersistenceManager();
 		Transaction tx = pm.currentTransaction();
 
@@ -175,7 +158,6 @@ public class DBManager {
 	// Return a list of trips
 	
 	public List<Trip> getTrips() {
-		PersistenceManagerFactory pmf = JDOHelper.getPersistenceManagerFactory("datanucleus.properties"); // Sobra
 		PersistenceManager pm = pmf.getPersistenceManager();
 		Transaction tx = pm.currentTransaction();
 
@@ -207,7 +189,6 @@ public class DBManager {
 	// Return a list of tickets 
 	
 	public List<Ticket> getTickets() {
-		PersistenceManagerFactory pmf = JDOHelper.getPersistenceManagerFactory("datanucleus.properties");
 		PersistenceManager pm = pmf.getPersistenceManager();
 		Transaction tx = pm.currentTransaction();
 
@@ -236,4 +217,33 @@ public class DBManager {
 		}
 		return tickets;
 	}
+	
+	// Delete ticket
+	
+    public void deleteTicket(int code) {
+        PersistenceManager pm = pmf.getPersistenceManager();
+        Transaction tx = pm.currentTransaction();
+        try {
+            log.info("Eliminando ticket con código: " + code);
+            tx.begin();
+
+            Extent<Ticket> e = pm.getExtent(Ticket.class, true);
+            Iterator<Ticket> iter = e.iterator();
+            while (iter.hasNext()) {
+                Ticket ticket = (Ticket) iter.next();
+                if (ticket.getCodigo() == code) {
+                    pm.deletePersistent(ticket);
+                }
+            }
+
+            tx.commit();
+        } catch (Exception ex) {
+            log.error("Error obteniendo cliente: " + ex.getMessage());
+        } finally {
+            if (tx != null && tx.isActive()) {
+                tx.rollback();
+            }
+            pm.close();
+        }
+    }
 }

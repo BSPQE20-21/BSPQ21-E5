@@ -34,7 +34,7 @@ public class testDB {
 		
 		for (int i = 0; i < tickets.size(); i++) {
 			if(tickets.get(i).equals(t)) {
-				assertEquals(tickets.get(i), t);
+				assertEquals(tickets.get(i), t); 
 			}
 		}
 	}

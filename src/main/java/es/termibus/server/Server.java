@@ -7,9 +7,11 @@ import es.termibus.data.Ticket;
 import es.termibus.data.Trip;
 import es.termibus.database.DBManager;
 import jakarta.ws.rs.Consumes;
+import jakarta.ws.rs.DELETE;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.POST;
 import jakarta.ws.rs.Path;
+import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
 
@@ -47,4 +49,15 @@ public class Server {
 		DBManager.getInstance().pushToDB(ticket);
 		return ticket;
 	}
+	
+	@DELETE
+	@Path("/ticket/id/{ticketCode}")
+	@Produces(MediaType.TEXT_PLAIN)
+	public String eliminarCliente(@PathParam("ticketCode") int code) {
+		DBManager.getInstance().deleteTicket(code);
+		return "Ticket deleted succesfully";
+	}
+	
+	// TODO: @POST methods for trips and clients
+	
 }

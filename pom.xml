@@ -69,7 +69,7 @@
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>4.12</version>
+			<version>4.10</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
@@ -82,6 +82,12 @@
 			<groupId>com.toedter</groupId>
 			<artifactId>jcalendar</artifactId>
 			<version>1.4</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.databene</groupId>
+			<artifactId>contiperf</artifactId>
+			<version>2.2.0</version>
 		</dependency>
 
 	</dependencies>
@@ -165,6 +171,14 @@
 				<artifactId>jetty-maven-plugin</artifactId>
 				<version>9.4.19.v20190610</version>
 			</plugin>
+						<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>3.0.0-M5</version>
+				<configuration>
+					<excludedGroups>categories.IntegrationTest</excludedGroups>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
 
@@ -208,6 +222,31 @@
 						<configuration>
 							<mainClass>es.termibus.util.PreparedData</mainClass>
 						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
+			<id>integracion</id>
+			<build>
+				<plugins>
+					<plugin>
+						<artifactId>maven-failsafe-plugin</artifactId>
+						<version>2.22.0</version>
+						<configuration>
+							<includes>
+								<include>**/*</include>
+							</includes>
+							<groups>categories.IntegrationTest</groups>
+						</configuration>
+						<executions>
+							<execution>
+								<goals>
+									<goal>integration-test</goal>
+									<goal>verify</goal>
+								</goals>
+							</execution>
+						</executions>
 					</plugin>
 				</plugins>
 			</build>
