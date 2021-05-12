@@ -29,18 +29,7 @@ public class Main {	 // Execute server command: " mvn exec:java -Dexec.args="--s
     }
 
     public static void main(String[] args) throws IOException {	
-//    	Properties prop = new Properties();
-//		try {
-//			prop.load(new FileInputStream(LOG_FILE));
-//			PropertyConfigurator.configure(prop);
-//		} catch (FileNotFoundException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		} catch (IOException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-
+    	
         if (args.length == 1 && args[0].equals("--server")) {
         	
             final HttpServer server = startServer();
