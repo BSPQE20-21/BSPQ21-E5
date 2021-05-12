@@ -21,25 +21,22 @@ import javax.swing.ScrollPaneConstants;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
-import org.apache.log4j.Level;
-import org.apache.log4j.Logger;
-
 import es.termibus.client.TicketClient;
 import es.termibus.data.Cliente;
 import es.termibus.data.Ticket;
 import es.termibus.data.Trip;
 import es.termibus.database.DBManager;
+import es.termibus.server.Server;
 
 public class VentanaSalidas extends JFrame {
 	
 	private JPanel contentPane;
 	
-	private DBManager db;
 	private TicketClient tcc;
 
 	public VentanaSalidas(List<Trip> listOfTrips, Cliente c) {
 		DefaultListModel<Trip> model = new DefaultListModel<Trip>();
-		db = DBManager.getInstance();
+		tcc = TicketClient.getInstance();
 		String tr = "";
 		
 		setForeground(Color.DARK_GRAY);
@@ -125,7 +122,7 @@ public class VentanaSalidas extends JFrame {
 		scrollPane.setViewportView(tripList);
 		
 		
-		JLabel lblTripsOn = new JLabel("Trips on " + tr);
+		JLabel lblTripsOn = new JLabel("Trips on " + tr); 
 		lblTripsOn.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblTripsOn.setBounds(27, 12, 185, 27);
 		panelArriba.add(lblTripsOn);
@@ -161,12 +158,12 @@ public class VentanaSalidas extends JFrame {
 						tripList.getSelectedValue().getCost()
 						);
 				
-				db.bookATicket(t);
+				tcc.postTicket(t);
 				
 				JOptionPane.showMessageDialog(null, "Ticket booked succesfully!");
 				setVisible(false);
 				
-				tcc = TicketClient.getInstance();
+				
 				List<Ticket> lt = new ArrayList<Ticket>(tcc.viewTickets());
 				
 				for (Ticket tck : lt) {

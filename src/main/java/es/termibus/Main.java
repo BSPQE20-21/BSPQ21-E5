@@ -15,7 +15,7 @@ import org.glassfish.jersey.server.ResourceConfig;
 
 import es.termibus.gui.VentanaInicioSesion;
 
-public class Main {	 // Execute server command: " mvn exec:java -Dexec.args="--server" "
+public class Main {	 // Execute server command: " mvn exec:java -Dexec.args="--server" " 
 	
 	private static final String LOG_FILE = "log4j.properties";
 	

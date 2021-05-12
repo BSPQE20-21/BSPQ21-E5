@@ -30,7 +30,7 @@ public class TripClient {
     public TripClient() {
         client = ClientBuilder.newClient();
         client.property(HttpUrlConnectorProvider.SET_METHOD_WORKAROUND, true);
-        target = client.target("http://localhost:8080/myapp").path("tripinfo"); // http://localhost:8080/myapp/cliente
+        target = client.target("http://localhost:8080/myapp").path("trip"); // http://localhost:8080/myapp/cliente
     }
     
     // View trips

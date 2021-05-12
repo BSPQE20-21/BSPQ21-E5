@@ -94,7 +94,7 @@ public class DBManager {
 	// Push object to DB
 	
     public void pushObjToDB(Object object) {
-        PersistenceManager pm = pmf.getPersistenceManager();
+        PersistenceManager pm = pmf.getPersistenceManager(); 
         pm.getFetchPlan().setMaxFetchDepth(4);
         Transaction tx = pm.currentTransaction();
 
