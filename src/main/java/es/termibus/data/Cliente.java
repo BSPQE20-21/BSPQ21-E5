@@ -16,7 +16,6 @@ public class Cliente {
 	private String name;
 	private String mail;
 	private String pw;
-	private int age;
 
 	public Cliente(String DNI, String name, String mail, String pw) {
 		super();
@@ -33,7 +32,6 @@ public class Cliente {
 		this.name = "";
 		this.mail = "";
 		this.pw = "";
-		this.age = 0;
 
 	}
 
@@ -61,14 +59,6 @@ public class Cliente {
 		this.pw = pw;
 	}
 
-	public int getAge() {
-		return age;
-	}
-
-	public void setAge(int age) {
-		this.age = age;
-	}
-
 	public String getDNI() {
 		return DNI;
 	}
@@ -79,6 +69,6 @@ public class Cliente {
 
 	@Override
 	public String toString() {
-		return "Cliente [DNI=" + DNI + ", name=" + name + ", mail=" + mail + ", pw=" + pw + ", age=" + age + "]";
+		return "Cliente [DNI=" + DNI + ", name=" + name + ", mail=" + mail + ", pw=" + pw + "]";
 	}
 }

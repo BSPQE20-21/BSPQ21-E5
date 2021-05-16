@@ -101,7 +101,7 @@ public class VentanaPrincipal extends JFrame {
 		panelNorte.add(lblWelcomeUser);
 		
 		JButton btnViewTrips = new JButton("View Booked Trips");
-		btnViewTrips.setBounds(471, 35, 99, 21);
+		btnViewTrips.setBounds(447, 36, 179, 27);
 		panelNorte.add(btnViewTrips);
 
 		

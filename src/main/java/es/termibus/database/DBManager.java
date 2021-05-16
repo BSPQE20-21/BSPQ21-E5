@@ -13,6 +13,8 @@ import javax.jdo.Transaction;
 
 import org.apache.log4j.Logger;
 
+import es.termibus.client.ClienteClient;
+import es.termibus.client.TripClient;
 import es.termibus.data.Cliente;
 import es.termibus.data.Ticket;
 import es.termibus.data.Trip;
@@ -22,7 +24,9 @@ public class DBManager {
 	
 	private static DBManager instance = null;
 	private PersistenceManagerFactory pmf = null;
-	private static final String LOG_FILE = "log4j.properties";
+	
+	private TripClient tc;
+	private ClienteClient cc;
 	
 	private static Logger log = Logger.getLogger(DBManager.class.getName());
 
@@ -55,9 +59,21 @@ public class DBManager {
 		Trip trip7 = new Trip(1007, 40, "18/03/2021", "Madrid", "13:00");
 		Trip trip8 = new Trip(6666, 60, "07/01/2021", "Barcelona", "22:15");
 		Trip trip9 = new Trip(0202, 70, "15/02/2021", "Cádiz", "09:00");
-		
-//		Ticket t1 = new Ticket(1, "12/05/21", "Prueba", "12:00", 5929, 25);
 
+//		tc.postTrip(trip1);
+//		tc.postTrip(trip2);
+//		tc.postTrip(trip3);
+//		tc.postTrip(trip4);
+//		tc.postTrip(trip5);
+//		tc.postTrip(trip6);
+//		tc.postTrip(trip7);
+//		tc.postTrip(trip8);
+//		tc.postTrip(trip9);
+//
+//		cc.postClient(client1);
+//		cc.postClient(client2);
+//		cc.postClient(client3);
+		
 		pushToDB(client1);
 		pushToDB(client2);
 		pushToDB(client3);
@@ -71,8 +87,6 @@ public class DBManager {
 		pushToDB(trip7);
 		pushToDB(trip8);
 		pushToDB(trip9);
-		
-//		pushToDB(t1);
 	}
 
 	// Push object to DB

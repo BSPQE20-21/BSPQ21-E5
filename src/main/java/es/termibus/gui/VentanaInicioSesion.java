@@ -37,7 +37,6 @@ import es.termibus.database.DBManager;
 		private String pw;
 		private boolean acceso;
 		private ClienteClient cc;
-		private DBManager db;
 
 		/**
 		 * Launch the application.

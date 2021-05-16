@@ -50,6 +50,24 @@ public class Server {
 		return ticket;
 	}
 	
+	@POST
+	@Path("/trip")
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	public Trip saveTrip(Trip trip) {
+		DBManager.getInstance().pushToDB(trip);
+		return trip;
+	}
+	
+	@POST
+	@Path("/client")
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	public Cliente saveClient(Cliente client) {
+		DBManager.getInstance().pushToDB(client);
+		return client;
+	}
+	
 	@DELETE
 	@Path("/ticket/id/{ticketCode}")
 	@Produces(MediaType.TEXT_PLAIN)

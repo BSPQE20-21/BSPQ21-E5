@@ -162,17 +162,22 @@ public class VentanaSalidas extends JFrame {
 				
 				JOptionPane.showMessageDialog(null, "Ticket booked succesfully!");
 				setVisible(false);
+
+
+				VentanaTicketInfo vti = new VentanaTicketInfo(t, c);
+				vti.setVisible(true);
 				
-				
-				List<Ticket> lt = new ArrayList<Ticket>(tcc.viewTickets());
-				
-				for (Ticket tck : lt) {
-					if(tck.getCodigo() == t.getCodigo()) {
-						
-						VentanaTicketInfo vti = new VentanaTicketInfo(tck, c);
-						vti.setVisible(true);
-					}
-				}
+//				List<Ticket> lt = new ArrayList<Ticket>(tcc.viewTickets());
+//				
+//				for (Ticket tck : lt) {
+//					if(tck.getCodigo() == t.getCodigo()) {
+//						
+//						VentanaTicketInfo vti = new VentanaTicketInfo(tck, c);
+//						vti.setVisible(true);
+//					} else {
+//						System.out.print("Ticket ID's do not match, ticket code: " + tck.getCodigo());
+//					}
+//				}
 			}
 		});
 	}
