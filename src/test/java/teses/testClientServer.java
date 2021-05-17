@@ -61,7 +61,6 @@ public class testClientServer {
     @Test
     @PerfTest(invocations = 50, threads = 10)
     public void testTicketClient() {
-
 		int code = 0;
 
 		Ticket t = new Ticket(code, "21/03/2021", "Madrid", "13:00", 1234, 40);
