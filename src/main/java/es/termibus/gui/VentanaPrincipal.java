@@ -27,9 +27,11 @@ import es.termibus.client.ClienteClient;
 import es.termibus.client.TicketClient;
 import es.termibus.client.TripClient;
 import es.termibus.data.Cliente;
+import es.termibus.data.Language;
 import es.termibus.data.Selection;
 import es.termibus.data.Ticket;
 import es.termibus.data.Trip;
+import java.awt.SystemColor;
 
 public class VentanaPrincipal extends JFrame {
 
@@ -57,13 +59,13 @@ public class VentanaPrincipal extends JFrame {
 		trips = new ArrayList<Trip>(tc.viewTrips());
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 893, 578);
+		setBounds(100, 100, 893, 428);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.LIGHT_GRAY);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		panelNorte.setBackground(Color.LIGHT_GRAY);
+		panelNorte.setBackground(SystemColor.textInactiveText);
 		panelNorte.setBounds(0, 0, 879, 88);
 		contentPane.add(panelNorte);
 		panelNorte.setLayout(null);
@@ -72,48 +74,44 @@ public class VentanaPrincipal extends JFrame {
 		lblLogo.setBounds(10, 10, 152, 53);
 		panelNorte.add(lblLogo);
 
-		JCheckBox chckbxEnglish = new JCheckBox("EN");
-		chckbxEnglish.setFont(new Font("Tahoma", Font.ITALIC, 10));
-		chckbxEnglish.setBackground(Color.LIGHT_GRAY);
-		chckbxEnglish.setBounds(716, 10, 93, 21);
-		panelNorte.add(chckbxEnglish);
-
-		JCheckBox chckbxEuskera = new JCheckBox("EUS");
-		chckbxEuskera.setFont(new Font("Tahoma", Font.ITALIC, 10));
-		chckbxEuskera.setBackground(Color.LIGHT_GRAY);
-		chckbxEuskera.setBounds(716, 35, 93, 21);
-		panelNorte.add(chckbxEuskera);
-
-		JCheckBox chckbxCastellano = new JCheckBox("ES");
-		chckbxCastellano.setFont(new Font("Tahoma", Font.ITALIC, 10));
-		chckbxCastellano.setBackground(Color.LIGHT_GRAY);
-		chckbxCastellano.setBounds(716, 61, 93, 21);
-		panelNorte.add(chckbxCastellano);
-
 		ImageIcon ico1 = new ImageIcon("images/logo.JPG");// meter las rutas en la bd
 		ImageIcon img1 = new ImageIcon(
 				ico1.getImage().getScaledInstance(lblLogo.getWidth(), lblLogo.getHeight(), Image.SCALE_SMOOTH));
 		lblLogo.setIcon(img1);
 		
-		JLabel lblWelcomeUser = new JLabel("Welcome " + client.getName());
-		lblWelcomeUser.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		JLabel lblWelcomeUser = new JLabel(Language.lang.getString("bienvenido") + client.getName());
+		lblWelcomeUser.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 15));
 		lblWelcomeUser.setBounds(188, 17, 309, 53);
 		panelNorte.add(lblWelcomeUser);
 		
-		JButton btnViewTrips = new JButton("View Booked Trips");
+		JButton btnViewTrips = new JButton(Language.lang.getString("ver_viajes_reservados"));
 		btnViewTrips.setBounds(447, 36, 179, 27);
 		panelNorte.add(btnViewTrips);
-
 		
+		JButton btnChangeLang = new JButton("Change language");
+		btnChangeLang.setForeground(new Color(255, 255, 255));
+		btnChangeLang.setBackground(new Color(128, 0, 0));
+		btnChangeLang.setBounds(712, 35, 135, 28);
+		panelNorte.add(btnChangeLang);
+
+		btnChangeLang.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				// TODO Auto-generated method stub
+				setVisible(false);
+				new VentanaTraduccion().setVisible(true);
+			}
+		});
 		
 		
 		if (VentanaInicioSesion.getUser() == null) {
 
-			JButton btnRegistro = new JButton("Create an account");
+			JButton btnRegistro = new JButton(Language.lang.getString("crear_cuenta"));
 			btnRegistro.setBounds(960, 13, 117, 23);
 			panelNorte.add(btnRegistro);
 
-			JButton btnLogin = new JButton("Log in");
+			JButton btnLogin = new JButton(Language.lang.getString("registrar_usuario"));
 			btnLogin.setBounds(1087, 13, 123, 23);
 			panelNorte.add(btnLogin);
 
@@ -140,7 +138,7 @@ public class VentanaPrincipal extends JFrame {
 			});
 
 		} else {
-			JLabel lblNewLabel = new JLabel("You're log in as:  " + VentanaInicioSesion.getUser().getName());
+			JLabel lblNewLabel = new JLabel(Language.lang.getString("entrar_como")+ " " + VentanaInicioSesion.getUser().getName());
 			lblNewLabel.setForeground(Color.LIGHT_GRAY);
 			lblNewLabel.setBounds(1062, 17, 201, 14);
 			panelNorte.add(lblNewLabel);
@@ -148,7 +146,9 @@ public class VentanaPrincipal extends JFrame {
 		}
 
 		JPanel panelCentro = new JPanel();
-		panelCentro.setBounds(0, 98, 879, 443);
+		panelCentro.setBackground(SystemColor.scrollbar);
+		panelCentro.setForeground(new Color(255, 51, 51));
+		panelCentro.setBounds(0, 98, 879, 293);
 		contentPane.add(panelCentro);
 		panelCentro.setLayout(null);
 
@@ -158,14 +158,14 @@ public class VentanaPrincipal extends JFrame {
 		panelCentro.add(panelSalidas);
 		panelSalidas.setLayout(null);
 
-		JLabel lblSalidas = new JLabel("DEPARTURES FROM BILBAO");
+		JLabel lblSalidas = new JLabel(Language.lang.getString("salida_Bilbao"));
 		lblSalidas.setFont(new Font("Tahoma", Font.BOLD, 12));
 		lblSalidas.setBounds(0, 0, 524, 42);
 		panelSalidas.add(lblSalidas);
 		lblSalidas.setForeground(Color.WHITE);
 		lblSalidas.setBackground(Color.RED);
 
-		JLabel lblDestination = new JLabel("Destination");
+		JLabel lblDestination = new JLabel(Language.lang.getString("destinacion"));
 		lblDestination.setForeground(Color.WHITE);
 		lblDestination.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblDestination.setBounds(20, 56, 76, 24);
@@ -179,7 +179,7 @@ public class VentanaPrincipal extends JFrame {
 			comboBoxDestination.addItem(trips.get(i).getDestiny());
 		}
 
-		JLabel lblDate = new JLabel("Date");
+		JLabel lblDate = new JLabel(Language.lang.getString("fecha"));
 		lblDate.setForeground(Color.WHITE);
 		lblDate.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblDate.setBounds(249, 56, 40, 24);
@@ -192,53 +192,15 @@ public class VentanaPrincipal extends JFrame {
 		
 		df = new SimpleDateFormat("dd/MM/yyyy");
 		
-		JButton btnSearchSalida = new JButton("SEARCH");
+		JButton btnSearchSalida = new JButton(Language.lang.getString("busqueda"));
+		btnSearchSalida.setForeground(Color.BLACK);
 		btnSearchSalida.setBackground(Color.RED);
 		btnSearchSalida.setBounds(463, 58, 85, 21);
 		panelSalidas.add(btnSearchSalida);
 
-		// Search for the trip selected
-		
-		JPanel panelLlegadas = new JPanel();
-		panelLlegadas.setLayout(null);
-		panelLlegadas.setBackground(Color.DARK_GRAY);
-		panelLlegadas.setBounds(126, 162, 577, 115);
-		panelCentro.add(panelLlegadas);
-
-		JLabel lblLlegadas = new JLabel("ARRIVALS IN BILBAO");
-		lblLlegadas.setForeground(Color.WHITE);
-		lblLlegadas.setFont(new Font("Tahoma", Font.BOLD, 12));
-		lblLlegadas.setBackground(Color.RED);
-		lblLlegadas.setBounds(0, 0, 524, 42);
-		panelLlegadas.add(lblLlegadas);
-
-		JLabel lblArrivals = new JLabel("Departure Point");
-		lblArrivals.setForeground(Color.WHITE);
-		lblArrivals.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lblArrivals.setBounds(10, 54, 99, 24);
-		panelLlegadas.add(lblArrivals);
-
-		JComboBox comboBoxDeparture = new JComboBox();
-		comboBoxDeparture.setBounds(116, 52, 133, 28);
-		panelLlegadas.add(comboBoxDeparture);
-
-		JLabel lblDate2 = new JLabel("Date");
-		lblDate2.setForeground(Color.WHITE);
-		lblDate2.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lblDate2.setBounds(259, 56, 40, 24);
-		panelLlegadas.add(lblDate2);
-
-		JDateChooser fechaLlegada = new JDateChooser();
-		fechaLlegada.setBounds(299, 52, 147, 28);
-		panelLlegadas.add(fechaLlegada);
-
-		JButton btnSearchLlegada = new JButton("SEARCH");
-		btnSearchLlegada.setBackground(Color.RED);
-		btnSearchLlegada.setBounds(463, 58, 85, 21);
-		panelLlegadas.add(btnSearchLlegada);
-
 		JPanel panelSur = new JPanel();
-		panelSur.setBounds(0, 305, 869, 128);
+		panelSur.setBackground(SystemColor.scrollbar);
+		panelSur.setBounds(0, 164, 879, 128);
 		panelCentro.add(panelSur);
 		panelSur.setLayout(null);
 
@@ -247,13 +209,13 @@ public class VentanaPrincipal extends JFrame {
 		lblLogos.setBounds(25, 10, 157, 108);
 		panelSur.add(lblLogos);
 
-		JLabel lblPolicy = new JLabel("Privacy Policy");
+		JLabel lblPolicy = new JLabel(Language.lang.getString("politica_de_privacidad"));
 		lblPolicy.setFont(new Font("Tahoma", Font.BOLD, 12));
 		lblPolicy.setForeground(Color.DARK_GRAY);
 		lblPolicy.setBounds(481, 89, 144, 29);
 		panelSur.add(lblPolicy);
 
-		JLabel lblknowUs = new JLabel("Who are we? Get to know us");
+		JLabel lblknowUs = new JLabel(Language.lang.getString("quienes_somos"));
 		lblknowUs.setForeground(Color.BLACK);
 		lblknowUs.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblknowUs.setBounds(665, 89, 194, 29);

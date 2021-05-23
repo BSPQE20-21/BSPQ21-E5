@@ -23,6 +23,7 @@ import javax.swing.border.EmptyBorder;
 
 import es.termibus.client.TicketClient;
 import es.termibus.data.Cliente;
+import es.termibus.data.Language;
 import es.termibus.data.Ticket;
 import es.termibus.data.Trip;
 import es.termibus.database.DBManager;
@@ -75,7 +76,7 @@ public class VentanaSalidas extends JFrame {
 		chckbxCastellano.setBounds(716, 61, 93, 21);
 		panelNorte.add(chckbxCastellano);
 		
-		JButton btnGoBack = new JButton("Go Back");
+		JButton btnGoBack = new JButton(Language.lang.getString("atras"));
 		btnGoBack.setBounds(20, 35, 85, 21);
 		panelNorte.add(btnGoBack);
 		
@@ -85,7 +86,7 @@ public class VentanaSalidas extends JFrame {
 		contentPane.add(panelCentral);
 		panelCentral.setLayout(new BorderLayout(0, 0));
 		
-		JLabel lblNewLabel = new JLabel("Departures ");
+		JLabel lblNewLabel = new JLabel(Language.lang.getString("partidas"));
 		lblNewLabel.setForeground(Color.WHITE);
 		lblNewLabel.setVerticalAlignment(SwingConstants.TOP);
 		lblNewLabel.setBackground(Color.RED);
@@ -122,12 +123,12 @@ public class VentanaSalidas extends JFrame {
 		scrollPane.setViewportView(tripList);
 		
 		
-		JLabel lblTripsOn = new JLabel("Trips on " + tr); 
+		JLabel lblTripsOn = new JLabel(Language.lang.getString("viajes_en")); 
 		lblTripsOn.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblTripsOn.setBounds(27, 12, 185, 27);
 		panelArriba.add(lblTripsOn);
 		
-		JButton btnBookTrip = new JButton("Book selected trip");
+		JButton btnBookTrip = new JButton(Language.lang.getString("guardar_viaje_elegido"));
 		btnBookTrip.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnBookTrip.setBounds(465, 67, 292, 50);
 		panelArriba.add(btnBookTrip);
@@ -166,18 +167,6 @@ public class VentanaSalidas extends JFrame {
 
 				VentanaTicketInfo vti = new VentanaTicketInfo(t, c);
 				vti.setVisible(true);
-				
-//				List<Ticket> lt = new ArrayList<Ticket>(tcc.viewTickets());
-//				
-//				for (Ticket tck : lt) {
-//					if(tck.getCodigo() == t.getCodigo()) {
-//						
-//						VentanaTicketInfo vti = new VentanaTicketInfo(tck, c);
-//						vti.setVisible(true);
-//					} else {
-//						System.out.print("Ticket ID's do not match, ticket code: " + tck.getCodigo());
-//					}
-//				}
 			}
 		});
 	}

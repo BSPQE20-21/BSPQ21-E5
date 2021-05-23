@@ -24,7 +24,9 @@ import javax.swing.border.EmptyBorder;
 
 import es.termibus.client.ClienteClient;
 import es.termibus.data.Cliente;
+import es.termibus.data.Language;
 import es.termibus.database.DBManager;
+import java.awt.Color;
 
 	public class VentanaInicioSesion extends JFrame {
 
@@ -66,15 +68,19 @@ import es.termibus.database.DBManager;
 			setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 			setBounds(100, 100, 394, 303);
 			contentPane = new JPanel();
+			contentPane.setBackground(new Color(128, 0, 0));
 			contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 			setContentPane(contentPane);
 			contentPane.setLayout(null);
 			
-			JLabel lblClientName = new JLabel("Mail");
+			JLabel lblClientName = new JLabel(Language.lang.getString("correo"));
+			lblClientName.setForeground(new Color(255, 255, 255));
+			lblClientName.setBackground(new Color(255, 255, 255));
 			lblClientName.setBounds(10, 78, 103, 14);
 			contentPane.add(lblClientName);
 			
-			JLabel lblPw = new JLabel("Password");
+			JLabel lblPw = new JLabel(Language.lang.getString("contraseña"));
+			lblPw.setForeground(new Color(255, 255, 255));
 			lblPw.setBounds(10, 118, 86, 14);
 			contentPane.add(lblPw);
 			
@@ -88,7 +94,7 @@ import es.termibus.database.DBManager;
 			contentPane.add(pfPw);
 			pfPw.setColumns(10);
 			
-			JButton btnLogIn = new JButton("LogIn");
+			JButton btnLogIn = new JButton(Language.lang.getString("logear_usuario"));
 			btnLogIn.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 				}
@@ -96,12 +102,20 @@ import es.termibus.database.DBManager;
 			btnLogIn.setBounds(202, 163, 89, 23);
 			contentPane.add(btnLogIn);
 			
-			JLabel lblNewLabel = new JLabel("TERMIBUS");
-			lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 16));
-			lblNewLabel.setBounds(10, 11, 156, 20);
+			JLabel lblNewLabel = new JLabel("Welcome to the TERMIBUS App!");
+			lblNewLabel.setForeground(new Color(240, 248, 255));
+			lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 16));
+			lblNewLabel.setBounds(56, 10, 281, 20);
 			contentPane.add(lblNewLabel);
 			
-			JLabel lblReg = new JLabel("I don't have an account");
+			JPanel panel = new JPanel();
+			panel.setBackground(new Color(105, 105, 105));
+			panel.setBounds(0, 0, 380, 44);
+			contentPane.add(panel);
+			
+			JLabel lblReg = new JLabel(Language.lang.getString("no_tener_cuenta"));
+			lblReg.setBackground(new Color(0, 0, 0));
+			lblReg.setForeground(new Color(255, 255, 255));
 			lblReg.setBounds(161, 210, 142, 14);
 			contentPane.add(lblReg);
 			
