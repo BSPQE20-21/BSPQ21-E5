@@ -17,8 +17,11 @@ import jakarta.ws.rs.core.MediaType;
 
 @Path("myapp")
 public class Server {
-
-	// View the information of each ticket stored in the DB
+	
+/*
+ *  @brief Prueba
+ *
+ */
 	
 	@GET
 	@Path("/ticket")
@@ -27,6 +30,8 @@ public class Server {
 		return DBManager.getInstance().getTickets();
 	}
 	
+	/* View the information of each client stored in the DB */
+	
 	@GET
 	@Path("/client")
 	@Produces(MediaType.APPLICATION_JSON) 
@@ -34,12 +39,16 @@ public class Server {
 		return DBManager.getInstance().getClients();
 	}
 	
+	/* View the information of each trip stored in the DB */
+	
 	@GET
 	@Path("/trip")
 	@Produces(MediaType.APPLICATION_JSON) 
 	public List<Trip> getTripInfo() {
 		return DBManager.getInstance().getTrips();
 	}
+	
+	/* Post a ticket into the DB */
 	
 	@POST
 	@Path("/ticket")
@@ -50,6 +59,8 @@ public class Server {
 		return ticket;
 	}
 	
+	/* Post a trip into the DB */
+	
 	@POST
 	@Path("/trip")
 	@Consumes(MediaType.APPLICATION_JSON)
@@ -58,6 +69,8 @@ public class Server {
 		DBManager.getInstance().pushToDB(trip);
 		return trip;
 	}
+	
+	/* Post a client into the DB */
 	
 	@POST
 	@Path("/client")
@@ -68,6 +81,8 @@ public class Server {
 		return client;
 	}
 	
+	/* Delete a ticket from DB */
+	
 	@DELETE
 	@Path("/ticket/id/{ticketCode}")
 	@Produces(MediaType.TEXT_PLAIN)
@@ -75,7 +90,4 @@ public class Server {
 		DBManager.getInstance().deleteTicket(code);
 		return "Ticket deleted succesfully";
 	}
-	
-	// TODO: @POST methods for trips and clients
-	
 }

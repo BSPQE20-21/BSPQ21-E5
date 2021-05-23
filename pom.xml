@@ -13,6 +13,7 @@
 		<jersey.version>3.0.1</jersey.version>
 		<config.files.dir>${basedir}/src/main/resources</config.files.dir>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<doxygen.config.file>${basedir}/src/main/resources/Doxyfile</doxygen.config.file>
 	</properties>
 
 	<dependencyManagement>
@@ -178,6 +179,14 @@
 					<excludedGroups>categories.IntegrationTest</excludedGroups>
 				</configuration>
 			</plugin>
+			<plugin>
+                <groupId>com.soebes.maven.plugins</groupId>
+                <artifactId>doxygen-maven-plugin</artifactId>
+                <version>1.1.0</version>
+                <configuration>
+                    <configurationFile>${doxygen.config.file}</configurationFile>
+                </configuration>
+            </plugin>
 		</plugins>
 	</build>
 
