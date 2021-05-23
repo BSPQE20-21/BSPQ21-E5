@@ -15,13 +15,19 @@ import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
 
+/**
+ * This class has the declaration of each HTTP method. These methods are annotated with the JAX-RS annotations
+ *
+ * @author lazlomeli
+ */
+
 @Path("myapp")
 public class Server {
-	
-/*
- *  @brief Prueba
- *
- */
+
+	/**
+	 *  View the information of each ticket stored in the DB  
+	 * @return list of tickets
+	 */
 	
 	@GET
 	@Path("/ticket")
@@ -30,7 +36,10 @@ public class Server {
 		return DBManager.getInstance().getTickets();
 	}
 	
-	/* View the information of each client stored in the DB */
+	/**
+	 *  View the information of each client stored in the DB
+	 * @return list of clients
+	 */
 	
 	@GET
 	@Path("/client")
@@ -39,7 +48,10 @@ public class Server {
 		return DBManager.getInstance().getClients();
 	}
 	
-	/* View the information of each trip stored in the DB */
+	/**
+	 *  View the information of each trip stored in the DB
+	 * @return list of trip
+	 */
 	
 	@GET
 	@Path("/trip")
@@ -48,7 +60,10 @@ public class Server {
 		return DBManager.getInstance().getTrips();
 	}
 	
-	/* Post a ticket into the DB */
+	/**
+	 *  Post a ticket into the DB 
+	 * @return passed ticket
+	 */
 	
 	@POST
 	@Path("/ticket")
@@ -59,7 +74,10 @@ public class Server {
 		return ticket;
 	}
 	
-	/* Post a trip into the DB */
+	/**
+	 *  Post a trip into the DB  
+	 * @return passed trip
+	 */
 	
 	@POST
 	@Path("/trip")
@@ -70,7 +88,10 @@ public class Server {
 		return trip;
 	}
 	
-	/* Post a client into the DB */
+	/**
+	 *  Post a client (user) into the DB  
+	 * @return passed client (user)
+	 */
 	
 	@POST
 	@Path("/client")
@@ -81,7 +102,10 @@ public class Server {
 		return client;
 	}
 	
-	/* Delete a ticket from DB */
+	/**
+	 * Delete ticket from the DB
+	 * @return success message
+	 */
 	
 	@DELETE
 	@Path("/ticket/id/{ticketCode}")

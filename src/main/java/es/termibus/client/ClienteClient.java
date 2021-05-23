@@ -16,7 +16,17 @@ import jakarta.ws.rs.core.GenericType;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 
+/**
+ * This class will build a new client "cliente" and will communicate with the servers via HTTP methods through the RESTful API
+ * @author lazlomeli
+ *
+ */
+
 public class ClienteClient {
+	
+	/**
+	 * Singleton pattern to instantiate a static object of the class
+	 */
 	
     static ClienteClient instance = null;
     Client client;
@@ -35,7 +45,10 @@ public class ClienteClient {
         target = client.target("http://localhost:8080/myapp").path("client");
     }
     
-    // View trips
+    /**
+     *  Create a "get" request to get back a list of clients
+     * @return list of clients
+     */
     
     public List<Cliente> viewClients() {
         Invocation.Builder ib = target.request();
@@ -45,7 +58,11 @@ public class ClienteClient {
         return clients;
     }
     
-    // Post client in DB
+    /**
+     * Post a client into the DB
+     * @param c
+     * @return passed client
+     */
     
     public Cliente postClient(Cliente c) {
     	 Invocation.Builder ib = target.request();

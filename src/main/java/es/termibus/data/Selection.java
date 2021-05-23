@@ -1,5 +1,11 @@
 package es.termibus.data;
 
+/**
+ * Class created to compare trips
+ * @author lazlomeli
+ *
+ */
+
 public class Selection {
 
 	private String city;

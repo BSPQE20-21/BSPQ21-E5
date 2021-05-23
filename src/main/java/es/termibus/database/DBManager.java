@@ -25,12 +25,12 @@ public class DBManager {
 	private static DBManager instance = null;
 	private PersistenceManagerFactory pmf = null;
 	
-	private TripClient tc;
-	private ClienteClient cc;
-	
 	private static Logger log = Logger.getLogger(DBManager.class.getName());
 
-	// Singleton usage to instance DB once at a time
+	/**
+	 * Singleton ussage to instantiate the DB once at a time
+	 *
+	 */
 	
 	public static DBManager getInstance() {
 		if (instance == null) {
@@ -43,7 +43,10 @@ public class DBManager {
 		pmf = JDOHelper.getPersistenceManagerFactory("datanucleus.properties");
 	}
 
-	// Testing data
+	/**
+	 * Example data to work with in the UI
+	 * @throws DBException
+	 */
 	
 	public void preparedData() throws DBException {
 		Cliente client1 = new Cliente("11111111A", "Antonio", "antonio@gmail.com", "1234");
@@ -59,20 +62,6 @@ public class DBManager {
 		Trip trip7 = new Trip(1007, 40, "18/03/2021", "Madrid", "13:00");
 		Trip trip8 = new Trip(6666, 60, "07/01/2021", "Barcelona", "22:15");
 		Trip trip9 = new Trip(0202, 70, "15/02/2021", "Cádiz", "09:00");
-
-//		tc.postTrip(trip1);
-//		tc.postTrip(trip2);
-//		tc.postTrip(trip3);
-//		tc.postTrip(trip4);
-//		tc.postTrip(trip5);
-//		tc.postTrip(trip6);
-//		tc.postTrip(trip7);
-//		tc.postTrip(trip8);
-//		tc.postTrip(trip9);
-//
-//		cc.postClient(client1);
-//		cc.postClient(client2);
-//		cc.postClient(client3);
 		
 		pushToDB(client1);
 		pushToDB(client2);
@@ -89,7 +78,10 @@ public class DBManager {
 		pushToDB(trip9);
 	}
 
-	// Push object to DB
+	/**
+	 * Push an object to the DB
+	 * @param object
+	 */
 	
     public void pushObjToDB(Object object) {
         PersistenceManager pm = pmf.getPersistenceManager(); 
@@ -111,25 +103,37 @@ public class DBManager {
         }
     }
     
-    // Push client to DB
+    /**
+     * Cast passed object to a type object "Cliente" and push it to DB
+     * @param c
+     */
     
     public void pushToDB(Cliente c) {
         DBManager.getInstance().pushObjToDB(c);
     }
     
-    // Push trip to DB
+    /**
+     * Cast passed object to a type object "Trip" and push it to DB
+     * @param t
+     */
     
     public void pushToDB(Trip t) {
         DBManager.getInstance().pushObjToDB(t);
     }
     
-    // Push ticket to DB
+    /**
+     * Cast passed object to a type object "Ticket" and push it to DB
+     * @param t
+     */
     
     public void pushToDB(Ticket t) {
         DBManager.getInstance().pushObjToDB(t);
     }
     
-    // Return a list of clients
+    /**
+     * Method to get back all the clients stored in the DB
+     * @return list of clients
+     */
 
 	public List<Cliente> getClients(){
 		PersistenceManager pm = pmf.getPersistenceManager();
@@ -148,7 +152,12 @@ public class DBManager {
 		return results;
 	}
 
-	// Exists client
+	/**
+	 * Method to know if a user exists
+	 * @param client
+	 * @return boolean (true if exists, false if it doesn't)
+	 * @throws DBException
+	 */
 	
 	public boolean existsClient(Cliente client) throws DBException {
 
@@ -163,13 +172,19 @@ public class DBManager {
 		return existe;
 	}
 	
-	// Ticket booking
+	/**
+	 * Book selected ticket to the DB
+	 * @param t
+	 */
 
 	public void bookATicket(Ticket t) {
 		pushToDB(t);
 	}
 
-	// Return a list of trips
+	/**
+	 * Get back all the trips stored in the DB
+	 * @return list of trips
+	 */
 	
 	public List<Trip> getTrips() {
 		PersistenceManager pm = pmf.getPersistenceManager();
@@ -200,7 +215,10 @@ public class DBManager {
 		return trips;
 	}
 
-	// Return a list of tickets 
+	/**
+	 * Get back all the tickets stored in the DB
+	 * @return list of tickets
+	 */
 	
 	public List<Ticket> getTickets() {
 		PersistenceManager pm = pmf.getPersistenceManager();
@@ -232,7 +250,10 @@ public class DBManager {
 		return tickets;
 	}
 	
-	// Delete ticket
+	/**
+	 * Delete the ticket with the code passed
+	 * @param code
+	 */
 	
     public void deleteTicket(int code) {
         PersistenceManager pm = pmf.getPersistenceManager();

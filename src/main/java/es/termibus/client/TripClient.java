@@ -16,7 +16,17 @@ import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.client.Client;
 import jakarta.ws.rs.core.Response;
 
+/**
+ * This class will build a new trip and will communicate with the servers via HTTP methods through the RESTful API
+ * @author lazlomeli
+ *
+ */
+
 public class TripClient {
+	
+	/**
+	 * Singleton pattern to instantiate a static object of the class
+	 */
 	
     static TripClient instance = null;
     Client client;
@@ -35,7 +45,11 @@ public class TripClient {
         target = client.target("http://localhost:8080/myapp").path("trip"); // http://localhost:8080/myapp/cliente
     }
     
-    // Post trip in DB
+    /**
+     * Post a trip into the DB
+     * @param t
+     * @return passed trip
+     */
     
     public Trip postTrip(Trip t) {
     	 Invocation.Builder ib = target.request();
@@ -44,7 +58,10 @@ public class TripClient {
     	return t;
     }
     
-    // View trips
+    /**
+     *  Create a "get" request to get back a list of trips
+     * @return list of trips
+     */
     
     public List<Trip> viewTrips() {
         Invocation.Builder ib = target.request();

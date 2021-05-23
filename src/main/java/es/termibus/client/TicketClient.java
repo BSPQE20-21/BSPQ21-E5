@@ -14,7 +14,17 @@ import jakarta.ws.rs.core.GenericType;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 
+/**
+ * This class will build a new ticket and will communicate with the servers via HTTP methods through the RESTful API
+ * @author lazlomeli
+ *
+ */
+
 public class TicketClient {
+	
+	/**
+	 * Singleton pattern to instantiate a static object of the class
+	 */
 	
     static TicketClient instance = null;
     Client client;
@@ -33,7 +43,10 @@ public class TicketClient {
         target = client.target("http://localhost:8080/myapp").path("ticket"); // http://localhost:8080/myapp/cliente
     }
     
-    // View trips
+    /**
+     *  Create a "get" request to get back a list of tickets
+     * @return list of tickets
+     */
     
     public List<Ticket> viewTickets() {
         Invocation.Builder ib = target.request();
@@ -43,7 +56,11 @@ public class TicketClient {
         return tickets;
     }
     
-    // Post ticket in DB
+    /**
+     * Post a ticket into the DB
+     * @param t
+     * @return passed ticket
+     */
     
     public Ticket postTicket(Ticket t) {
     	 Invocation.Builder ib = target.request();
@@ -52,7 +69,9 @@ public class TicketClient {
     	return t;
     }
     
-    // Delete a ticket
+    /**
+     * Delete a ticket from the DB
+     */
     
     public void removeTicket(Ticket t) {
         Invocation.Builder ib = target.path("/id/" + t.getCodigo()).request();
