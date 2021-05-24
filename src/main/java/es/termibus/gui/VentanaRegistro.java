@@ -5,6 +5,9 @@ import java.awt.Font;
 import java.awt.HeadlessException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.util.List;
 
 import javax.swing.JButton;
@@ -18,6 +21,8 @@ import javax.swing.border.EmptyBorder;
 import es.termibus.data.Cliente;
 import es.termibus.database.DBException;
 import es.termibus.database.DBManager;
+import javax.swing.JCheckBox;
+import java.awt.Color;
 
 public class VentanaRegistro extends JFrame {
 
@@ -51,7 +56,7 @@ public class VentanaRegistro extends JFrame {
 	 */
 	public VentanaRegistro() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 395, 300);
+		setBounds(100, 100, 448, 481);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -108,7 +113,7 @@ public class VentanaRegistro extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnSignUp.setBounds(280, 214, 89, 23);
+		btnSignUp.setBounds(200, 215, 89, 23);
 		contentPane.add(btnSignUp);
 
 		JLabel lblAge = new JLabel("Age");
@@ -123,6 +128,32 @@ public class VentanaRegistro extends JFrame {
 		txtDNI.setColumns(10);
 		txtDNI.setBounds(147, 95, 222, 19);
 		contentPane.add(txtDNI);
+		
+		JLabel lblText = new JLabel("<html>This Privacy Policy sets forth the terms under which Termibus uses and protects the information that is provided by its users when using its website. This company is committed to the security of its users' data. When we ask you to provide personal information by which you can be identified, we do so with the assurance that it will only be used in accordance with the terms of this document. However, this Privacy Policy may change over time or be updated and we encourage you to continually review this page to ensure that you agree to any such changes.<br></html>\r\n\r\nTranslated with www.DeepL.com/Translator (free version)<br></html>");
+		lblText.setOpaque(true);
+		lblText.setForeground(Color.BLACK);
+		lblText.setBackground(Color.YELLOW);
+		lblText.setBounds(10, 300, 412, 117);
+		contentPane.add(lblText);
+		lblText.setVisible(false);
+		
+		JCheckBox chckbxPrivacy = new JCheckBox("I have read and accept the Privacy Policy");
+		chckbxPrivacy.setBackground(Color.WHITE);
+		chckbxPrivacy.setBounds(77, 258, 268, 23);
+		contentPane.add(chckbxPrivacy);
+		chckbxPrivacy.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseExited(MouseEvent e) {
+				lblText.setVisible(false);
+				
+			}
+			
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				lblText.setVisible(true);
+				
+			}
+		});
 
 		dbm = DBManager.getInstance();
 		clientes = dbm.getClients();
@@ -130,38 +161,43 @@ public class VentanaRegistro extends JFrame {
 		btnSignUp.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				dni = txtDNI.getText();
-				name = txtClientName.getText();
-				mail = txtClientMail.getText();
-				age = txtClientAge.getText();
-				pw = txtClientPw.getText();
-				pwRepeat = txtClientPw2.getText();
+				if (chckbxPrivacy.isSelected()) {
 
-				user = new Cliente(dni, name, mail, pw);
-				
-				try {
-					if (!dbm.existsClient(user)) {
-						if (pw.equals(pwRepeat)) {
+					dni = txtDNI.getText();
+					name = txtClientName.getText();
+					mail = txtClientMail.getText();
+					age = txtClientAge.getText();
+					pw = txtClientPw.getText();
+					pwRepeat = txtClientPw2.getText();
 
-							dbm.pushToDB(user);
-							JOptionPane.showMessageDialog(null, "Account created", "Welcome", 1, null);
+					user = new Cliente(dni, name, mail, pw);
 
-							VentanaInicioSesion vi = new VentanaInicioSesion();
-							setVisible(false);
-							vi.setVisible(true);
+					try {
+						if (!dbm.existsClient(user)) {
+							if (pw.equals(pwRepeat)) {
 
+								dbm.pushToDB(user);
+								JOptionPane.showMessageDialog(null, "Account created", "Welcome", 1, null);
+
+								VentanaInicioSesion vi = new VentanaInicioSesion();
+								setVisible(false);
+								vi.setVisible(true);
+
+							} else {
+								JOptionPane.showMessageDialog(null, "Passwords were not the same", "Error", 0, null);
+							}
 						} else {
-							JOptionPane.showMessageDialog(null, "Passwords were not the same", "Error", 0, null);
+							JOptionPane.showMessageDialog(null, "Client's name already in use", "Error", 0, null);
 						}
-					} else {
-						JOptionPane.showMessageDialog(null, "Client's name already in use", "Error", 0, null);
+					} catch (HeadlessException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					} catch (DBException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
 					}
-				} catch (HeadlessException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				} catch (DBException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
+				} else {
+					JOptionPane.showMessageDialog(null, "You must accept the privacy policy", "ERROR!", JOptionPane.ERROR_MESSAGE);
 				}
 			}
 		});
